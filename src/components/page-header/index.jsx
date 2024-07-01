@@ -7,7 +7,7 @@ export const PageHeader = () => (
         <div className="container">
             <nav className={styles.page_header}>
                 <div className={styles.left}>
-                    <Link to="/pizzas">
+                    <Link to="/catalog">
                         <img src={logo} alt="website logo" />
                     </Link>
                     <Link className={styles.block} to="/profile">

@@ -44,3 +44,13 @@ h1 {
   padding: 0 30px;
   margin: 24px 0;
 }
+@media (max-width: 768px) {
+  .container{
+    padding: 0 20px;
+  }
+}
+@media (max-width: 426px) {
+  .container{
+    padding: 0 10px;
+  }
+}
