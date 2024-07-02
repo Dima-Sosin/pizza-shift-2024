@@ -1,0 +1,27 @@
+.toppings{
+    color:#292929;
+    margin: 8px 0;
+}
+.title{
+    font-weight: 500;
+}
+.cards{
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 124px 124px 124px;
+    gap: 11px;
+    list-style-type: none;
+}
+.img{
+    width: 108px;
+    height: 108px;
+}
+.name{
+    font-size: 12px;
+    text-align: center;
+}
+.cost{
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
