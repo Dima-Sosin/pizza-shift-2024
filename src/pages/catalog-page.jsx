@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Cards } from "../components/cards/index.jsx"
-import { GET } from "../rest/index.js"
+import { GET } from "../rest_api/index.js"
 
 export const CatalogPage = () => {
     const[pizzas, setPizzas] = useState([])

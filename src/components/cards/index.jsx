@@ -1,6 +1,7 @@
 import styles from "./styles.module.css"
 import { Card } from "../card/index.jsx"
 
+{/* eslint-disable react/prop-types */}
 export const Cards = ({ pizzas }) => {
     return (
         <>
