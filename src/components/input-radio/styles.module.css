@@ -1,11 +1,11 @@
 .arr{
     border-radius: 16px;
-    background-color:#F3F4F6;
+    background-color:#edeef1;
     height: 36px;
     padding: 2px;
     display: flex;
     position: relative;
-    margin:8px 0;
+    margin:16px 0;
     align-items: center;
     justify-content: space-between;
 }

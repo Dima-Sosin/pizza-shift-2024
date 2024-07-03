@@ -44,7 +44,7 @@ export const Translation = (str) => {
             return "Острый перец халапеньо";
             break;
         case "MEATBALLS":
-            return "Фрикадельки";
+            return "Митболы";
             break;
         case "PICKLE":
             return "Маринованные огурчики";
@@ -53,22 +53,22 @@ export const Translation = (str) => {
             return "Свежие томаты";
             break;
         case "FETA":
-            return "Сыр Фета";
+            return "Кубики брынзы";
             break;
         case "THIN":
-            return "Традиционное тесто";
+            return "Тонкое тесто";
             break;
         case "THICK":
-            return "Толстое тесто";
+            return "Традиционное тесто";
             break;
         case "SMALL":
-            return "Маленькая";
+            return "Маленькая 25см";
             break;
         case "MEDIUM":
-            return "Средняя";
+            return "Средняя 30см";
             break;
         case "LARGE":
-            return "Большая";
+            return "Большая 35см";
             break;
         default: return "Не найдено"
     }

@@ -1,8 +1,11 @@
 import styles from "./styles.module.css"
+import { useEffect } from "react"
 
-// eslint-disable-next-line react/prop-types
 export const Modal = ({children, setIsModal}) => {
-
+    useEffect(() => {
+        document.getElementById("MEDIUM").checked = true;
+        document.getElementById("THICK").checked = true;
+    }, [])
     return(
         <div className={styles.modal}>
             <div className={styles.modal_content}>
