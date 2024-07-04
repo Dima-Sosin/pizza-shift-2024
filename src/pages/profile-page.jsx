@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Input } from "../components/input"
 import { Button } from "../components/button"
 
+//Страница профиля
 export function ProfilePage() {
     const [lastName, setLastName] = useState(localStorage.getItem("lastName"))
     const [firstName, setFirstName] = useState(localStorage.getItem("firstName"))

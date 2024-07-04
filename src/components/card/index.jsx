@@ -7,8 +7,48 @@ import { Ingredients } from "../ingredients/index.jsx"
 import { InputRadio } from "../input-radio/index.jsx"
 
 {/* eslint-disable react/prop-types */}
+//Компонент карточки пиццы на на главной странице
 export const Card = ({pizza}) => {
     const[isModal, setIsModal] = useState(false)
+    const[buyPizza, setBuyPizza] = useState(
+        {
+            id: "",
+            name: "",
+            toppings: [
+                {
+                    name: "",
+                    cost: 0,
+                    img: ""
+                }
+            ],
+            description: "",
+            size: {
+                name: "MEDIUM",
+                price: 0
+            },
+            doughs: {
+                name: "THICK",
+                price: 0
+            }
+        }
+    )
+
+    const sizeChange = (el) => {
+        setBuyPizza((prevState) => ({
+            ...prevState,
+            size: el
+        }))
+    }
+    const doughsChange = (el) => {
+        setBuyPizza((prevState) => ({
+            ...prevState,
+            doughs: el
+        }))
+    }
+
+    useEffect(() => {
+        console.log(buyPizza)
+    }, [buyPizza])
 
     useEffect(() => {
         if(isModal){
@@ -62,8 +102,8 @@ export const Card = ({pizza}) => {
                                     {pizza.isNew && (<span className={styles.highlight}>Новое предложение</span>)}
                                 </p>
                                 <p className={styles.p}>
-                                    <InputRadio arr={pizza.sizes} name={"sizes"}/>
-                                    <InputRadio arr={pizza.doughs} name={"doughs"}/>
+                                    <InputRadio arr={pizza.sizes} name={"sizes"} onClick={sizeChange}/>
+                                    <InputRadio arr={pizza.doughs} name={"doughs"} onClick={doughsChange}/>
                                 </p>
 
                                 <p className={styles.section_title}>Добавить по вкусу</p>
@@ -73,7 +113,6 @@ export const Card = ({pizza}) => {
                             <Button>Добавить в корзину</Button>
                         </div>
                     </div>
-
                 </Modal>
             }
         </>

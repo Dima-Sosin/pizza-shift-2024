@@ -4,6 +4,7 @@ import { baseUrl } from "../../rest_api/index.js"
 import { Translation } from "../../translation/index.js"
 
 {/* eslint-disable react/prop-types */}
+//Компонент вывода карточек топингов для пиццы
 export const Ingredients = ({ingredients}) => {
     return (
         <div className={styles.ingredients}>

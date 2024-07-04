@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Cards } from "../components/cards/index.jsx"
 import { GET } from "../rest_api/index.js"
 
+//Страница каталога пицц
 export const CatalogPage = () => {
     const[pizzas, setPizzas] = useState([])
 

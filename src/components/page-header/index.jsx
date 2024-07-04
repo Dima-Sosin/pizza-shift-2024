@@ -2,6 +2,7 @@ import styles from "./styles.module.css"
 import logo from "../../assets/logo.svg"
 import { Link } from "react-router-dom"
 
+//Компонент header-а страниц
 export const PageHeader = () => (
     <div className="page">
         <div className="container">

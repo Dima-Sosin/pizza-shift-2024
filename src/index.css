@@ -61,3 +61,14 @@ h1 {
     padding: 0 10px;
   }
 }
+.default{
+  background: #ffffff;
+  color:#344051;
+  border:1px #CED2DA solid;
+}
+.default:hover{
+  background: #f77340;
+}
+.default:active{
+  background: #e53611;
+}

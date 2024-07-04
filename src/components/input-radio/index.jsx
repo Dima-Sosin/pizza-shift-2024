@@ -2,6 +2,7 @@ import React from "react"
 import styles from "./styles.module.css"
 import { Translation } from "../../translation/index.js"
 
+//Компонент вывода списка radio кнопок
 export const InputRadio = ({arr, name, onClick}) => {
 
     return(
@@ -13,7 +14,7 @@ export const InputRadio = ({arr, name, onClick}) => {
                         type="radio"
                         id={el.name}
                         name={name}
-                        onClick={onClick}
+                        onChange={() => onClick(el)}
                     />
                     <label
                         className={styles.el_label}

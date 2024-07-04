@@ -1,10 +1,15 @@
 import styles from "./styles.module.css"
 import { useEffect } from "react"
 
+//Компонент модального окна
 export const Modal = ({children, setIsModal}) => {
     useEffect(() => {
-        document.getElementById("MEDIUM").checked = true;
-        document.getElementById("THICK").checked = true;
+        const size = document.getElementById("MEDIUM")
+        if(size)
+            size.checked = true;
+        const dough = document.getElementById("THICK")
+        if(dough)
+            dough.checked = true;
     }, [])
     return(
         <div className={styles.modal}>
