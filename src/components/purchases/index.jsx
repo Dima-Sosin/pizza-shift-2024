@@ -1,5 +1,5 @@
 import styles from "./styles.module.css"
-import { Button } from "../button/index.jsx"
+import { BtnPrimary } from "../buttons/btn-primary.jsx"
 
 //Компонент вывода пицц лежащих в корзине в корзине
 export const Purchases = ({onClick}) => {
@@ -9,11 +9,11 @@ export const Purchases = ({onClick}) => {
             <h1>Корзина</h1>
             <div className={styles.block}></div>
 
-            <Button
+            <BtnPrimary
                 onClick={() => onClick("dataEntry")}
             >
                 Оформить заказ
-            </Button>
+            </BtnPrimary>
         </>
     )
 }

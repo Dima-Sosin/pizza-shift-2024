@@ -1,0 +1,23 @@
+.btn_primary {
+    border: none;
+    color: #fff;
+    background: #f4511e;
+}
+.btn_primary:hover {
+    background: #f77340;
+}
+.btn_primary:active {
+    background: #e53611;
+}
+
+.btn_default{
+    background: #ffffff;
+    color:#344051;
+    border:1px #CED2DA solid;
+}
+.btn_default:hover{
+    background: #F3F4F6;
+}
+.btn_default:active{
+    background: #edeef1;
+}

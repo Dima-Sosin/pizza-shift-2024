@@ -1,5 +1,5 @@
 import styles from "./styles.module.css"
-import { Button } from "../button/index.jsx"
+import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { useEffect, useState } from "react"
 import { Modal } from "../modal/index.jsx"
 import  success from "../../assets/success.svg"
@@ -9,7 +9,7 @@ import { Input } from "../input/index.jsx"
 //Компонент для ввода данных банковской карты
 export const BankCard = () => {
     const[isModal, setIsModal] = useState(false)
-    const buttonHandle = (event) => {
+    const BtnPrimaryHandle = (event) => {
         event.preventDefault()
         setIsModal(true)
     }
@@ -56,9 +56,9 @@ export const BankCard = () => {
                     </div>
                 </div>
 
-                <Button onClick={(event) => buttonHandle(event)}>
+                <BtnPrimary onClick={(event) => BtnPrimaryHandle(event)}>
                     Оплатить
-                </Button>
+                </BtnPrimary>
             </form>
             {isModal &&
                 <Modal setIsModal={setIsModal}>

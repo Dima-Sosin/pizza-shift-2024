@@ -1,6 +1,6 @@
 import styles from "./styles.module.css"
 import { baseUrl } from "../../rest_api/index.js"
-import { Button } from "../button/index.jsx"
+import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { useEffect, useState } from "react"
 import { Modal } from "../modal/index.jsx"
 import { Ingredients } from "../ingredients/index.jsx"
@@ -66,7 +66,7 @@ export const Card = ({pizza}) => {
                 <h3 className={styles.card_title}>{pizza.name}</h3>
                 <p className={styles.description}>{pizza.description}</p>
                 <p className={styles.price}>от {pizza.sizes[0].price} ₽</p>
-                <Button>Подробнее</Button>
+                <BtnPrimary>Подробнее</BtnPrimary>
             </div>
             {isModal &&
                 <Modal setIsModal={setIsModal}>
@@ -110,7 +110,7 @@ export const Card = ({pizza}) => {
                                 <Ingredients ingredients={pizza.toppings} name={"toppings"}/>
 
                             </div>
-                            <Button>Добавить в корзину</Button>
+                            <BtnPrimary>Добавить в корзину</BtnPrimary>
                         </div>
                     </div>
                 </Modal>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Input } from "../components/input"
-import { Button } from "../components/button"
+import { BtnPrimary } from "../components/buttons/btn-primary.jsx"
 
 //Страница профиля
 export function ProfilePage() {
@@ -81,7 +81,7 @@ export function ProfilePage() {
                         defaultValue={town}
                         onChange={(event) => setTown(event.target.value)}
                     />
-                    <Button onClick={btnClick}>Обновить данные</Button>
+                    <BtnPrimary onClick={btnClick}>Обновить данные</BtnPrimary>
                 </form>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import styles from "./styles.module.css"
-import { Button } from "../button/index.jsx"
+import { BtnDefault } from "../buttons/btn-default.jsx"
+import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { Input } from "../input/index.jsx"
 import { useState } from "react"
 
@@ -75,11 +76,11 @@ export const DataEntry = ({onClick}) => {
                 id={"address"}
                 name={"address"}
                 placeholder={"Адрес"}
-                onChange={(event) => setTown(event.target.value)}
+                onChange={{/*(event) => setTown(event.target.value)*/}}
             />
             <div className={styles.buttons}>
-                <Button onClick={() => onClick("purchases")} type={"default"}>Назад</Button>
-                <Button onClick={btnClick}>Продолжить</Button>
+                <BtnDefault onClick={() => onClick("purchases")} type={"default"}>Назад</BtnDefault>
+                <BtnPrimary onClick={btnClick}>Продолжить</BtnPrimary>
             </div>
         </form>
     )
