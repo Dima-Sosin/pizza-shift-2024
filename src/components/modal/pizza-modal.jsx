@@ -17,6 +17,7 @@ export const PizzaModal = ({pizza, setIsModal}) => {
             id: pizza.id,
             name: pizza.name,
             toppings: [],
+            img: pizza.img,
             description: pizza.description,
             size: {
                 name: pizza.sizes[1].name,
