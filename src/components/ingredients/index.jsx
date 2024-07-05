@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./styles.module.css"
-import { baseUrl } from "../../rest_api/index.js"
+import { baseUrl } from "../../rest-api/index.js"
 import { Translation } from "../../translation/index.js"
 
 {/* eslint-disable react/prop-types */}

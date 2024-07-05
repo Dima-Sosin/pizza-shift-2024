@@ -1,5 +1,5 @@
 import styles from "./styles.module.css"
-import { baseUrl } from "../../rest_api/index.js"
+import { baseUrl } from "../../rest-api/index.js"
 import { InputRadio } from "../input-radio/index.jsx"
 import { Ingredients } from "../ingredients/index.jsx"
 import { BtnPrimary } from "../buttons/btn-primary.jsx"

@@ -1,5 +1,5 @@
 import styles from "./styles.module.css"
-import { baseUrl } from "../../rest_api/index.js"
+import { baseUrl } from "../../rest-api/index.js"
 import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { useEffect, useState } from "react"
 import { PizzaModal } from "../modal/pizza-modal.jsx"
