@@ -5,7 +5,7 @@ import { Translation } from "../../translation/index.js"
 
 {/* eslint-disable react/prop-types */}
 //Компонент вывода карточек топингов для пиццы
-export const Ingredients = ({ingredients}) => {
+export const Ingredients = ({ingredients, onClick}) => {
     return (
         <div className={styles.ingredients}>
             <ul className={styles.cards}>
@@ -15,6 +15,7 @@ export const Ingredients = ({ingredients}) => {
                             className={styles.card_input}
                             type="checkbox"
                             id={el.name}
+                            onChange={(event) => onClick(el.name, event.target.checked)}
                         />
                         <label
                             className={styles.card_label}

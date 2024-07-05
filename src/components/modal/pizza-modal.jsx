@@ -5,29 +5,25 @@ import { Ingredients } from "../ingredients/index.jsx"
 import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { Modal } from "./index.jsx"
 import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import { addPizzaAction } from "../../store/pizza-reducer.js"
 
 {/* eslint-disable react/prop-types */}
 //Компонент модального окна для пиццы
 export const PizzaModal = ({pizza, setIsModal}) => {
-
+    const dispatch = useDispatch()
     const[buyPizza, setBuyPizza] = useState(
         {
-            id: "",
-            name: "",
-            toppings: [
-                {
-                    name: "",
-                    cost: 0,
-                    img: ""
-                }
-            ],
-            description: "",
+            id: pizza.id,
+            name: pizza.name,
+            toppings: [],
+            description: pizza.description,
             size: {
-                name: "MEDIUM",
+                name: pizza.sizes[1].name,
                 price: pizza.sizes[1].price
             },
             doughs: {
-                name: "THICK",
+                name: pizza.doughs[1].name,
                 price: pizza.doughs[1].price
             }
         }
@@ -44,6 +40,25 @@ export const PizzaModal = ({pizza, setIsModal}) => {
             ...prevState,
             doughs: el
         }))
+    }
+    const addDeleteToppings = (name, isAdd) => {
+        if(isAdd){
+            pizza.toppings.map((el) => {
+                if(el.name === name){
+                    setBuyPizza((prevState) => ({
+                        ...prevState,
+                        toppings: [...prevState.toppings, el]
+                    }))
+                }
+            })
+        }
+        else{
+            setBuyPizza((prevState) => ({
+                ...prevState,
+                toppings: prevState.toppings.filter(el => el.name !== name)
+            }))
+        }
+
     }
 
     useEffect(() => {
@@ -89,10 +104,10 @@ export const PizzaModal = ({pizza, setIsModal}) => {
                         </p>
 
                         <p className={styles.section_title}>Добавить по вкусу</p>
-                        <Ingredients ingredients={pizza.toppings} name={"toppings"}/>
+                        <Ingredients ingredients={pizza.toppings} onClick={addDeleteToppings}/>
 
                     </div>
-                    <BtnPrimary>Добавить в корзину</BtnPrimary>
+                    <BtnPrimary onClick={() => dispatch(addPizzaAction(buyPizza))}>Добавить в корзину</BtnPrimary>
                 </div>
             </div>
         </Modal>
