@@ -1,66 +1,85 @@
-import { useState } from "react"
 import { Input } from "../components/input"
 import { BtnPrimary } from "../components/buttons/btn-primary.jsx"
+import { useLoaderData } from "react-router-dom"
+import { useForm } from "react-hook-form"
 
 export function ProfilePage() {
-    const [lastName, setLastName] = useState(localStorage.getItem("lastName"))
-    const [firstName, setFirstName] = useState(localStorage.getItem("firstName"))
-    const [patronymic, setPatronymic] = useState(localStorage.getItem("patronymic"))
-    const [telephone, setTelephone] = useState(localStorage.getItem("telephone"))
-    const [email, setEmail] = useState(localStorage.getItem("email"))
-    const [town, setTown] = useState(localStorage.getItem("town"))
+    const user = useLoaderData().profile.user
+    const { register, handleSubmit, errors, reset } = useForm();
 
-    const btnClick = (event) => {
-        event.preventDefault()
-        localStorage.setItem("lastName", lastName)
-        localStorage.setItem("firstName", firstName)
-        localStorage.setItem("patronymic", patronymic)
-        localStorage.setItem("telephone", telephone)
-        localStorage.setItem("email", email)
-        localStorage.setItem("town", town)
+    const onSubmit = (data) => {
+        reset();
+        console.log(data)
     }
 
     return (
         <div className="page">
             <div className="container">
-                <form className="form">
+                <form className="form" onSubmit={handleSubmit(onSubmit)}>
                     <h1>Профиль</h1>
                     <Input
                         text="Фамилия*"
                         type="text"
-                        id="lastName"
-                        name="lastName"
+                        id="lastname"
+                        name="lastname"
                         placeholder="Фамилия"
-                        defaultValue={lastName}
-                        onChange={(event) => setLastName(event.target.value)}
+                        defaultValue={user?.lastname}
+                        ref={
+                            register("lastname", {
+                                required: true,
+                                maxLength: 100
+                            })
+                        }
+                        error-msg={errors.lastname.message}
                     />
                     <Input
                         text="Имя*"
                         type="text"
-                        id="firstName"
-                        name="firstName"
+                        id="firstname"
+                        name="firstname"
                         placeholder="Имя"
-                        defaultValue={firstName}
-                        onChange={(event) => setFirstName(event.target.value)}
+                        defaultValue={user?.firstname}
+                        ref={
+                            register("firstname", {
+                                required: true,
+                                maxLength: 100
+                            })
+                        }
+                        error-msg={errors.firstname.message}
                     />
                     <Input
                         text="Отчество*"
                         type="text"
-                        id="patronymic"
-                        name="patronymic"
+                        id="middlename"
+                        name="middlename"
                         placeholder="Отчество"
-                        defaultValue={patronymic}
-                        onChange={(event) => setPatronymic(event.target.value)}
+                        defaultValue={user?.middlename}
+                        ref={
+                            register("middlename", {
+                                required: true,
+                                maxLength: 100
+                            })
+                        }
+                        error-msg={errors.middlename.message}
                     />
                     <Input
                         text="Телефон*"
                         type="text"
-                        id="telephone"
-                        name="telephone"
+                        id="phone"
+                        name="phone"
                         placeholder="Телефон"
                         disabled={true}
-                        defaultValue={telephone}
-                        onChange={(event) => setTelephone(event.target.value)}
+                        defaultValue={user?.phone}
+                        ref={
+                            register("phone", {
+                                required: "phone required",
+                                pattern: {
+                                    value: /^(\+7|8)[- ]?(\d{3})[- ]?(\d{3})[- ]?(\d{2})[- ]?(\d{2})$/i,
+                                    message: "Неправильный номер телефона!"
+                                }
+                            })
+                        }
+                        error-msg={errors.phone.message}
                     />
                     <Input
                         text="Email"
@@ -68,19 +87,34 @@ export function ProfilePage() {
                         id="email"
                         name="email"
                         placeholder="Email"
-                        defaultValue={email}
-                        onChange={(event) => setEmail(event.target.value)}
+                        defaultValue={user?.email}
+                        ref={
+                            register("email", {
+                                required: "email required",
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
+                                    message: "Неправильный email!"
+                                }
+                            })
+                        }
+                        error-msg={errors.email.message}
                     />
                     <Input
                         text="Город"
                         type="text"
-                        id="town"
-                        name="town"
+                        id="city"
+                        name="city"
                         placeholder="Город"
-                        defaultValue={town}
-                        onChange={(event) => setTown(event.target.value)}
+                        defaultValue={user?.city}
+                        ref={
+                            register("city", {
+                                required: true,
+                                maxLength: 100
+                            })
+                        }
+                        error-msg={errors.city.message}
                     />
-                    <BtnPrimary onClick={btnClick}>Обновить данные</BtnPrimary>
+                    <BtnPrimary>Обновить данные</BtnPrimary>
                 </form>
             </div>
         </div>

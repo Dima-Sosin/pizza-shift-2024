@@ -1,6 +1,6 @@
 import styles from "./styles.module.css"
 
-export const Input = ({ text, type, id, name, placeholder, disabled = false, defaultValue, onChange}) => {
+export const Input = ({ text, type, id, name, placeholder, disabled = false, defaultValue, ref }) => {
     return (
         <div className={styles.container}>
             <label
@@ -17,8 +17,9 @@ export const Input = ({ text, type, id, name, placeholder, disabled = false, def
                 placeholder={placeholder}
                 disabled={disabled}
                 defaultValue={defaultValue}
-                onChange={onChange}
+                ref={ref}
             />
+            <span className={styles.error_msg}></span>
         </div>
     )
 }

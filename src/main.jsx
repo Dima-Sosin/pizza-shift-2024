@@ -25,6 +25,9 @@ const router = createBrowserRouter([
             {
                 path: "profile",
                 element: <ProfilePage />,
+                loader: () => {
+                    return GET("/users/session", {}, localStorage.getItem("token"))
+                }
             },
             {
                 path: "orders",
