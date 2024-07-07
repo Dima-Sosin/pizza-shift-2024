@@ -1,37 +1,21 @@
-import { useState } from "react"
+import { createContext, useState } from "react"
 import { Purchases } from "../components/purchases/index.jsx"
 import { DataEntry } from "../components/data-entry/index.jsx"
 import { BankCard } from "../components/bank-card/index.jsx"
 
-export const CartPage = () => {
-    const [isPurchases, setIsPurchases] = useState(true)
-    const [isDataEntry, setIsDataEntry] = useState(false)
-    const [isBankCard, setIsBankCard] = useState(false)
+export const PageContext = createContext('purchases');
 
-    const handleChange = (nextPage) => {
-        if(nextPage === "purchases"){
-            setIsPurchases(true)
-            setIsDataEntry(false)
-            setIsBankCard(false)
-        }
-        if(nextPage === "dataEntry"){
-            setIsPurchases(false)
-            setIsDataEntry(true)
-            setIsBankCard(false)
-        }
-        if(nextPage === "bankCard"){
-            setIsPurchases(false)
-            setIsDataEntry(false)
-            setIsBankCard(true)
-        }
-    }
+export const CartPage = () => {
+    const [page, setPage] = useState("purchases")
 
     return (
         <div className="page">
             <div className="container">
-                {isPurchases && <Purchases onClick={handleChange}/>}
-                {isDataEntry && <DataEntry onClick={handleChange}/>}
-                {isBankCard && <BankCard onClick={handleChange}/>}
+                <PageContext.Provider value={{page, setPage}}>
+                    {page === "purchases" && <Purchases />}
+                    {page === "dataEntry" && <DataEntry />}
+                    {page === "bankCard" && <BankCard />}
+                </PageContext.Provider>
             </div>
         </div>
     )

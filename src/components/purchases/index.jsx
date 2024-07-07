@@ -1,12 +1,15 @@
+import styles from "./styles.module.css"
 import { useSelector } from "react-redux"
+import { selectPizzaOrders } from "../../store/pizzaSlice.js"
+import { useContext } from "react"
+import { PageContext } from "../../pages/cart-page.jsx"
 import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { BASE_URL } from "../../rest-api/index.js"
-import styles from "./styles.module.css"
 import { Translation } from "../../translation/index.js"
-import { selectPizzaOrders } from "../../store/pizzaSlice.js"
 
-export const Purchases = ({ onClick }) => {
+export const Purchases = () => {
     const pizzas = useSelector(selectPizzaOrders)
+    const {setPage} = useContext(PageContext)
     return (
         <>
             <h1>Корзина</h1>
@@ -54,7 +57,7 @@ export const Purchases = ({ onClick }) => {
 
             <div className={styles.line}></div>
 
-            <BtnPrimary onClick={() => onClick("dataEntry")}>
+            <BtnPrimary onClick={() => setPage("dataEntry")}>
                 Оформить заказ
             </BtnPrimary>
         </>

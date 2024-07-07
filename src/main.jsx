@@ -38,7 +38,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "cart",
-                element: <CartPage />
+                element: <CartPage />,
+                loader: () => {
+                    return GET("/users/session", {}, localStorage.getItem("token"))
+                }
+
             }
         ]
     },
