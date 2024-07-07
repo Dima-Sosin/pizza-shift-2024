@@ -1,7 +1,6 @@
 import styles from "./styles.module.css"
 import { useEffect } from "react"
 
-//Компонент модального окна
 export const Modal = ({children, setIsModal}) => {
     useEffect(() => {
         const size = document.getElementById("MEDIUM")

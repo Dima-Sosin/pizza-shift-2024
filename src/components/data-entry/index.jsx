@@ -4,7 +4,6 @@ import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { Input } from "../input/index.jsx"
 import { useState } from "react"
 
-//Компонент ввода данных покупателя пиццы при оформлении заказа
 export const DataEntry = ({onClick}) => {
     const [lastName, setLastName] = useState(localStorage.getItem("lastName"))
     const [firstName, setFirstName] = useState(localStorage.getItem("firstName"))

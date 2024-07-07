@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Input } from "../components/input"
 import { BtnPrimary } from "../components/buttons/btn-primary.jsx"
 
-//Страница профиля
 export function ProfilePage() {
     const [lastName, setLastName] = useState(localStorage.getItem("lastName"))
     const [firstName, setFirstName] = useState(localStorage.getItem("firstName"))
@@ -27,57 +26,57 @@ export function ProfilePage() {
                 <form className="form">
                     <h1>Профиль</h1>
                     <Input
-                        text={"Фамилия*"}
-                        type={"text"}
-                        id={"lastName"}
-                        name={"lastName"}
-                        placeholder={"Фамилия"}
+                        text="Фамилия*"
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Фамилия"
                         defaultValue={lastName}
                         onChange={(event) => setLastName(event.target.value)}
                     />
                     <Input
-                        text={"Имя*"}
-                        type={"text"}
-                        id={"firstName"}
-                        name={"firstName"}
-                        placeholder={"Имя"}
+                        text="Имя*"
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Имя"
                         defaultValue={firstName}
                         onChange={(event) => setFirstName(event.target.value)}
                     />
                     <Input
-                        text={"Отчество*"}
-                        type={"text"}
-                        id={"patronymic"}
-                        name={"patronymic"}
-                        placeholder={"Отчество"}
+                        text="Отчество*"
+                        type="text"
+                        id="patronymic"
+                        name="patronymic"
+                        placeholder="Отчество"
                         defaultValue={patronymic}
                         onChange={(event) => setPatronymic(event.target.value)}
                     />
                     <Input
-                        text={"Телефон*"}
-                        type={"text"}
-                        id={"telephone"}
-                        name={"telephone"}
-                        placeholder={"Телефон"}
+                        text="Телефон*"
+                        type="text"
+                        id="telephone"
+                        name="telephone"
+                        placeholder="Телефон"
                         disabled={true}
                         defaultValue={telephone}
                         onChange={(event) => setTelephone(event.target.value)}
                     />
                     <Input
-                        text={"Email"}
-                        type={"email"}
-                        id={"email"}
-                        name={"email"}
-                        placeholder={"Email"}
+                        text="Email"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
                         defaultValue={email}
                         onChange={(event) => setEmail(event.target.value)}
                     />
                     <Input
-                        text={"Город"}
-                        type={"text"}
-                        id={"town"}
-                        name={"town"}
-                        placeholder={"Город"}
+                        text="Город"
+                        type="text"
+                        id="town"
+                        name="town"
+                        placeholder="Город"
                         defaultValue={town}
                         onChange={(event) => setTown(event.target.value)}
                     />

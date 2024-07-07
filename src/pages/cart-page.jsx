@@ -3,7 +3,6 @@ import { Purchases } from "../components/purchases/index.jsx"
 import { DataEntry } from "../components/data-entry/index.jsx"
 import { BankCard } from "../components/bank-card/index.jsx"
 
-//Страница корзины
 export const CartPage = () => {
     const [isPurchases, setIsPurchases] = useState(true)
     const [isDataEntry, setIsDataEntry] = useState(false)

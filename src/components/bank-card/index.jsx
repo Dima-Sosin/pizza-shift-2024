@@ -6,7 +6,6 @@ import  success from "../../assets/success.svg"
 import { Link } from "react-router-dom"
 import { Input } from "../input/index.jsx"
 
-//Компонент для ввода данных банковской карты
 export const BankCard = () => {
     const[isModal, setIsModal] = useState(false)
     const BtnPrimaryHandle = (event) => {

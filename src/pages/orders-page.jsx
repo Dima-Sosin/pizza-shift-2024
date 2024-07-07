@@ -1,5 +1,5 @@
 
-//страница заказанных пицц
+
 export const OrdersPage = () => {
 
     return(

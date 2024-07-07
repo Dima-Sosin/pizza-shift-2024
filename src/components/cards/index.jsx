@@ -1,9 +1,6 @@
 import styles from "./styles.module.css"
 import { Card } from "../card/index.jsx"
-import { useEffect } from "react"
 
-{/* eslint-disable react/prop-types */}
-//Компонент каталога пицц
 export const Cards = ({ pizzas }) => {
     return (
         <>

@@ -1,15 +1,13 @@
 import styles from "./styles.module.css"
-import { baseUrl } from "../../rest-api/index.js"
+import { BASE_URL } from "../../rest-api/index.js"
 import { InputRadio } from "../input-radio/index.jsx"
 import { Ingredients } from "../ingredients/index.jsx"
 import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { Modal } from "./index.jsx"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import { addPizzaAction } from "../../store/pizza-reducer.js"
+import { addPizza } from "../../store/pizzaSlice.js"
 
-{/* eslint-disable react/prop-types */}
-//Компонент модального окна для пиццы
 export const PizzaModal = ({pizza, setIsModal}) => {
     const dispatch = useDispatch()
     const[buyPizza, setBuyPizza] = useState(
@@ -69,7 +67,7 @@ export const PizzaModal = ({pizza, setIsModal}) => {
     return(
         <Modal setIsModal={setIsModal}>
             <div className={styles.pizza_modal}>
-                <img className={styles.img} src={baseUrl + pizza.img} alt="pizza image"/>
+                <img className={styles.img} src={BASE_URL + pizza.img} alt="pizza image"/>
                 <div className={styles.right}>
                     <div className={styles.info}>
 
@@ -108,7 +106,11 @@ export const PizzaModal = ({pizza, setIsModal}) => {
                         <Ingredients ingredients={pizza.toppings} onClick={addDeleteToppings}/>
 
                     </div>
-                    <BtnPrimary onClick={() => dispatch(addPizzaAction(buyPizza))}>Добавить в корзину</BtnPrimary>
+                    <BtnPrimary
+                        onClick={() => dispatch(addPizza(buyPizza))}
+                    >
+                        Добавить в корзину
+                    </BtnPrimary>
                 </div>
             </div>
         </Modal>

@@ -1,6 +1,5 @@
 import styles from "./styles.module.css"
 
-//Компонент input
 export const Input = ({ text, type, id, name, placeholder, disabled = false, defaultValue, onChange}) => {
     return (
         <div className={styles.container}>
