@@ -4,9 +4,10 @@ import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { useEffect, useState } from "react"
 import { PizzaModal } from "../modal/pizza-modal.jsx"
 
-export const Card = ({pizza}) => {
+export const PizzaCard = ({pizza}) => {
     const[isModal, setIsModal] = useState(false)
 
+    //Костыль, чтобы при открытии модалки дефолтно выбирались средний размер пиццы, и традиционное тесто
     useEffect(() => {
         if(isModal){
             document.body.style.overflow = 'hidden';

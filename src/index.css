@@ -44,6 +44,21 @@ h1 {
   padding: 0 30px;
   margin: 24px 0;
 }
+.cards {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  gap: 50px 30px;
+  list-style-type: none;
+  @media (max-width: 1019px) {
+    grid-template-columns: 300px 300px;
+    gap: 40px 20px;
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: 300px;
+    gap: 20px;
+  }
+}
 .form{
    display: flex;
    flex-direction: column;

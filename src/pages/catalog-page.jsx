@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react"
-import { Cards } from "../components/cards/index.jsx"
-import { GET } from "../rest-api/index.js"
+import { useLoaderData } from "react-router-dom"
+import { PizzaCard } from "../components/pizza-card/index.jsx"
 
 export const CatalogPage = () => {
-    const[pizzas, setPizzas] = useState([])
-
-    useEffect(() => {
-        GET("/pizza/catalog").then(data => setPizzas(data.catalog))
-    }, [])
-
-    return(
+    const pizzas = useLoaderData().catalog
+    return (
         <div className="page">
             <div className="container">
-                <Cards pizzas={pizzas}/>
+                <h1>Каталог</h1>
+                <ul className="cards">
+                    {pizzas.map((pizza) => (
+                        <li key={pizza.id}>
+                            <PizzaCard pizza={pizza} />
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     )

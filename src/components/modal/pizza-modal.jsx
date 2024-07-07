@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import { BASE_URL } from "../../rest-api/index.js"
 import { InputRadio } from "../input-radio/index.jsx"
-import { Ingredients } from "../ingredients/index.jsx"
+import { IngredientsCard } from "../ingredients-card/index.jsx"
 import { BtnPrimary } from "../buttons/btn-primary.jsx"
 import { Modal } from "./index.jsx"
 import { useEffect, useState } from "react"
@@ -103,7 +103,7 @@ export const PizzaModal = ({pizza, setIsModal}) => {
                         </p>
 
                         <p className={styles.section_title}>Добавить по вкусу</p>
-                        <Ingredients ingredients={pizza.toppings} onClick={addDeleteToppings}/>
+                        <IngredientsCard ingredients={pizza.toppings} onClick={addDeleteToppings}/>
 
                     </div>
                     <BtnPrimary

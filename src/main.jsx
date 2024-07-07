@@ -8,6 +8,7 @@ import { ProfilePage } from "./pages/profile-page.jsx"
 import { OrdersPage } from "./pages/orders-page.jsx"
 import { PageHeader } from "./components/page-header/index.jsx"
 import { CartPage } from "./pages/cart-page.jsx"
+import { GET } from "./rest-api/index.js"
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,9 @@ const router = createBrowserRouter([
             {
                 path: "catalog",
                 element: <CatalogPage />,
+                loader: () => {
+                    return GET("/pizza/catalog")
+                }
             },
             {
                 path: "profile",
@@ -24,7 +28,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "orders",
-                element: <OrdersPage />
+                element: <OrdersPage />,
+                loader: () => {
+                    return GET("/pizza/orders")
+                }
             },
             {
                 path: "cart",

@@ -13,7 +13,7 @@ export async function GET(path, params = {},  token = null) {
             headers: headers
         })
 
-        return await response.json();
+        return await response.json().then(data => data);
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -34,7 +34,7 @@ export async function POST(path, element= {}, token = null) {
             body: JSON.stringify(element)
         })
 
-        return await response.json();
+        return await response.json().then(data => data);
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -55,7 +55,7 @@ export async function PUT(path, element = {}, token = null) {
             body: JSON.stringify(element)
         })
 
-        return await response.json();
+        return await response.json().then(data => data);
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -76,7 +76,7 @@ export async function PATCH(path, element = {}, token = null) {
             body: JSON.stringify(element)
         })
 
-        return await response.json();
+        return await response.json().then(data => data);
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -96,7 +96,7 @@ export async function DELETE (path, token = null) {
             headers: headers,
         })
 
-        return await response.json();
+        return await response.json().then(data => data);
     }
     catch(error) {
         console.error("Fetch error: ", error)
