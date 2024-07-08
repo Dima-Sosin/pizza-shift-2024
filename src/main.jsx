@@ -19,28 +19,28 @@ const router = createBrowserRouter([
                 path: "catalog",
                 element: <CatalogPage />,
                 loader: () => {
-                    return GET("/pizza/catalog")
+                    return GET("/pizza/catalog").then(data => data)
                 }
             },
             {
                 path: "profile",
                 element: <ProfilePage />,
                 loader: () => {
-                    return GET("/users/session", {}, localStorage.getItem("token"))
+                    return GET("/users/session", {}, localStorage.getItem("token")).then(data => data)
                 }
             },
             {
                 path: "orders",
                 element: <OrdersPage />,
                 loader: () => {
-                    return GET("/pizza/orders")
+                    return GET("/pizza/orders", {}, localStorage.getItem("token")).then(data => data)
                 }
             },
             {
                 path: "cart",
                 element: <CartPage />,
                 loader: () => {
-                    return GET("/users/session", {}, localStorage.getItem("token"))
+                    return GET("/users/session", {}, localStorage.getItem("token")).then(data => data)
                 }
 
             }

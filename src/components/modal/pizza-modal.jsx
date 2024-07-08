@@ -109,14 +109,14 @@ export const PizzaModal = ({ pizza, onClose }) => {
 
                         <p className={styles.p}>
                             {pizza.isGlutenFree && (
-                                <div className={styles.highlight}>
+                                <span className={styles.highlight}>
                                     Без глютена
-                                </div>
+                                </span>
                             )}
                             {pizza.isVegetarian && (
-                                <div className={styles.highlight}>
+                                <span className={styles.highlight}>
                                     Вегетарианская
-                                </div>
+                                </span>
                             )}
                             {pizza.isHit && (
                                 <span className={styles.highlight}>

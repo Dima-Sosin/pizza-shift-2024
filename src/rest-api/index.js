@@ -6,14 +6,14 @@ export async function GET(path, params = {},  token = null) {
         Object.keys(params).forEach(key => urlWithParams.searchParams.append(key, params[key]));
 
         const headers = {'Content-Type': 'application/json'};
-        if (token) {headers['authorization'] = `Bearer ${token}`}
+        if (token) {headers['Authorization'] = `Bearer ${token}`}
 
         const response = await fetch(urlWithParams, {
             method: 'GET',
             headers: headers
         })
 
-        return await response.json().then(data => data);
+        return await response.json();
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -26,7 +26,7 @@ export async function POST(path, element= {}, token = null) {
         const newUrl = new URL(BASE_URL + path);
 
         const headers = {'Content-Type': 'application/json'};
-        if (token) {headers['authorization'] = `Bearer ${token}`}
+        if (token) {headers['Authorization'] = `Bearer ${token}`}
 
         const response = await fetch(newUrl, {
             method: 'POST',
@@ -34,7 +34,7 @@ export async function POST(path, element= {}, token = null) {
             body: JSON.stringify(element)
         })
 
-        return await response.json().then(data => data);
+        return await response.json();
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -47,7 +47,7 @@ export async function PUT(path, element = {}, token = null) {
         const newUrl = new URL(BASE_URL + path);
 
         const headers = {'Content-Type': 'application/json'};
-        if (token) {headers['authorization'] = `Bearer ${token}`}
+        if (token) {headers['Authorization'] = `Bearer ${token}`}
 
         const response = await fetch(newUrl, {
             method: 'PUT',
@@ -55,7 +55,7 @@ export async function PUT(path, element = {}, token = null) {
             body: JSON.stringify(element)
         })
 
-        return await response.json().then(data => data);
+        return await response.json();
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -68,7 +68,7 @@ export async function PATCH(path, element = {}, token = null) {
         const newUrl = new URL(BASE_URL + path);
 
         const headers = {'Content-Type': 'application/json'};
-        if (token) {headers['authorization'] = `Bearer ${token}`}
+        if (token) {headers['Authorization'] = `Bearer ${token}`}
 
         const response = await fetch(newUrl, {
             method: 'PATCH',
@@ -76,7 +76,7 @@ export async function PATCH(path, element = {}, token = null) {
             body: JSON.stringify(element)
         })
 
-        return await response.json().then(data => data);
+        return await response.json();
     }
     catch(error) {
         console.error("Fetch error: ", error)
@@ -89,14 +89,14 @@ export async function DELETE (path, token = null) {
         const newUrl = new URL(BASE_URL + path);
 
         const headers = {'Content-Type': 'application/json'};
-        if (token) {headers['authorization'] = `Bearer ${token}`}
+        if (token) {headers['Authorization'] = `Bearer ${token}`}
 
         const response = await fetch(newUrl, {
             method: 'DELETE',
             headers: headers,
         })
 
-        return await response.json().then(data => data);
+        return await response.json();
     }
     catch(error) {
         console.error("Fetch error: ", error)

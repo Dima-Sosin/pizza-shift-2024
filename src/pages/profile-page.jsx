@@ -2,20 +2,32 @@ import { Input } from "../components/input"
 import { BtnPrimary } from "../components/buttons/btn-primary.jsx"
 import { useLoaderData } from "react-router-dom"
 import { useForm } from "react-hook-form"
+import { PATCH } from "../rest-api/index.js"
 
 export function ProfilePage() {
-    const user = useLoaderData().profile.user
+    const user = useLoaderData().user
+    console.log(user)
     const { register, handleSubmit, errors, reset } = useForm();
 
     const onSubmit = (data) => {
         reset();
-        console.log(data)
+        const updateProfile = {
+            profile: {
+                firstname: data.firstname,
+                middlename: data.middlename,
+                lastname: data.lastname,
+                email: data.email,
+                city: data.city
+            },
+            phone: user.phone
+        }
+        PATCH("/users/profile", updateProfile, localStorage.getItem("token")).then(result => console.log(result))
     }
 
     return (
         <div className="page">
             <div className="container">
-                <form className="form" onSubmit={handleSubmit(onSubmit)}>
+                <form className="form">
                     <h1>Профиль</h1>
                     <Input
                         text="Фамилия*"
@@ -24,13 +36,13 @@ export function ProfilePage() {
                         name="lastname"
                         placeholder="Фамилия"
                         defaultValue={user?.lastname}
-                        ref={
-                            register("lastname", {
-                                required: true,
-                                maxLength: 100
-                            })
-                        }
-                        error-msg={errors.lastname.message}
+                        register={register}
+                        label="lastname"
+                        required={{
+                            required: true,
+                            maxLength: 100
+                        }}
+                        error-msg={errors?.lastname.message}
                     />
                     <Input
                         text="Имя*"
@@ -39,13 +51,13 @@ export function ProfilePage() {
                         name="firstname"
                         placeholder="Имя"
                         defaultValue={user?.firstname}
-                        ref={
-                            register("firstname", {
-                                required: true,
-                                maxLength: 100
-                            })
-                        }
-                        error-msg={errors.firstname.message}
+                        register={register}
+                        label="firstname"
+                        required={{
+                            required: true,
+                            maxLength: 100
+                        }}
+                        error-msg={errors?.firstname.message}
                     />
                     <Input
                         text="Отчество*"
@@ -54,13 +66,13 @@ export function ProfilePage() {
                         name="middlename"
                         placeholder="Отчество"
                         defaultValue={user?.middlename}
-                        ref={
-                            register("middlename", {
-                                required: true,
-                                maxLength: 100
-                            })
-                        }
-                        error-msg={errors.middlename.message}
+                        register={register}
+                        label="middlename"
+                        required={{
+                            required: true,
+                            maxLength: 100
+                        }}
+                        error-msg={errors?.middlename.message}
                     />
                     <Input
                         text="Телефон*"
@@ -68,18 +80,18 @@ export function ProfilePage() {
                         id="phone"
                         name="phone"
                         placeholder="Телефон"
-                        disabled={true}
+                        readOnly={true}
                         defaultValue={user?.phone}
-                        ref={
-                            register("phone", {
-                                required: "phone required",
-                                pattern: {
-                                    value: /^(\+7|8)[- ]?(\d{3})[- ]?(\d{3})[- ]?(\d{2})[- ]?(\d{2})$/i,
-                                    message: "Неправильный номер телефона!"
-                                }
-                            })
-                        }
-                        error-msg={errors.phone.message}
+                        register={register}
+                        label="phone"
+                        required={{
+                            required: "phone required",
+                            pattern: {
+                                value: /^(\+7|8)[- ]?(\d{3})[- ]?(\d{3})[- ]?(\d{2})[- ]?(\d{2})$/i,
+                                message: "Неправильный номер телефона!"
+                            }
+                        }}
+                        errorMsg={errors?.phone.message}
                     />
                     <Input
                         text="Email"
@@ -88,16 +100,16 @@ export function ProfilePage() {
                         name="email"
                         placeholder="Email"
                         defaultValue={user?.email}
-                        ref={
-                            register("email", {
-                                required: "email required",
-                                pattern: {
-                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
-                                    message: "Неправильный email!"
-                                }
-                            })
-                        }
-                        error-msg={errors.email.message}
+                        register={register}
+                        label="email"
+                        required={{
+                            required: "email required",
+                            pattern: {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
+                                message: "Неправильный email!"
+                            }
+                        }}
+                        error-msg={errors?.email.message}
                     />
                     <Input
                         text="Город"
@@ -106,15 +118,17 @@ export function ProfilePage() {
                         name="city"
                         placeholder="Город"
                         defaultValue={user?.city}
-                        ref={
-                            register("city", {
-                                required: true,
-                                maxLength: 100
-                            })
-                        }
-                        error-msg={errors.city.message}
+                        register={register}
+                        label="city"
+                        required={{
+                            required: true,
+                            maxLength: 100
+                        }}
+                        error-msg={errors?.city.message}
                     />
-                    <BtnPrimary>Обновить данные</BtnPrimary>
+                    <BtnPrimary onClick={handleSubmit(onSubmit)}>
+                        Обновить данные
+                    </BtnPrimary>
                 </form>
             </div>
         </div>
