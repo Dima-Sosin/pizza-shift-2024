@@ -6,24 +6,24 @@ import { Translation } from "../../translation/index.js"
 export const IngredientsCard = ({ ingredients, onClick }) => (
     <div className={styles.ingredients}>
         <ul className={styles.cards}>
-            {ingredients.map((el, i) => (
+            {ingredients.map((ingredient, i) => (
                 <React.Fragment key={i}>
                     <input
                         className={styles.card_input}
                         type="checkbox"
-                        id={el.name}
+                        id={ingredient.name}
                         onChange={(event) =>
-                            onClick(el.name, event.target.checked)
+                            onClick(ingredient.name, event.target.checked)
                         }
                     />
-                    <label className={styles.card_label} htmlFor={el.name}>
+                    <label className={styles.card_label} htmlFor={ingredient.name}>
                         <img
                             className={styles.img}
-                            src={BASE_URL + el.img}
-                            alt={el.name}
+                            src={BASE_URL + ingredient.img}
+                            alt={ingredient.name}
                         />
-                        <p className={styles.name}>{Translation[el.name]}</p>
-                        <p className={styles.cost}>{el.cost} ₽</p>
+                        <p className={styles.name}>{Translation[ingredient.name]}</p>
+                        <p className={styles.cost}>{ingredient.cost} ₽</p>
                     </label>
                 </React.Fragment>
             ))}

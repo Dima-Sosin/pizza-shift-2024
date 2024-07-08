@@ -7,17 +7,17 @@ export const pizzaSlice = createSlice({
     },
     reducers: {
         addPizza: (state, action) => {
-            state.pizzaOrders = [...state.pizzaOrders, action.pizza]
+            state.pizzaOrders = [...state.pizzaOrders, action.payload]
         },
-        deletePizza: (state) => {
-            state.pizzaOrders = []
+        deletePizza: (state, action) => {
+            state.pizzaOrders = state.pizzaOrders.filter(pizza => pizza.id !== action.payload.id)
         },
         changePizza: (state, action) => {
-            state.pizzaOrders = state.pizzaOrders.map((el) => {
-                if (el.id === action.pizza.id) {
-                    return action.pizza
+            state.pizzaOrders = state.pizzaOrders.map((pizza) => {
+                if (pizza.id === action.payload.id) {
+                    return action.payload
                 }
-                return el
+                return pizza
             })
         }
     }

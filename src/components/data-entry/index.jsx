@@ -8,13 +8,13 @@ import { useLoaderData } from "react-router-dom"
 import { useForm } from "react-hook-form"
 
 export const DataEntry = () => {
-    const {setPage} = useContext(PageContext)
+    const {setStage} = useContext(PageContext)
     const user = useLoaderData().profile.user
     const { register, handleSubmit, errors, reset } = useForm();
 
     const onSubmit = (data) => {
         reset();
-        setPage("bankCard")
+        setStage("bankCard")
         console.log(data)
     }
 
@@ -118,7 +118,7 @@ export const DataEntry = () => {
                 error-msg={errors.address.message}
             />
             <div className={styles.buttons}>
-                <BtnDefault onClick={() => setPage("purchases")}>
+                <BtnDefault onClick={() => setStage("purchases")}>
                     Назад
                 </BtnDefault>
                 <BtnPrimary onClick={handleSubmit(onSubmit)}>

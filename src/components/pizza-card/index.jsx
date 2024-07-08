@@ -7,7 +7,6 @@ import { PizzaModal } from "../modal/pizza-modal.jsx"
 export const PizzaCard = ({pizza}) => {
     const[isModal, setIsModal] = useState(false)
 
-    //Костыль, чтобы при открытии модалки дефолтно выбирались средний размер пиццы, и традиционное тесто
     useEffect(() => {
         if(isModal){
             document.body.style.overflow = 'hidden';
@@ -27,7 +26,7 @@ export const PizzaCard = ({pizza}) => {
                 <BtnPrimary>Подробнее</BtnPrimary>
             </div>
             {isModal &&
-                <PizzaModal pizza={pizza} setIsModal={setIsModal}/>
+                <PizzaModal pizza={pizza} onClose={() => setIsModal(false)}/>
             }
         </>
     )

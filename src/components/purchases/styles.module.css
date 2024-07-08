@@ -1,8 +1,10 @@
+.li{
+    list-style: none;
+}
 .pizza{
     display: flex;
     align-items: center;
     width: 100%;
-    height: 66px;
     gap:24px;
     margin:24px 0;
 }
@@ -12,8 +14,9 @@
 }
 .name{
     width: 120px;
+    text-align: center;
 }
-.inf{
+.pizza_inf{
     width: 280px;
 }
 .topping{
@@ -75,9 +78,30 @@
     width: 100px;
     text-align: center;
 }
+.remove{
+    position: relative;
+}
+.remove:hover{
+    cursor: pointer;
+}
+.remove:after{
+    content: "";
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top:-10px;
+    left: -10px;
+}
 .line{
     width: 100%;
     height: 1px;
     background-color: #E3E5E5;
     margin-bottom:24px;
+}
+.inf{
+    display: flex;
+    align-items: center;
+}
+.purch_cost{
+    width: 608px;
 }
