@@ -13,7 +13,7 @@ export const PizzaCard = ({ pizza }) => {
                 <img
                     className={styles.img}
                     src={BASE_URL + pizza.img}
-                    alt="pizza image"
+                    alt={`Изображение пиццы ${pizza.name}`}
                     loading="lazy"
                 />
                 <h3 className={styles.card_title}>{pizza.name}</h3>

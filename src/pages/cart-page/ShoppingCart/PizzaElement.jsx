@@ -5,53 +5,53 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { deletePizza } from "../../../store/pizzaSlice.js"
 
-export const PizzaElement = ({pizza}) => {
+export const PizzaElement = ({ pizza }) => {
     const dispatch = useDispatch()
     const [count, setCount] = useState(1)
 
-    const CalcCost = (toppings, size, doughs) => {
+    const calcCost = (toppings, size, doughs) => {
         let cost = 0
         toppings?.map((topping) => (cost += topping.cost))
         cost += size.price + doughs.price
         return cost
     }
 
-    return(
+    return (
         <>
             <div className={styles.pizza}>
                 <img
                     className={styles.img}
                     src={BASE_URL + pizza.img}
-                    alt="pizza photo"
+                    alt={`Изображение пиццы ${pizza.name}`}
                 />
                 <p className={styles.name}>{pizza.name}</p>
                 <p className={styles.pizza_inf}>
                     {Translation[pizza.size.name]},{" "}
                     {Translation[pizza.doughs.name]} +{" "}
-                    {pizza.toppings?.map((topping, i) => (
-                        <span className={styles.topping} key={i}>
-                                    {Translation[topping.name]}
-                                </span>
+                    {pizza.toppings?.map((topping) => (
+                        <span className={styles.topping} key={topping.name}>
+                            {Translation[topping.name]}
+                        </span>
                     ))}
                 </p>
                 <div className={styles.quantity}>
                     <button
                         className={styles.btn}
-                        onClick={() => setCount(count-1)}
-                    >-</button>
-                    <p className={styles.num}>
-                        {count}
-                    </p>
+                        onClick={() => setCount(count - 1)}
+                    >
+                        -
+                    </button>
+                    <p className={styles.num}>{count}</p>
                     <button
                         className={styles.btn}
-                        onClick={() => setCount(count+1)}
-                    >+</button>
+                        onClick={() => setCount(count + 1)}
+                    >
+                        +
+                    </button>
                 </div>
-                <p className={styles.change}>
-                    Изменить
-                </p>
+                <p className={styles.change}>Изменить</p>
                 <p className={styles.cost}>
-                    {CalcCost(pizza.toppings, pizza.size, pizza.doughs)} р
+                    {calcCost(pizza.toppings, pizza.size, pizza.doughs)} ₽
                 </p>
                 <div
                     className={styles.remove}

@@ -1,4 +1,4 @@
-import styles from "./BankCard.module.css"
+import styles from "./DebitCard.module.css"
 import { Button } from "../../../components/Button/Button.jsx"
 import { useState } from "react"
 import { Modal } from "../../../components/Modal/Modal.jsx"
@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { addDebitCard, selectCart } from "../../../store/pizzaSlice.js"
 import { POST } from "../../../rest-api/index.js"
 
-export const BankCard = () => {
+export const DebitCard = () => {
     const[isModal, setIsModal] = useState(false)
     const dispatch = useDispatch()
     const pizza = useSelector(selectCart)
@@ -19,8 +19,7 @@ export const BankCard = () => {
     const onSubmit = (data) => {
         setIsModal(true)
         dispatch(addDebitCard(data))
-        console.log(pizza)
-        POST("/pizza/payment", pizza).then(result => console.log(result))
+        POST("/pizza/payment", pizza).then(result => result)
     }
 
     return(
@@ -96,7 +95,7 @@ export const BankCard = () => {
                     <div className={styles.modal}>
                         <img
                             src={success}
-                            alt="success"
+                            alt="Изображение белой галочки в зеленом круге"
                         />
                         <h2>Оплата прошла успешно!</h2>
                         <p>

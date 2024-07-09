@@ -1,7 +1,7 @@
 import { createContext, useState } from "react"
 import { ShoppingCart } from "./ShoppingCart/ShoppingCart.jsx"
 import { PersonData } from "./PersonData/PersonData.jsx"
-import { BankCard } from "./BankCard/BankCard.jsx"
+import { DebitCard } from "./DebitCard/DebitCard.jsx"
 
 export const PageContext = createContext('purchases');
 
@@ -10,7 +10,7 @@ export const CartPage = () => {
     const Stages = {
         "purchases": <ShoppingCart/>,
         "dataEntry": <PersonData />,
-        "bankCard": <BankCard />
+        "bankCard": <DebitCard />
     }
     return (
         <div className="page">

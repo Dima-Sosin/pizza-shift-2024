@@ -29,7 +29,7 @@ export const ShoppingCart = () => {
                 <div className={styles.inf}>
                     <div className={styles.purch_cost}>
                         <h2>
-                            Стоимость заказа: {purchasesCost} р
+                            Стоимость заказа: {purchasesCost} ₽
                         </h2>
                     </div>
                     <Button type="primary" onClick={() => setStage("dataEntry")}>

@@ -20,7 +20,7 @@ export const ToppingCards = ({ ingredients, onClick }) => (
                         <img
                             className={styles.img}
                             src={BASE_URL + ingredient.img}
-                            alt={ingredient.name}
+                            alt={`Изображение ингредиента ${Translation[ingredient.name]}`}
                         />
                         <p className={styles.name}>{Translation[ingredient.name]}</p>
                         <p className={styles.cost}>{ingredient.cost} ₽</p>

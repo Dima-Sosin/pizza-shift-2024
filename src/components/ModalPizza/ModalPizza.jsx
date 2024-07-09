@@ -60,7 +60,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
                 <img
                     className={styles.img}
                     src={BASE_URL + pizza.img}
-                    alt="pizza image"
+                    alt={`Изображение пиццы ${pizza.name}`}
                 />
                 <div className={styles.right}>
                     <div className={styles.info}>

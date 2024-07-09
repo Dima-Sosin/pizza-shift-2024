@@ -22,7 +22,7 @@ export const PageHeader = () => {
                     <header className={styles.page_header}>
                         <div className={styles.left}>
                             <Link to="/catalog">
-                                <img src={logo} alt="логотип сайта pizza shift" />
+                                <img src={logo} alt="Логотип сайта Шифт Пицца" />
                             </Link>
                             <Link className={styles.block} to="/profile">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="transparent"
