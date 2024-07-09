@@ -99,3 +99,15 @@ h1 {
     padding: 16px 32px;
     border-radius: 16px;
 }
+
+.error_page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.error_subtitle {
+    font-size: 20px;
+}

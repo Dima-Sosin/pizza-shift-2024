@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 
 import logo from "../../assets/logo.svg"
-import { Modals } from "./modals.jsx"
+import { Modals } from "./Modals.jsx"
 import styles from "./PageHeader.module.css"
 
 export const PageHeader = () => {

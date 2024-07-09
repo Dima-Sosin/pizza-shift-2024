@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { PageHeader } from "./components/PageHeader/PageHeader.jsx"
 import { CartPage } from "./pages/cart-page/cart-page.jsx"
 import { CatalogPage } from "./pages/catalog-page/catalog-page.jsx"
+import { ErrorPage } from "./pages/error-page/ErrorPage.jsx"
 import { OrdersPage } from "./pages/orders-page/orders-page.jsx"
 import { ProfilePage } from "./pages/profile-page/profile-page.jsx"
 import { GET } from "./rest-api/index.js"
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <PageHeader />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "catalog",
