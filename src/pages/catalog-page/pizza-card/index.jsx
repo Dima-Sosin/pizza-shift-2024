@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import { BASE_URL } from "../../../rest-api/index.js"
-import { BtnPrimary } from "../../../components/buttons/btn-primary.jsx"
-import { useEffect, useState } from "react"
+import { Button } from "../../../components/button/index.jsx"
+import { useState } from "react"
 import { PizzaModal } from "../../../components/pizza-modal/pizza-modal.jsx"
 
 export const PizzaCard = ({ pizza }) => {
@@ -19,7 +19,7 @@ export const PizzaCard = ({ pizza }) => {
                 <h3 className={styles.card_title}>{pizza.name}</h3>
                 <p className={styles.description}>{pizza.description}</p>
                 <p className={styles.price}>от {pizza.sizes[0].price} ₽</p>
-                <BtnPrimary>Подробнее</BtnPrimary>
+                <Button type="primary">Подробнее</Button>
             </div>
             {isModal && (
                 <PizzaModal

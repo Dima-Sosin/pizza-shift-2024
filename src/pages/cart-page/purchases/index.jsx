@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { selectPizzas } from "../../../store/pizzaSlice.js"
 import { useContext } from "react"
 import { PageContext } from "../cart-page.jsx"
-import { BtnPrimary } from "../../../components/buttons/btn-primary.jsx"
+import { Button } from "../../../components/button/index.jsx"
 import { PizzaElement } from "./pizza-element.jsx"
 
 export const Purchases = () => {
@@ -32,9 +32,9 @@ export const Purchases = () => {
                             Стоимость заказа: {purchasesCost} р
                         </h2>
                     </div>
-                    <BtnPrimary onClick={() => setStage("dataEntry")}>
+                    <Button type="primary" onClick={() => setStage("dataEntry")}>
                         Оформить заказ
-                    </BtnPrimary>
+                    </Button>
                 </div>
             }
         </>

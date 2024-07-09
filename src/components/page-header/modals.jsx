@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { Input } from "../input/index.jsx"
 import { POST } from "../../rest-api/index.js"
 import { useState } from "react"
-import { BtnPrimary } from "../buttons/btn-primary.jsx"
+import { Button } from "../button/index.jsx"
 
 
 export const Modals = ({onClose}) => {
@@ -51,7 +51,7 @@ export const Modals = ({onClose}) => {
                                 }
                             }}
                         />
-                        <BtnPrimary onClick={handleSubmit(onSubmit1)}>Продолжить</BtnPrimary>
+                        <Button onClick={handleSubmit(onSubmit1)}>Продолжить</Button>
                     </form>
                 </Modal>
             }
@@ -88,7 +88,7 @@ export const Modals = ({onClose}) => {
                                 maxLength:6
                             }}
                         />
-                        <BtnPrimary onClick={handleSubmit(onSubmit2)}>Продолжить</BtnPrimary>
+                        <Button onClick={handleSubmit(onSubmit2)}>Продолжить</Button>
                     </form>
                 </Modal>
             }

@@ -2,7 +2,7 @@ import styles from "./styles.module.css"
 import { BASE_URL } from "../../rest-api/index.js"
 import { InputRadio } from "../input-radio/index.jsx"
 import { IngredientsCard } from "../ingredients-card/index.jsx"
-import { BtnPrimary } from "../buttons/btn-primary.jsx"
+import { Button } from "../button/index.jsx"
 import { Modal } from "../modal/index.jsx"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
@@ -136,14 +136,14 @@ export const PizzaModal = ({ pizza, onClose }) => {
                         />
                     </div>
 
-                    <BtnPrimary
+                    <Button type="primary"
                         onClick={() => {
                             dispatch(addPizza(buyPizza))
                             onClose()
                         }}
                     >
                         Добавить в корзину
-                    </BtnPrimary>
+                    </Button>
                 </div>
             </div>
         </Modal>

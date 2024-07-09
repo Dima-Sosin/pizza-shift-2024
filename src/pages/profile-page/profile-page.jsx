@@ -1,5 +1,5 @@
 import { Input } from "../../components/input/index.jsx"
-import { BtnPrimary } from "../../components/buttons/btn-primary.jsx"
+import { Button } from "../../components/button/index.jsx"
 import { useLoaderData } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { PATCH } from "../../rest-api/index.js"
@@ -125,9 +125,9 @@ export function ProfilePage() {
                         }}
                         error={errors?.city.message}
                     />
-                    <BtnPrimary onClick={handleSubmit(onSubmit)}>
+                    <Button type="primary" onClick={handleSubmit(onSubmit)}>
                         Обновить данные
-                    </BtnPrimary>
+                    </Button>
                 </form>
             </div>
         </div>

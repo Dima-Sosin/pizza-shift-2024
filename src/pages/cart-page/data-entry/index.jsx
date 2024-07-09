@@ -1,6 +1,5 @@
 import styles from "./styles.module.css"
-import { BtnDefault } from "../../../components/buttons/btn-default.jsx"
-import { BtnPrimary } from "../../../components/buttons/btn-primary.jsx"
+import { Button } from "../../../components/button/index.jsx"
 import { Input } from "../../../components/input/index.jsx"
 import { useContext } from "react"
 import { PageContext } from "../cart-page.jsx"
@@ -142,12 +141,12 @@ export const DataEntry = () => {
                 error={errors?.address.message}
             />
             <div className={styles.buttons}>
-                <BtnDefault onClick={() => setStage("purchases")}>
+                <Button type="default" onClick={() => setStage("purchases")}>
                     Назад
-                </BtnDefault>
-                <BtnPrimary onClick={handleSubmit(onSubmit)}>
+                </Button>
+                <Button type="primary" onClick={handleSubmit(onSubmit)}>
                     Продолжить
-                </BtnPrimary>
+                </Button>
             </div>
         </form>
     )

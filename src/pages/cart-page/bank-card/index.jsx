@@ -1,5 +1,5 @@
 import styles from "./styles.module.css"
-import { BtnPrimary } from "../../../components/buttons/btn-primary.jsx"
+import { Button } from "../../../components/button/index.jsx"
 import { useState } from "react"
 import { Modal } from "../../../components/modal/index.jsx"
 import  success from "../../../assets/success.svg"
@@ -82,9 +82,9 @@ export const BankCard = () => {
                         />
                     </div>
                 </div>
-                <BtnPrimary onClick={handleSubmit(onSubmit)}>
+                <Button type="primary" onClick={handleSubmit(onSubmit)}>
                     Оплатить
-                </BtnPrimary>
+                </Button>
             </form>
             {isModal &&
                 <Modal

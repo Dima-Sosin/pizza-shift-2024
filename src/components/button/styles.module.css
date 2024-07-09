@@ -1,27 +1,27 @@
-.btn_primary {
+.primary {
     border: none;
     color: #fff;
     background: #f4511e;
 }
 
-.btn_primary:hover {
+.primary:hover {
     background: #f77340;
 }
 
-.btn_primary:active {
+.primary:active {
     background: #e53611;
 }
 
-.btn_default {
+.default {
     background: #ffffff;
     color: #344051;
     border: 1px #CED2DA solid;
 }
 
-.btn_default:hover {
+.default:hover {
     background: #F3F4F6;
 }
 
-.btn_default:active {
+.default:active {
     background: #edeef1;
 }
