@@ -1,15 +1,15 @@
 import { createContext, useState } from "react"
-import { Purchases } from "./purchases/index.jsx"
-import { DataEntry } from "./data-entry/index.jsx"
-import { BankCard } from "./bank-card/index.jsx"
+import { ShoppingCart } from "./ShoppingCart/ShoppingCart.jsx"
+import { PersonData } from "./PersonData/PersonData.jsx"
+import { BankCard } from "./BankCard/BankCard.jsx"
 
 export const PageContext = createContext('purchases');
 
 export const CartPage = () => {
     const [stage, setStage] = useState("purchases")
     const Stages = {
-        "purchases": <Purchases/>,
-        "dataEntry": <DataEntry />,
+        "purchases": <ShoppingCart/>,
+        "dataEntry": <PersonData />,
         "bankCard": <BankCard />
     }
     return (

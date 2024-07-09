@@ -1,9 +1,9 @@
-import styles from "./styles.module.css"
+import styles from "./ModalPizza.module.css"
 import { BASE_URL } from "../../rest-api/index.js"
-import { InputRadio } from "../input-radio/index.jsx"
-import { IngredientsCard } from "../ingredients-card/index.jsx"
-import { Button } from "../button/index.jsx"
-import { Modal } from "../modal/index.jsx"
+import { InputRadio } from "../InputRadio/InputRadio.jsx"
+import { ToppingCards } from "../ToppingCards/ToppingCards.jsx"
+import { Button } from "../Button/Button.jsx"
+import { Modal } from "../Modal/Modal.jsx"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addPizza } from "../../store/pizzaSlice.js"
@@ -130,7 +130,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
                         <p className={styles.section_title}>
                             Добавить по вкусу
                         </p>
-                        <IngredientsCard
+                        <ToppingCards
                             ingredients={pizza.toppings}
                             onClick={addDeleteToppings}
                         />

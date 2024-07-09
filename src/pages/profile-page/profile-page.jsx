@@ -1,5 +1,5 @@
-import { Input } from "../../components/input/index.jsx"
-import { Button } from "../../components/button/index.jsx"
+import { Input } from "../../components/Input/Input.jsx"
+import { Button } from "../../components/Button/Button.jsx"
 import { useLoaderData } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { PATCH } from "../../rest-api/index.js"
@@ -30,7 +30,7 @@ export function ProfilePage() {
                     <Input
                         text="Фамилия*"
                         type="text"
-                        id="lastname"
+                        id="profile-lastname"
                         name="lastname"
                         placeholder="Фамилия"
                         defaultValue={user?.lastname}
@@ -45,7 +45,7 @@ export function ProfilePage() {
                     <Input
                         text="Имя*"
                         type="text"
-                        id="firstname"
+                        id="profile-firstname"
                         name="firstname"
                         placeholder="Имя"
                         defaultValue={user?.firstname}
@@ -60,7 +60,7 @@ export function ProfilePage() {
                     <Input
                         text="Отчество*"
                         type="text"
-                        id="middlename"
+                        id="profile-middlename"
                         name="middlename"
                         placeholder="Отчество"
                         defaultValue={user?.middlename}
@@ -75,7 +75,7 @@ export function ProfilePage() {
                     <Input
                         text="Телефон*"
                         type="text"
-                        id="phone"
+                        id="profile-phone"
                         name="phone"
                         placeholder="Телефон"
                         readOnly={true}
@@ -94,7 +94,7 @@ export function ProfilePage() {
                     <Input
                         text="Email"
                         type="email"
-                        id="email"
+                        id="profile-email"
                         name="email"
                         placeholder="Email"
                         defaultValue={user?.email}
@@ -113,7 +113,7 @@ export function ProfilePage() {
                     <Input
                         text="Город"
                         type="text"
-                        id="city"
+                        id="profile-city"
                         name="city"
                         placeholder="Город"
                         defaultValue={user?.city}

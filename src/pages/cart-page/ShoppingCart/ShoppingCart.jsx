@@ -1,12 +1,12 @@
-import styles from "./styles.module.css"
+import styles from "./ShoppingCart.module.css"
 import { useSelector } from "react-redux"
 import { selectPizzas } from "../../../store/pizzaSlice.js"
 import { useContext } from "react"
 import { PageContext } from "../cart-page.jsx"
-import { Button } from "../../../components/button/index.jsx"
-import { PizzaElement } from "./pizza-element.jsx"
+import { Button } from "../../../components/Button/Button.jsx"
+import { PizzaElement } from "./PizzaElement.jsx"
 
-export const Purchases = () => {
+export const ShoppingCart = () => {
     const pizzas = useSelector(selectPizzas)
     const {setStage} = useContext(PageContext)
 

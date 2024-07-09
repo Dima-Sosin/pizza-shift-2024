@@ -1,4 +1,4 @@
-import styles from "./styles.module.css"
+import styles from "./PageHeader.module.css"
 import logo from "../../assets/logo.svg"
 import { Link, Outlet } from "react-router-dom"
 import { useState } from "react"

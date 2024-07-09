@@ -1,4 +1,4 @@
-import styles from "./styles.module.css"
+import styles from "./Modal.module.css"
 import { useEffect } from "react"
 
 export const Modal = ({children, onClose}) => {

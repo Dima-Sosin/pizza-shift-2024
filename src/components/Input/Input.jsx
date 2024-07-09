@@ -1,4 +1,4 @@
-import styles from "./styles.module.css"
+import styles from "./Input.module.css"
 
 export const Input = ({ text, type, id, name, placeholder, readOnly = false, defaultValue, register, label, required, error }) => (
     <div className={styles.container}>

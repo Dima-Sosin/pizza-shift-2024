@@ -1,10 +1,10 @@
-import styles from "./styles.module.css"
-import { Button } from "../../../components/button/index.jsx"
+import styles from "./BankCard.module.css"
+import { Button } from "../../../components/Button/Button.jsx"
 import { useState } from "react"
-import { Modal } from "../../../components/modal/index.jsx"
+import { Modal } from "../../../components/Modal/Modal.jsx"
 import  success from "../../../assets/success.svg"
 import { Link } from "react-router-dom"
-import { Input } from "../../../components/input/index.jsx"
+import { Input } from "../../../components/Input/Input.jsx"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { addDebitCard, selectCart } from "../../../store/pizzaSlice.js"
@@ -31,8 +31,8 @@ export const BankCard = () => {
                     <Input
                         text="Номер*"
                         type="text"
-                        id="number"
-                        name="number"
+                        id="cart-pan"
+                        name="pan"
                         placeholder="0000 0000"
                         register={register}
                         label="pan"
@@ -48,14 +48,14 @@ export const BankCard = () => {
                     <div className={styles.lower}>
                         <Input
                             text="Срок*"
-                            type="text"
-                            id="term"
+                            type="expireDate"
+                            id="cart-expireDate"
                             name="term"
                             placeholder="00/00"
                             register={register}
                             label="expireDate"
                             required={{
-                                required: "term required",
+                                required: "expire date required",
                                 pattern: {
                                     value: /^(([0][0-9])|([1][0-2]))[\/][0-9]{2}$/,
                                     message: "Неправильная дата!"
@@ -66,7 +66,7 @@ export const BankCard = () => {
                         <Input
                             text="CVV*"
                             type="text"
-                            id="cvv"
+                            id="cart-cvv"
                             name="cvv"
                             placeholder="0000"
                             register={register}

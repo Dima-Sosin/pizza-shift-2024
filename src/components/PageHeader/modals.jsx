@@ -1,10 +1,9 @@
-import { Modal } from "../modal/index.jsx"
+import { Modal } from "../Modal/Modal.jsx"
 import { useForm } from "react-hook-form"
-import { Input } from "../input/index.jsx"
+import { Input } from "../Input/Input.jsx"
 import { POST } from "../../rest-api/index.js"
 import { useState } from "react"
-import { Button } from "../button/index.jsx"
-
+import { Button } from "../Button/Button.jsx"
 
 export const Modals = ({onClose}) => {
     const [modal, setModal] = useState("phone")

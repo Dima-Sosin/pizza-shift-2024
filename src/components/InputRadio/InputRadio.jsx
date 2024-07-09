@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./styles.module.css"
+import styles from "./InputRadio.module.css"
 import { Translation } from "../../translation/index.js"
 
 export const InputRadio = ({arr, name, onClick}) => (

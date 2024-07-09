@@ -1,9 +1,9 @@
 import React from "react"
-import styles from "./styles.module.css"
+import styles from "./ToppingCards.module.css"
 import { BASE_URL } from "../../rest-api/index.js"
 import { Translation } from "../../translation/index.js"
 
-export const IngredientsCard = ({ ingredients, onClick }) => (
+export const ToppingCards = ({ ingredients, onClick }) => (
     <div className={styles.ingredients}>
         <ul className={styles.cards}>
             {ingredients.map((ingredient, i) => (

@@ -1,6 +1,6 @@
-import styles from "./styles.module.css"
-import { Button } from "../../../components/button/index.jsx"
-import { Input } from "../../../components/input/index.jsx"
+import styles from "./PersonData.module.css"
+import { Button } from "../../../components/Button/Button.jsx"
+import { Input } from "../../../components/Input/Input.jsx"
 import { useContext } from "react"
 import { PageContext } from "../cart-page.jsx"
 import { useLoaderData } from "react-router-dom"
@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { addPerson, addReceiverAddress } from "../../../store/pizzaSlice.js"
 
-export const DataEntry = () => {
+export const PersonData = () => {
     const {setStage} = useContext(PageContext)
     const user = useLoaderData().user
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ export const DataEntry = () => {
             <Input
                 text="Фамилия*"
                 type="text"
-                id="lastname"
+                id="cart-lastname"
                 name="lastname"
                 placeholder="Фамилия"
                 defaultValue={user?.lastname}
@@ -61,7 +61,7 @@ export const DataEntry = () => {
             <Input
                 text="Имя*"
                 type="text"
-                id="firstname"
+                id="cart-firstname"
                 name="firstname"
                 placeholder="Имя"
                 defaultValue={user?.firstname}
@@ -76,7 +76,7 @@ export const DataEntry = () => {
             <Input
                 text="Отчество*"
                 type="text"
-                id="middlename"
+                id="cart-middlename"
                 name="middlename"
                 placeholder="Отчество"
                 defaultValue={user?.middlename}
@@ -91,7 +91,7 @@ export const DataEntry = () => {
             <Input
                 text="Телефон*"
                 type="text"
-                id="phone"
+                id="cart-phone"
                 name="phone"
                 placeholder="Телефон"
                 defaultValue={user?.phone}
@@ -109,7 +109,7 @@ export const DataEntry = () => {
             <Input
                 text="Email"
                 type="email"
-                id="email"
+                id="cart-email"
                 name="email"
                 placeholder="Email"
                 defaultValue={user?.email}
@@ -128,7 +128,7 @@ export const DataEntry = () => {
             <Input
                 text="Адрес"
                 type="text"
-                id="address"
+                id="cart-address"
                 name="address"
                 placeholder="Адрес"
                 defaultValue={user?.city}
