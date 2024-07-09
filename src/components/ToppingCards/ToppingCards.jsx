@@ -1,7 +1,8 @@
 import React from "react"
-import styles from "./ToppingCards.module.css"
+
 import { BASE_URL } from "../../rest-api/index.js"
 import { Translation } from "../../translation/index.js"
+import styles from "./ToppingCards.module.css"
 
 export const ToppingCards = ({ ingredients, onClick }) => (
     <div className={styles.ingredients}>

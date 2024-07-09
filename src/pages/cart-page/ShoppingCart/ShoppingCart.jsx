@@ -1,10 +1,11 @@
-import styles from "./ShoppingCart.module.css"
-import { useSelector } from "react-redux"
-import { selectPizzas } from "../../../store/pizzaSlice.js"
 import { useContext } from "react"
-import { PageContext } from "../cart-page.jsx"
+import { useSelector } from "react-redux"
+
 import { Button } from "../../../components/Button/Button.jsx"
+import { selectPizzas } from "../../../store/pizzaSlice.js"
+import { PageContext } from "../cart-page.jsx"
 import { PizzaElement } from "./PizzaElement.jsx"
+import styles from "./ShoppingCart.module.css"
 
 export const ShoppingCart = () => {
     const pizzas = useSelector(selectPizzas)

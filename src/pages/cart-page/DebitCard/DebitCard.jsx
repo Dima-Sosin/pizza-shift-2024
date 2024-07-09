@@ -1,14 +1,15 @@
-import styles from "./DebitCard.module.css"
-import { Button } from "../../../components/Button/Button.jsx"
 import { useState } from "react"
-import { Modal } from "../../../components/Modal/Modal.jsx"
-import  success from "../../../assets/success.svg"
-import { Link } from "react-router-dom"
-import { Input } from "../../../components/Input/Input.jsx"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
-import { addDebitCard, selectCart } from "../../../store/pizzaSlice.js"
+import { Link } from "react-router-dom"
+
+import  success from "../../../assets/success.svg"
+import { Button } from "../../../components/Button/Button.jsx"
+import { Input } from "../../../components/Input/Input.jsx"
+import { Modal } from "../../../components/Modal/Modal.jsx"
 import { POST } from "../../../rest-api/index.js"
+import { addDebitCard, selectCart } from "../../../store/pizzaSlice.js"
+import styles from "./DebitCard.module.css"
 
 export const DebitCard = () => {
     const[isModal, setIsModal] = useState(false)

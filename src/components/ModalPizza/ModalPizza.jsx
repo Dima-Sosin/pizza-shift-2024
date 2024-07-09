@@ -1,12 +1,13 @@
-import styles from "./ModalPizza.module.css"
-import { BASE_URL } from "../../rest-api/index.js"
-import { InputRadio } from "../InputRadio/InputRadio.jsx"
-import { ToppingCards } from "../ToppingCards/ToppingCards.jsx"
-import { Button } from "../Button/Button.jsx"
-import { Modal } from "../Modal/Modal.jsx"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+
+import { BASE_URL } from "../../rest-api/index.js"
 import { addPizza } from "../../store/pizzaSlice.js"
+import { Button } from "../Button/Button.jsx"
+import { InputRadio } from "../InputRadio/InputRadio.jsx"
+import { Modal } from "../Modal/Modal.jsx"
+import { ToppingCards } from "../ToppingCards/ToppingCards.jsx"
+import styles from "./ModalPizza.module.css"
 
 export const PizzaModal = ({ pizza, onClose }) => {
     const dispatch = useDispatch()

@@ -1,5 +1,6 @@
-import styles from "./Modal.module.css"
 import { useEffect } from "react"
+
+import styles from "./Modal.module.css"
 
 export const Modal = ({children, onClose}) => {
     document.body.style.overflow = 'hidden';

@@ -1,7 +1,8 @@
 import { createContext, useState } from "react"
-import { ShoppingCart } from "./ShoppingCart/ShoppingCart.jsx"
-import { PersonData } from "./PersonData/PersonData.jsx"
+
 import { DebitCard } from "./DebitCard/DebitCard.jsx"
+import { PersonData } from "./PersonData/PersonData.jsx"
+import { ShoppingCart } from "./ShoppingCart/ShoppingCart.jsx"
 
 export const PageContext = createContext('purchases');
 

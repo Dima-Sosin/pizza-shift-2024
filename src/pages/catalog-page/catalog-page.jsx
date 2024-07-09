@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom"
+
 import { PizzaCard } from "./PizzaCard/PizzaCard.jsx"
 
 export const CatalogPage = () => {

@@ -1,7 +1,8 @@
-import { Input } from "../../components/Input/Input.jsx"
-import { Button } from "../../components/Button/Button.jsx"
-import { useLoaderData } from "react-router-dom"
 import { useForm } from "react-hook-form"
+import { useLoaderData } from "react-router-dom"
+
+import { Button } from "../../components/Button/Button.jsx"
+import { Input } from "../../components/Input/Input.jsx"
 import { PATCH } from "../../rest-api/index.js"
 
 export function ProfilePage() {

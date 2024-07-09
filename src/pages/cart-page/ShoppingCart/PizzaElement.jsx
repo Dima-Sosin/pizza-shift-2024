@@ -1,9 +1,10 @@
-import styles from "./ShoppingCart.module.css"
-import { BASE_URL } from "../../../rest-api/index.js"
-import { Translation } from "../../../translation/index.js"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+
+import { BASE_URL } from "../../../rest-api/index.js"
 import { deletePizza } from "../../../store/pizzaSlice.js"
+import { Translation } from "../../../translation/index.js"
+import styles from "./ShoppingCart.module.css"
 
 export const PizzaElement = ({ pizza }) => {
     const dispatch = useDispatch()
