@@ -6,11 +6,9 @@ import { PATCH } from "../rest-api/index.js"
 
 export function ProfilePage() {
     const user = useLoaderData().user
-    console.log(user)
-    const { register, handleSubmit, errors, reset } = useForm();
+    const { register, handleSubmit, errors } = useForm();
 
     const onSubmit = (data) => {
-        reset();
         const updateProfile = {
             profile: {
                 firstname: data.firstname,
@@ -42,7 +40,7 @@ export function ProfilePage() {
                             required: true,
                             maxLength: 100
                         }}
-                        error-msg={errors?.lastname.message}
+                        error={errors?.firstname.message}
                     />
                     <Input
                         text="Имя*"
@@ -57,7 +55,7 @@ export function ProfilePage() {
                             required: true,
                             maxLength: 100
                         }}
-                        error-msg={errors?.firstname.message}
+                        error={errors?.firstname.message}
                     />
                     <Input
                         text="Отчество*"
@@ -72,7 +70,7 @@ export function ProfilePage() {
                             required: true,
                             maxLength: 100
                         }}
-                        error-msg={errors?.middlename.message}
+                        error={errors?.middlename.message}
                     />
                     <Input
                         text="Телефон*"
@@ -84,14 +82,14 @@ export function ProfilePage() {
                         defaultValue={user?.phone}
                         register={register}
                         label="phone"
-                        required={{
+                        {...register("phone", {
                             required: "phone required",
                             pattern: {
                                 value: /^(\+7|8)[- ]?(\d{3})[- ]?(\d{3})[- ]?(\d{2})[- ]?(\d{2})$/i,
                                 message: "Неправильный номер телефона!"
                             }
-                        }}
-                        errorMsg={errors?.phone.message}
+                        })}
+                        error={errors?.phone.message}
                     />
                     <Input
                         text="Email"
@@ -103,13 +101,14 @@ export function ProfilePage() {
                         register={register}
                         label="email"
                         required={{
-                            required: "email required",
+                            required: true,
                             pattern: {
+                                required: "email required",
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
                                 message: "Неправильный email!"
                             }
                         }}
-                        error-msg={errors?.email.message}
+                        error={errors?.email.message}
                     />
                     <Input
                         text="Город"
@@ -124,7 +123,7 @@ export function ProfilePage() {
                             required: true,
                             maxLength: 100
                         }}
-                        error-msg={errors?.city.message}
+                        error={errors?.city.message}
                     />
                     <BtnPrimary onClick={handleSubmit(onSubmit)}>
                         Обновить данные

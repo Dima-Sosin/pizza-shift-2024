@@ -6,7 +6,15 @@ import { Modals } from "./modals.jsx"
 
 export const PageHeader = () => {
     const [isModal, setIsModal] = useState(false)
-
+    const [isAuth, setIsAuth] = useState(!!(localStorage.getItem("token")))
+    const onClick = () => {
+        if(isAuth){
+            localStorage.removeItem("token")
+        }else{
+            setIsModal(true)
+        }
+        setIsAuth(!isAuth)
+    }
     return (
         <>
             <div className="page">
@@ -67,9 +75,9 @@ export const PageHeader = () => {
                                 </svg>
                                 <span
                                     className={styles.link}
-                                    onClick={() => setIsModal(true)}
+                                    onClick={() => onClick()}
                                 >
-                                Войти
+                                {isAuth ? "Выйти" : "Войти"}
                             </span>
                             </div>
                         </div>

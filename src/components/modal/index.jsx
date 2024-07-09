@@ -2,6 +2,7 @@ import styles from "./styles.module.css"
 import { useEffect } from "react"
 
 export const Modal = ({children, onClose}) => {
+    document.body.style.overflow = 'hidden';
     //Костыль, чтобы при открытии модалки дефолтно выбирались средний размер пиццы, и традиционное тесто
     useEffect(() => {
         const size = document.getElementById("MEDIUM")
@@ -11,6 +12,7 @@ export const Modal = ({children, onClose}) => {
         if(dough)
             dough.checked = true;
     }, [])
+
     return(
         <div className={styles.modal}>
             <div className={styles.modal_content}>

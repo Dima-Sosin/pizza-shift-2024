@@ -1,6 +1,6 @@
 import styles from "./styles.module.css"
 
-export const Input = ({ text, type, id, name, placeholder, readOnly = false, defaultValue, register, label, required, errorMsg }) => {
+export const Input = ({ text, type, id, name, placeholder, readOnly = false, defaultValue, register, label, required, error }) => {
     return (
         <div className={styles.container}>
             <label
@@ -19,7 +19,7 @@ export const Input = ({ text, type, id, name, placeholder, readOnly = false, def
                 defaultValue={defaultValue}
                 {...register(label, required)}
             />
-            <span className={styles.error_msg}>{errorMsg}</span>
+            <span className={styles.error}>{error}</span>
         </div>
     )
 }
