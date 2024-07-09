@@ -3,11 +3,11 @@ import './index.css'
 import store from "./store/store"
 import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { CatalogPage } from "./pages/catalog-page.jsx"
-import { ProfilePage } from "./pages/profile-page.jsx"
-import { OrdersPage } from "./pages/orders-page.jsx"
+import { CatalogPage } from "./pages/catalog-page/catalog-page.jsx"
+import { ProfilePage } from "./pages/profile-page/profile-page.jsx"
+import { OrdersPage } from "./pages/orders-page/orders-page.jsx"
 import { PageHeader } from "./components/page-header/index.jsx"
-import { CartPage } from "./pages/cart-page.jsx"
+import { CartPage } from "./pages/cart-page/cart-page.jsx"
 import { GET } from "./rest-api/index.js"
 
 const router = createBrowserRouter([

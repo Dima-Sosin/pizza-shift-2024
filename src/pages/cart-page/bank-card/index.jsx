@@ -1,14 +1,14 @@
 import styles from "./styles.module.css"
-import { BtnPrimary } from "../buttons/btn-primary.jsx"
+import { BtnPrimary } from "../../../components/buttons/btn-primary.jsx"
 import { useState } from "react"
-import { Modal } from "../modal/index.jsx"
-import  success from "../../assets/success.svg"
+import { Modal } from "../../../components/modal/index.jsx"
+import  success from "../../../assets/success.svg"
 import { Link } from "react-router-dom"
-import { Input } from "../input/index.jsx"
+import { Input } from "../../../components/input/index.jsx"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
-import { addDebitCard, selectCart } from "../../store/pizzaSlice.js"
-import { POST } from "../../rest-api/index.js"
+import { addDebitCard, selectCart } from "../../../store/pizzaSlice.js"
+import { POST } from "../../../rest-api/index.js"
 
 export const BankCard = () => {
     const[isModal, setIsModal] = useState(false)

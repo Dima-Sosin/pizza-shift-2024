@@ -1,7 +1,7 @@
 import { createContext, useState } from "react"
-import { Purchases } from "../components/purchases/index.jsx"
-import { DataEntry } from "../components/data-entry/index.jsx"
-import { BankCard } from "../components/bank-card/index.jsx"
+import { Purchases } from "./purchases/index.jsx"
+import { DataEntry } from "./data-entry/index.jsx"
+import { BankCard } from "./bank-card/index.jsx"
 
 export const PageContext = createContext('purchases');
 

@@ -1,8 +1,8 @@
 import styles from "./styles.module.css"
-import { BASE_URL } from "../../rest-api/index.js"
-import { BtnPrimary } from "../buttons/btn-primary.jsx"
+import { BASE_URL } from "../../../rest-api/index.js"
+import { BtnPrimary } from "../../../components/buttons/btn-primary.jsx"
 import { useEffect, useState } from "react"
-import { PizzaModal } from "../modal/pizza-modal.jsx"
+import { PizzaModal } from "../../../components/pizza-modal/pizza-modal.jsx"
 
 export const PizzaCard = ({ pizza }) => {
     const [isModal, setIsModal] = useState(false)

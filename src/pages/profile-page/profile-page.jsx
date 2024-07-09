@@ -1,8 +1,8 @@
-import { Input } from "../components/input"
-import { BtnPrimary } from "../components/buttons/btn-primary.jsx"
+import { Input } from "../../components/input/index.jsx"
+import { BtnPrimary } from "../../components/buttons/btn-primary.jsx"
 import { useLoaderData } from "react-router-dom"
 import { useForm } from "react-hook-form"
-import { PATCH } from "../rest-api/index.js"
+import { PATCH } from "../../rest-api/index.js"
 
 export function ProfilePage() {
     const user = useLoaderData().user

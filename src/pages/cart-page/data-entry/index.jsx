@@ -1,13 +1,13 @@
 import styles from "./styles.module.css"
-import { BtnDefault } from "../buttons/btn-default.jsx"
-import { BtnPrimary } from "../buttons/btn-primary.jsx"
-import { Input } from "../input/index.jsx"
+import { BtnDefault } from "../../../components/buttons/btn-default.jsx"
+import { BtnPrimary } from "../../../components/buttons/btn-primary.jsx"
+import { Input } from "../../../components/input/index.jsx"
 import { useContext } from "react"
-import { PageContext } from "../../pages/cart-page.jsx"
+import { PageContext } from "../cart-page.jsx"
 import { useLoaderData } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
-import { addPerson, addReceiverAddress } from "../../store/pizzaSlice.js"
+import { addPerson, addReceiverAddress } from "../../../store/pizzaSlice.js"
 
 export const DataEntry = () => {
     const {setStage} = useContext(PageContext)

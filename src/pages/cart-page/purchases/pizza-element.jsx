@@ -1,9 +1,9 @@
 import styles from "./styles.module.css"
-import { BASE_URL } from "../../rest-api/index.js"
-import { Translation } from "../../translation/index.js"
+import { BASE_URL } from "../../../rest-api/index.js"
+import { Translation } from "../../../translation/index.js"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { deletePizza } from "../../store/pizzaSlice.js"
+import { deletePizza } from "../../../store/pizzaSlice.js"
 
 export const PizzaElement = ({pizza}) => {
     const dispatch = useDispatch()
