@@ -1,4 +1,4 @@
-.modal{
+.modal {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,8 @@
     overflow: inherit;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.modal_content{
+
+.modal_content {
     position: relative;
     background-color: #ffffff;
     max-height: 85%;
@@ -18,11 +19,12 @@
     padding: 64px 64px;
     border-radius: 16px;
 }
+
 .close {
     position: absolute;
-    top:16px;
+    top: 16px;
     right: 24px;
-    color:#CED2DA;
+    color: #CED2DA;
     text-align: center;
 }
 

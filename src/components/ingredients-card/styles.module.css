@@ -1,21 +1,25 @@
-.ingredients{
-    color:#292929;
+.ingredients {
+    color: #292929;
     margin: 8px 0;
 }
-.cards{
+
+.cards {
     justify-content: center;
     display: grid;
     grid-template-columns: 124px 124px 124px;
     gap: 11px;
     list-style-type: none;
 }
-.card_input{
+
+.card_input {
     display: none;
 }
-.card_input:checked + .card_label{
+
+.card_input:checked + .card_label {
     border: 1px #F4511E solid;
 }
-.card_label{
+
+.card_label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,17 +28,20 @@
     padding: 8px;
     box-shadow: 0 4px 12px 0 rgb(0, 0, 0, 0.15);
 }
-.img{
+
+.img {
     width: 108px;
     height: 108px;
 }
-.name{
+
+.name {
     font-size: 12px;
     text-align: center;
     height: 32px;
     margin-bottom: 4px;
 }
-.cost{
+
+.cost {
     font-size: 14px;
     font-weight: 500;
     text-align: center;

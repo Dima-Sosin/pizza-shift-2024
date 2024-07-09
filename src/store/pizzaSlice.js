@@ -1,11 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit"
 
 export const pizzaSlice = createSlice({
     name: "pizza",
     initialState: {
         pizzas: [],
         person: {},
-        receiverAddress:{},
+        receiverAddress: {},
         debitCard: {}
     },
     reducers: {
@@ -13,7 +13,9 @@ export const pizzaSlice = createSlice({
             state.pizzas = [...state.pizzas, action.payload]
         },
         deletePizza: (state, action) => {
-            state.pizzas = state.pizzas.filter(pizza => pizza.id !== action.payload.id)
+            state.pizzas = state.pizzas.filter(
+                (pizza) => pizza.id !== action.payload.id
+            )
         },
         changePizza: (state, action) => {
             state.pizzas = state.pizzas.map((pizza) => {
@@ -35,7 +37,13 @@ export const pizzaSlice = createSlice({
     }
 })
 
-export const {addPizza, deletePizza, addPerson, addReceiverAddress, addDebitCard} = pizzaSlice.actions
+export const {
+    addPizza,
+    deletePizza,
+    addPerson,
+    addReceiverAddress,
+    addDebitCard
+} = pizzaSlice.actions
 
 export const selectPizzas = (state) => state.pizza.pizzas
 export const selectCart = (state) => state.pizza
