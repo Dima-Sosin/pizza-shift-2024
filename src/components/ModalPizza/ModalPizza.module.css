@@ -1,0 +1,85 @@
+.pizza_modal {
+    display: flex;
+}
+
+.img {
+    width: 220px;
+    height: 220px;
+    margin-right: 32px;
+}
+
+.modal_title {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.modal_title:hover {
+    cursor: pointer;
+
+    .tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 100;
+    top: 42px;
+    left: 76px;
+    margin-left: -60px;
+}
+
+.tooltip_title {
+    opacity: 0.5;
+}
+
+.info {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 476px;
+    max-width: 402px;
+    color: #292929;
+    padding: 0 16px;
+}
+
+.info::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+.info::-webkit-scrollbar-thumb {
+    background-color: #CED2DA;
+    border-radius: 4px;
+}
+
+.p {
+    margin: 8px 0;
+}
+
+.span {
+    font-weight: 600;
+}
+
+.highlight {
+    display: inline-block;
+    font-size: 14px;
+    padding: 10px 16px;
+    margin-right: 5px;
+    background-color: #f4511e;
+    border-radius: 16px;
+    color: #ffffff;
+}
+
+.section_title {
+    font-size: 20px;
+    font-weight: 600;
+}

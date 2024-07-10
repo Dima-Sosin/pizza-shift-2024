@@ -1,9 +1,9 @@
-import { createStore, combineReducers } from "redux"
-import { pizzaReducer } from "./pizza-reducer"
+import { configureStore } from "@reduxjs/toolkit"
 
+import pizzaReducer from "./pizzaSlice.js"
 
-const Reducers = combineReducers({
-    pizza: pizzaReducer,
+export default configureStore({
+    reducer: {
+        pizza: pizzaReducer
+    }
 })
-
-export const store = createStore(Reducers)

@@ -1,0 +1,27 @@
+.primary {
+    border: none;
+    color: #fff;
+    background: #f4511e;
+}
+
+.primary:hover {
+    background: #f77340;
+}
+
+.primary:active {
+    background: #e53611;
+}
+
+.default {
+    background: #ffffff;
+    color: #344051;
+    border: 1px #CED2DA solid;
+}
+
+.default:hover {
+    background: #F3F4F6;
+}
+
+.default:active {
+    background: #edeef1;
+}
