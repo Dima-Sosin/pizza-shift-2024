@@ -11,9 +11,15 @@ export const OrdersPage = () => {
             <div className="container">
                 <h1>Заказы</h1>
                 <div className={styles.head}>
-                    <p className={styles.head_span}>Статус</p>
-                    <p className={styles.head_span}>Адрес доставки</p>
-                    <p className={styles.head_span}>Состав заказа</p>
+                    <div className={styles.status}>
+                        <p>Статус</p>
+                    </div>
+                    <div className={styles.address}>
+                        <p>Адрес доставки</p>
+                    </div>
+                    <div className={styles.composition_order}>
+                        <p>Состав заказа</p>
+                    </div>
                 </div>
                 <div className={styles.line}></div>
                 <ul>

@@ -17,7 +17,9 @@ export const OrderElement = ({ order }) => {
                 <br />
                 Топинги
             </p>
-            <a className={styles.details}>Подробнее</a>
+            <p className={styles.details}>
+                <a className={styles.link}>Подробнее</a>
+            </p>
         </div>
     )
 }
