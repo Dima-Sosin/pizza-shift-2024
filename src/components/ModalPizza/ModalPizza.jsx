@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
+import { AttentionIcon } from "../../assets/AttentionIcon.jsx"
 import { BASE_URL } from "../../rest-api/index.js"
 import { addPizza } from "../../store/pizzaSlice.js"
 import { Button } from "../Button/Button.jsx"
@@ -67,11 +68,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
                     <div className={styles.info}>
                         <h2 className={styles.modal_title}>
                             {pizza.name}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
-                                <path fill="#000" fillRule="evenodd" d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16m0 2c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10" />
-                                <path fill="#000" d="M12 11a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0v-5a1 1 0 0 1 1-1" />
-                                <path fill="#000" d="M13.5 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
+                            <AttentionIcon />
                             <span className={styles.tooltip}>
                                 <span className={styles.tooltip_title}>
                                     Пищевая ценность на 100 г:
@@ -85,8 +82,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
                                 <br />
                                 Углеводы: {pizza.carbohydrates}
                                 <br />
-                                <br />
-                                Вес: {pizza.sodium}
+                                Натрий: {pizza.sodium}
                             </span>
                         </h2>
 
@@ -137,7 +133,8 @@ export const PizzaModal = ({ pizza, onClose }) => {
                         />
                     </div>
 
-                    <Button type="primary"
+                    <Button
+                        type="primary"
                         onClick={() => {
                             dispatch(addPizza(buyPizza))
                             onClose()

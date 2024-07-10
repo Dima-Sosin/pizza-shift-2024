@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
-import  success from "../../../assets/success.svg"
+import { SuccessIcon } from "../../../assets/SuccessIcon.jsx"
 import { Button } from "../../../components/Button/Button.jsx"
 import { Input } from "../../../components/Input/Input.jsx"
 import { Modal } from "../../../components/Modal/Modal.jsx"
@@ -94,10 +94,7 @@ export const DebitCard = () => {
                     }}
                 >
                     <div className={styles.modal}>
-                        <img
-                            src={success}
-                            alt="Изображение белой галочки в зеленом круге"
-                        />
+                        <SuccessIcon />
                         <h2>Оплата прошла успешно!</h2>
                         <p>
                             <span>Заказ</span><br/>
