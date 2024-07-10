@@ -10,10 +10,10 @@ import { PageContext } from "../cart-page.jsx"
 import styles from "./PersonData.module.css"
 
 export const PersonData = () => {
-    const {setStage} = useContext(PageContext)
+    const { setStage } = useContext(PageContext)
     const user = useLoaderData().user
     const dispatch = useDispatch()
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = (data) => {
         const person = {
@@ -22,26 +22,26 @@ export const PersonData = () => {
             middlename: data.middlename,
             phone: data.phone
         }
-        const  receiverAddress = parseAddress(data.address)
+        const receiverAddress = parseAddress(data.address)
         dispatch(addPerson(person))
         dispatch(addReceiverAddress(receiverAddress))
         setStage("bankCard")
     }
 
     const parseAddress = (address) => {
-        const addressParts = address.split(',').map(part => part.trim());
+        const addressParts = address.split(",").map((part) => part.trim())
 
         const addressObject = {
             street: addressParts[1],
             house: addressParts[2],
-            apartment: addressParts[3] || '',
-            comment: addressParts[4] || ''
-        };
+            apartment: addressParts[3] || "",
+            comment: addressParts[4] || ""
+        }
 
-        return addressObject;
+        return addressObject
     }
 
-    return(
+    return (
         <form className="form">
             <h1>Введите ваши данные</h1>
             <Input

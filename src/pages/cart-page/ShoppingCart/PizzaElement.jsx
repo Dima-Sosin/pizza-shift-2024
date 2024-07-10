@@ -28,18 +28,17 @@ export const PizzaElement = ({ pizza }) => {
                 />
                 <p className={styles.name}>{pizza.name}</p>
                 <p className={styles.pizza_inf}>
-                    {Translation[pizza.size.name]},{" "}
-                    {Translation[pizza.doughs.name]}
+                    {Translation[pizza.size.name]}, {Translation[pizza.doughs.name]}
                     <ul>
                         {pizza.toppings?.map((topping) => (
                             <li key={topping.name}>
                                 <span className={styles.topping}>
                                     + {Translation[topping.name]}
-                                </span><br/>
+                                </span>
+                                <br />
                             </li>
                         ))}
                     </ul>
-
                 </p>
                 <div className={styles.quantity}>
                     <button className={styles.btn} onClick={() => setCount(count - 1)}>-</button>
