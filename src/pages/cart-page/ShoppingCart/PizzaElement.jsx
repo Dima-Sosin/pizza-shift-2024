@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
+import { CloseIcon } from "../../../assets/CloseIcon.jsx"
 import { BASE_URL } from "../../../rest-api/index.js"
 import { deletePizza } from "../../../store/pizzaSlice.js"
 import { Translation } from "../../../translation/index.js"
@@ -10,11 +11,11 @@ export const PizzaElement = ({ pizza }) => {
     const dispatch = useDispatch()
     const [count, setCount] = useState(1)
 
-    const calcCost = (toppings, size, doughs) => {
+    const calcCost = (toppings, size, doughs, num) => {
         let cost = 0
         toppings?.map((topping) => (cost += topping.cost))
         cost += size.price + doughs.price
-        return cost
+        return cost * num
     }
 
     return (
@@ -28,39 +29,29 @@ export const PizzaElement = ({ pizza }) => {
                 <p className={styles.name}>{pizza.name}</p>
                 <p className={styles.pizza_inf}>
                     {Translation[pizza.size.name]},{" "}
-                    {Translation[pizza.doughs.name]} +{" "}
-                    {pizza.toppings?.map((topping) => (
-                        <span className={styles.topping} key={topping.name}>
-                            {Translation[topping.name]}
-                        </span>
-                    ))}
+                    {Translation[pizza.doughs.name]}
+                    <ul>
+                        {pizza.toppings?.map((topping) => (
+                            <li key={topping.name}>
+                                <span className={styles.topping}>
+                                    + {Translation[topping.name]}
+                                </span><br/>
+                            </li>
+                        ))}
+                    </ul>
+
                 </p>
                 <div className={styles.quantity}>
-                    <button
-                        className={styles.btn}
-                        onClick={() => setCount(count - 1)}
-                    >
-                        -
-                    </button>
+                    <button className={styles.btn} onClick={() => setCount(count - 1)}>-</button>
                     <p className={styles.num}>{count}</p>
-                    <button
-                        className={styles.btn}
-                        onClick={() => setCount(count + 1)}
-                    >
-                        +
-                    </button>
+                    <button className={styles.btn} onClick={() => setCount(count + 1)}>+</button>
                 </div>
                 <p className={styles.change}>Изменить</p>
                 <p className={styles.cost}>
-                    {calcCost(pizza.toppings, pizza.size, pizza.doughs)} ₽
+                    {calcCost(pizza.toppings, pizza.size, pizza.doughs, count)} ₽
                 </p>
-                <div
-                    className={styles.remove}
-                    onClick={() => dispatch(deletePizza(pizza))}
-                >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="transparent" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21.085 3.53a.75.75 0 0 0-1.06 0l-7.719 7.718-7.71-7.711a.75.75 0 1 0-1.06 1.06l7.71 7.712-7.716 7.716a.75.75 0 1 0 1.061 1.061l7.715-7.717 7.726 7.725a.75.75 0 0 0 1.06-1.06l-7.724-7.725 7.717-7.719a.75.75 0 0 0 0-1.06" fill="currentColor" />
-                    </svg>
+                <div className={styles.remove} onClick={() => dispatch(deletePizza(pizza))}>
+                    <CloseIcon />
                 </div>
             </div>
         </>

@@ -17,14 +17,6 @@ export const pizzaSlice = createSlice({
                 (pizza) => pizza.id !== action.payload.id
             )
         },
-        changePizza: (state, action) => {
-            state.pizzas = state.pizzas.map((pizza) => {
-                if (pizza.id === action.payload.id) {
-                    return action.payload
-                }
-                return pizza
-            })
-        },
         addPerson: (state, action) => {
             state.person = action.payload
         },
@@ -33,6 +25,12 @@ export const pizzaSlice = createSlice({
         },
         addDebitCard: (state, action) => {
             state.debitCard = action.payload
+        },
+        deleteAll: (state) => {
+            state.pizzas = [];
+            state.person = {};
+            state.receiverAddress = {};
+            state.debitCard = {}
         }
     }
 })
@@ -42,7 +40,8 @@ export const {
     deletePizza,
     addPerson,
     addReceiverAddress,
-    addDebitCard
+    addDebitCard,
+    deleteAll
 } = pizzaSlice.actions
 
 export const selectPizzas = (state) => state.pizza.pizzas

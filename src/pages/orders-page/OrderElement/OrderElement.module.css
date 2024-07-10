@@ -16,10 +16,6 @@
     margin-bottom: 24px;
 }
 
-.li {
-    list-style: none;
-}
-
 .order_element {
     display: flex;
     align-items: start;

@@ -51,7 +51,7 @@ export const Modals = ({onClose}) => {
                                 }
                             }}
                         />
-                        <Button onClick={handleSubmit(onSubmit1)}>Продолжить</Button>
+                        <Button type="primary" onClick={handleSubmit(onSubmit1)}>Продолжить</Button>
                     </form>
                 </Modal>
             }
@@ -88,7 +88,7 @@ export const Modals = ({onClose}) => {
                                 maxLength:6
                             }}
                         />
-                        <Button onClick={handleSubmit(onSubmit2)}>Продолжить</Button>
+                        <Button type="primary" onClick={handleSubmit(onSubmit2)}>Продолжить</Button>
                     </form>
                 </Modal>
             }

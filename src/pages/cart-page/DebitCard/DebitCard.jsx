@@ -1,29 +1,33 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
 
-import { SuccessIcon } from "../../../assets/SuccessIcon.jsx"
 import { Button } from "../../../components/Button/Button.jsx"
 import { Input } from "../../../components/Input/Input.jsx"
-import { Modal } from "../../../components/Modal/Modal.jsx"
 import { POST } from "../../../rest-api/index.js"
-import { addDebitCard, selectCart } from "../../../store/pizzaSlice.js"
+import { addDebitCard, deleteAll, selectCart } from "../../../store/pizzaSlice.js"
 import styles from "./DebitCard.module.css"
+import { ModalSuccess } from "./ModalSuccess.jsx"
 
 export const DebitCard = () => {
-    const[isModal, setIsModal] = useState(false)
+    const [isModal, setIsModal] = useState(false)
     const dispatch = useDispatch()
     const pizza = useSelector(selectCart)
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm()
+
+    //Костыль, так как данные попадают в store не сразу после dispatch, то нужно задержать POST запрос
+    useEffect(() => {
+        POST("/pizza/payment", pizza).then((result) => {
+            console.log(result)
+        })
+    }, [pizza.debitCard])
 
     const onSubmit = (data) => {
-        setIsModal(true)
         dispatch(addDebitCard(data))
-        POST("/pizza/payment", pizza).then(result => result)
+        setIsModal(true)
     }
 
-    return(
+    return (
         <>
             <form className="form">
                 <h1>Введите данные карты для оплаты</h1>
@@ -86,32 +90,16 @@ export const DebitCard = () => {
                     Оплатить
                 </Button>
             </form>
-            {isModal &&
-                <Modal
+            {isModal && (
+                <ModalSuccess
+                    pizza={pizza}
                     onClose={() => {
                         setIsModal(false)
                         document.body.style.overflow = "unset"
+                        dispatch(deleteAll())
                     }}
-                >
-                    <div className={styles.modal}>
-                        <SuccessIcon />
-                        <h2>Оплата прошла успешно!</h2>
-                        <p>
-                            <span>Заказ</span><br/>
-                            <p></p>
-                            <span>Адрес доставки</span><br/>
-                            <p></p>
-                            <span>Сумма заказа</span>
-                            <p></p>
-                            <span>Вся информация была продублирована в SMS</span>
-                        </p>
-                        <Link to="/catalog">
-                            Перейти в главное меню
-                        </Link>
-                    </div>
-                </Modal>
-            }
-
+                />
+            )}
         </>
     )
 }

@@ -8,7 +8,6 @@
     display: grid;
     grid-template-columns: 124px 124px 124px;
     gap: 11px;
-    list-style-type: none;
 }
 
 .card_input {

@@ -56,7 +56,10 @@ export const PageHeader = () => {
                     </header>
                 </div>
             </div>
-            {isModal && <Modals onClose={() => setIsModal(false)}/>}
+            {isModal && <Modals onClose={() => {
+                setIsModal(false)
+                document.body.style.overflow = "unset"
+            }}/>}
             <Outlet />
         </>
     )

@@ -19,6 +19,16 @@
     color: #141C24;
     display: flex;
     flex-direction: column;
+    gap:16px;
     align-items: center;
-    gap: 24px;
+}
+
+.section{
+    width: 100%;
+}
+
+.section_title{
+    color:#637083;
+    font-size: 12px;
+
 }

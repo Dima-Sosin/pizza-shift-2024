@@ -1,5 +1,3 @@
-import React from "react"
-
 import { BASE_URL } from "../../rest-api/index.js"
 import { Translation } from "../../translation/index.js"
 import styles from "./ToppingCards.module.css"
@@ -8,14 +6,12 @@ export const ToppingCards = ({ ingredients, onClick }) => (
     <div className={styles.ingredients}>
         <ul className={styles.cards}>
             {ingredients.map((ingredient, i) => (
-                <React.Fragment key={i}>
+                <li key={i}>
                     <input
                         className={styles.card_input}
                         type="checkbox"
                         id={ingredient.name}
-                        onChange={(event) =>
-                            onClick(ingredient.name, event.target.checked)
-                        }
+                        onChange={(event) => onClick(ingredient.name, event.target.checked)}
                     />
                     <label className={styles.card_label} htmlFor={ingredient.name}>
                         <img
@@ -26,7 +22,7 @@ export const ToppingCards = ({ ingredients, onClick }) => (
                         <p className={styles.name}>{Translation[ingredient.name]}</p>
                         <p className={styles.cost}>{ingredient.cost} ₽</p>
                     </label>
-                </React.Fragment>
+                </li>
             ))}
         </ul>
     </div>
