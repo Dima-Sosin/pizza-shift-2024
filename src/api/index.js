@@ -1,5 +1,6 @@
 export const BASE_URL = "https://shift-backend.onrender.com"
 
+//TODO - написать свой клиент для запросов реализовав его через объект api
 export async function GET(path, params = {},  token = null) {
     try{
         const urlWithParams = new URL(BASE_URL + path);

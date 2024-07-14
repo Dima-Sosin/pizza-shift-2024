@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { Button } from "../../../components/Button/Button.jsx"
 import { Input } from "../../../components/Input/Input.jsx"
-import { POST } from "../../../rest-api/index.js"
+import { POST } from "../../../api/index.js"
 import { addDebitCard, deleteAll, selectCart } from "../../../store/pizzaSlice.js"
 import styles from "./DebitCard.module.css"
 import { ModalSuccess } from "./ModalSuccess.jsx"
@@ -15,7 +15,8 @@ export const DebitCard = () => {
     const pizza = useSelector(selectCart)
     const { register, handleSubmit, errors } = useForm()
 
-    //Костыль, так как данные попадают в store не сразу после dispatch, то нужно задержать POST запрос
+    //TODO - исправить костыль для POST запроса
+    // Костыль, так как данные попадают в store не сразу после dispatch, то нужно задержать POST запрос
     useEffect(() => {
         POST("/pizza/payment", pizza).then((result) => {
             console.log(result)

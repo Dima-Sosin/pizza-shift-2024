@@ -13,7 +13,11 @@ export const PersonData = () => {
     const { setStage } = useContext(PageContext)
     const user = useLoaderData().user
     const dispatch = useDispatch()
-    const { register, handleSubmit, errors } = useForm()
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm()
 
     const onSubmit = (data) => {
         const person = {
@@ -47,7 +51,7 @@ export const PersonData = () => {
             <Input
                 text="Фамилия*"
                 type="text"
-                id="cart-lastname"
+                id="profile-lastname"
                 name="lastname"
                 placeholder="Фамилия"
                 defaultValue={user?.lastname}
@@ -55,14 +59,18 @@ export const PersonData = () => {
                 label="lastname"
                 required={{
                     required: true,
+                    pattern: {
+                        value: /^[А-Я-]+$/i,
+                        message: "Фамилия должна содержать только буквы"
+                    },
                     maxLength: 100
                 }}
-                error={errors?.firstname.message}
+                error={errors.lastname?.message}
             />
             <Input
                 text="Имя*"
                 type="text"
-                id="cart-firstname"
+                id="profile-firstname"
                 name="firstname"
                 placeholder="Имя"
                 defaultValue={user?.firstname}
@@ -70,14 +78,18 @@ export const PersonData = () => {
                 label="firstname"
                 required={{
                     required: true,
+                    pattern: {
+                        value: /^[А-Я-]+$/i,
+                        message: "Имя должно содержать только буквы"
+                    },
                     maxLength: 100
                 }}
-                error={errors?.firstname.message}
+                error={errors.firstname?.message}
             />
             <Input
                 text="Отчество*"
                 type="text"
-                id="cart-middlename"
+                id="profile-middlename"
                 name="middlename"
                 placeholder="Отчество"
                 defaultValue={user?.middlename}
@@ -85,32 +97,38 @@ export const PersonData = () => {
                 label="middlename"
                 required={{
                     required: true,
+                    pattern: {
+                        value: /^[А-Я-]+$/i,
+                        message: "Отчество должно содержать только буквы"
+                    },
                     maxLength: 100
                 }}
-                error={errors?.middlename.message}
+                error={errors.middlename?.message}
             />
             <Input
                 text="Телефон*"
                 type="text"
-                id="cart-phone"
+                id="profile-phone"
                 name="phone"
                 placeholder="Телефон"
+                readOnly={true}
                 defaultValue={user?.phone}
                 register={register}
                 label="phone"
-                {...register("phone", {
-                    required: "phone required",
+                required={{
+                    required: true,
                     pattern: {
-                        value: /^(\+7|8)[- ]?(\d{3})[- ]?(\d{3})[- ]?(\d{2})[- ]?(\d{2})$/i,
+                        value: /^(\+7|8)(\d{10})$/i,
                         message: "Неправильный номер телефона!"
-                    }
-                })}
-                error={errors?.phone.message}
+                    },
+                    maxLength: 100
+                }}
+                error={errors.phone?.message}
             />
             <Input
                 text="Email"
-                type="email"
-                id="cart-email"
+                type="text"
+                id="profile-email"
                 name="email"
                 placeholder="Email"
                 defaultValue={user?.email}
@@ -119,12 +137,12 @@ export const PersonData = () => {
                 required={{
                     required: true,
                     pattern: {
-                        required: "email required",
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
                         message: "Неправильный email!"
-                    }
+                    },
+                    maxLength: 100
                 }}
-                error={errors?.email.message}
+                error={errors.email?.message}
             />
             <Input
                 text="Адрес"
@@ -137,9 +155,13 @@ export const PersonData = () => {
                 label="address"
                 required={{
                     required: true,
+                    pattern: {
+                        value: /^[А-Я0-9- .]+,[А-Я0-9- .]+,[А-Я0-9- .]+,[А-Я0-9- .]+,*[А-Я0-9- .]*$/i,
+                        message: "Пожалуйста введите весь адрес, через запятую"
+                    },
                     maxLength: 100
                 }}
-                error={errors?.address.message}
+                error={errors.address?.message}
             />
             <div className={styles.buttons}>
                 <Button type="default" onClick={() => setStage("purchases")}>

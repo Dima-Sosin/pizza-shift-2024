@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 
-import { POST } from "../../rest-api/index.js"
+import { POST } from "../../api/index.js"
 import { Button } from "../Button/Button.jsx"
 import { Input } from "../Input/Input.jsx"
 import { Modal } from "../Modal/Modal.jsx"

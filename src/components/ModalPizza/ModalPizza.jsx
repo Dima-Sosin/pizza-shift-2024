@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 
 import { AttentionIcon } from "../../assets/AttentionIcon.jsx"
-import { BASE_URL } from "../../rest-api/index.js"
+import { BASE_URL } from "../../api/index.js"
 import { addPizza } from "../../store/pizzaSlice.js"
 import { Button } from "../Button/Button.jsx"
 import { InputRadio } from "../InputRadio/InputRadio.jsx"

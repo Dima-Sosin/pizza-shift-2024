@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { Button } from "../../../components/Button/Button.jsx"
 import { PizzaModal } from "../../../components/ModalPizza/ModalPizza.jsx"
-import { BASE_URL } from "../../../rest-api/index.js"
+import { BASE_URL } from "../../../api/index.js"
 import styles from "./PizzaCard.module.css"
 
 export const PizzaCard = ({ pizza }) => {

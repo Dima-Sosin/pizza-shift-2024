@@ -1,9 +1,9 @@
 .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
     width: 100%;
-    position: relative;
 }
 
 .label {
@@ -28,8 +28,7 @@
 .error {
     position: absolute;
     left: 0;
-    bottom: -15px;
+    bottom: -22px;
     font-size: 14px;
     color: red;
-    margin-top: 5px;
 }
