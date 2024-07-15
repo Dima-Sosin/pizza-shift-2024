@@ -115,18 +115,16 @@ export const PizzaModal = ({ pizza, onClose }) => {
                             )}
                         </p>
 
-                        <p className={styles.p}>
-                            <InputRadio
-                                arr={pizza.sizes}
-                                name={"sizes"}
-                                onClick={sizeChange}
-                            />
-                            <InputRadio
-                                arr={pizza.doughs}
-                                name={"doughs"}
-                                onClick={doughsChange}
-                            />
-                        </p>
+                        <InputRadio
+                            arr={pizza.sizes}
+                            name={"sizes"}
+                            onClick={sizeChange}
+                        />
+                        <InputRadio
+                            arr={pizza.doughs}
+                            name={"doughs"}
+                            onClick={doughsChange}
+                        />
 
                         <p className={styles.section_title}>
                             Добавить по вкусу

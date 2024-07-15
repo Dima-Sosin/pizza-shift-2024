@@ -5,11 +5,10 @@ import styles from "./OrderElement/OrderElement.module.css"
 
 export const OrdersPage = () => {
     const orders = useLoaderData().orders
-    console.log(orders)
     return (
         <div className="page">
             <div className="container">
-                <h1>Заказы</h1>
+                <h2>Заказы</h2>
                 <div className={styles.head}>
                     <div className={styles.status}>
                         <p>Статус</p>

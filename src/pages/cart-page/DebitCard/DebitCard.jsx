@@ -26,9 +26,7 @@ export const DebitCard = () => {
     //TODO - исправить костыль для POST запроса
     // Костыль, так как данные попадают в store не сразу после dispatch, то нужно задержать POST запрос
     useEffect(() => {
-        POST("/pizza/payment", pizza).then((result) => {
-            console.log(result)
-        })
+        POST("/pizza/payment", pizza).then((result) => result)
     }, [pizza.debitCard])
 
     const onSubmit = (data) => {
@@ -39,7 +37,7 @@ export const DebitCard = () => {
     return (
         <>
             <form className="form">
-                <h1>Введите данные карты для оплаты</h1>
+                <h2>Введите данные карты для оплаты</h2>
                 <div className={styles.block}>
                     <Input
                         text="Номер*"

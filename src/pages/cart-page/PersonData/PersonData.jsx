@@ -49,7 +49,7 @@ export const PersonData = () => {
 
     return (
         <form className="form">
-            <h1>Введите ваши данные</h1>
+            <h2>Введите ваши данные</h2>
             <Input
                 text="Фамилия*"
                 type="text"
@@ -116,7 +116,7 @@ export const PersonData = () => {
                 defaultValue={user?.phone}
                 register={registerWithMask}
                 label="phone"
-                mask={["8 (999) 999 99 99"]}
+                mask={["+7 999 999 99 99"]}
                 required={{
                     required: true,
                 }}
@@ -145,7 +145,7 @@ export const PersonData = () => {
                 type="text"
                 id="cart-address"
                 name="address"
-                placeholder="Адрес"
+                placeholder="Город, улица, дом, квартира, комментарий"
                 defaultValue={user?.city}
                 register={register}
                 label="address"

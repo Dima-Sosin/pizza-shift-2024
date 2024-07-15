@@ -6,23 +6,33 @@ import { ExitIcon } from "../../assets/ExitIcon.jsx"
 import { LogoIcon } from "../../assets/LogoIcon.jsx"
 import { TimeIcon } from "../../assets/TimeIcon.jsx"
 import { UserIcon } from "../../assets/UserIcon.jsx"
-import { Modals } from "./Modals.jsx"
+import { LogOn } from "../LogOn/LogOn.jsx"
+import { LogOut } from "../LogOut/LogOut.jsx"
 import styles from "./PageHeader.module.css"
 
 export const PageHeader = () => {
     const [isModal, setIsModal] = useState(false)
-    const [isAuth, setIsAuth] = useState(!!(localStorage.getItem("token")))
-    const onClick = () => {
-        if(isAuth){
-            localStorage.removeItem("token")
-        }else{
-            setIsModal(true)
-        }
-        setIsAuth(!isAuth)
+    const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"))
+
+    function onClose() {
+        setIsModal(false)
+        document.body.style.overflow = "unset"
     }
+
+    const Modal= {
+        true: <LogOut
+            onClose={() => onClose()}
+            setIsAuth={setIsAuth}
+        />,
+        false: <LogOn
+            onClose={() => onClose()}
+            setIsAuth={setIsAuth}
+        />
+    }
+
     return (
         <>
-            <div className="page">
+            <div className={`page ${styles.header_line}`}>
                 <div className="container">
                     <header className={styles.page_header}>
                         <div className={styles.left}>
@@ -47,19 +57,16 @@ export const PageHeader = () => {
                                 <ExitIcon />
                                 <span
                                     className={styles.link}
-                                    onClick={() => onClick()}
+                                    onClick={() => setIsModal(true)}
                                 >
-                                {isAuth ? "Выйти" : "Войти"}
-                            </span>
+                                    {isAuth ? "Выйти" : "Войти"}
+                                </span>
                             </div>
                         </div>
                     </header>
                 </div>
             </div>
-            {isModal && <Modals onClose={() => {
-                setIsModal(false)
-                document.body.style.overflow = "unset"
-            }}/>}
+            {isModal && Modal[isAuth]}
             <Outlet />
         </>
     )

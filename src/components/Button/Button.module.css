@@ -25,3 +25,21 @@
 .default:active {
     background: #edeef1;
 }
+
+.link {
+    height: fit-content;
+    padding: 0;
+    margin-top: 16px;
+    border: none;
+    gap: 16px;
+    background-color: transparent;
+    color: #637083;
+}
+
+.link:hover {
+    color: #556074;
+}
+
+.link:active {
+    color: #464f5e;
+}

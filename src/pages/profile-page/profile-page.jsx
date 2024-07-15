@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useLoaderData } from "react-router-dom"
+import { useHookFormMask } from "use-mask-input"
 
 import { PATCH } from "../../api/index.js"
 import { Button } from "../../components/Button/Button.jsx"
@@ -12,6 +13,7 @@ export function ProfilePage() {
         handleSubmit,
         formState: { errors }
     } = useForm()
+    const registerWithMask = useHookFormMask(register)
 
     const onSubmit = (data) => {
         const updateProfile = {
@@ -25,14 +27,14 @@ export function ProfilePage() {
             phone: user.phone
         }
         PATCH("/users/profile", updateProfile, localStorage.getItem("token"))
-            .then((result) => console.log(result))
+            .then((result) => result)
     }
 
     return (
         <div className="page">
             <div className="container">
                 <form className="form">
-                    <h1>Профиль</h1>
+                    <h2>Профиль</h2>
                     <Input
                         text="Фамилия*"
                         type="text"
@@ -98,17 +100,12 @@ export function ProfilePage() {
                         placeholder="Телефон"
                         readOnly={true}
                         defaultValue={user?.phone}
-                        register={register}
+                        register={registerWithMask}
                         label="phone"
+                        mask={["+7 999 999 99 99"]}
                         required={{
                             required: true,
-                            pattern: {
-                                value: /^(\+7|8)(\d{10})$/i,
-                                message: "Неправильный номер телефона!"
-                            },
-                            maxLength: 100
                         }}
-                        error={errors.phone?.message}
                     />
                     <Input
                         text="Email"

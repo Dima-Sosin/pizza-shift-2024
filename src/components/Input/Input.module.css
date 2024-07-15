@@ -25,6 +25,11 @@
     box-shadow: 0 0 0 1px #F4511E;
 }
 
+input[readonly]
+{
+    background-color:#F3F4F6;
+}
+
 .error {
     position: absolute;
     left: 0;
