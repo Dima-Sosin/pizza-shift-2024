@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { AttentionIcon } from "../../assets/AttentionIcon.jsx"
 import { BASE_URL } from "../../api/index.js"
+import { AttentionIcon } from "../../assets/AttentionIcon.jsx"
 import { addPizza } from "../../store/pizzaSlice.js"
 import { Button } from "../Button/Button.jsx"
 import { InputRadio } from "../InputRadio/InputRadio.jsx"
@@ -66,25 +66,29 @@ export const PizzaModal = ({ pizza, onClose }) => {
                 />
                 <div className={styles.right}>
                     <div className={styles.info}>
-                        <h2 className={styles.modal_title}>
-                            {pizza.name}
-                            <AttentionIcon />
-                            <span className={styles.tooltip}>
+                        <div className={styles.modal_title}>
+                            <h2>{pizza.name}</h2><AttentionIcon />
+                            <p className={styles.tooltip}>
                                 <span className={styles.tooltip_title}>
                                     Пищевая ценность на 100 г:
                                 </span>
                                 <br />
-                                Энерг. ценность: {pizza.calories} ккал
+                                <span>Энерг. ценность: {pizza.calories} ккал</span>
                                 <br />
-                                Белки: {pizza.protein}
+                                <span>Белки: {pizza.protein}</span>
                                 <br />
-                                Жиры: {pizza.totalFat}
+                                <span>Жиры: {pizza.totalFat}</span>
                                 <br />
-                                Углеводы: {pizza.carbohydrates}
+                                <span>Углеводы: {pizza.carbohydrates}</span>
                                 <br />
-                                Натрий: {pizza.sodium}
-                            </span>
-                        </h2>
+                                <span>Натрий: {pizza.sodium}</span>
+                                <br />
+                                <span className={styles.tooltip_allergens}>Аллергены: </span>
+                                {pizza.allergens?.map((allergen, i) =>
+                                    (<span className={styles.allergen} key={i}>{allergen} </span>)
+                                )}
+                            </p>
+                        </div>
 
                         <p className={styles.p}>{pizza.description}</p>
 
@@ -128,7 +132,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
                             Добавить по вкусу
                         </p>
                         <ToppingCards
-                            ingredients={pizza.toppings}
+                            toppings={pizza.toppings}
                             onClick={addDeleteToppings}
                         />
                     </div>

@@ -2,25 +2,24 @@ import { BASE_URL } from "../../api/index.js"
 import { Translation } from "../../translation/index.js"
 import styles from "./ToppingCards.module.css"
 
-export const ToppingCards = ({ ingredients, onClick }) => (
+export const ToppingCards = ({ toppings, onClick }) => (
     <div className={styles.ingredients}>
         <ul className={styles.cards}>
-            {ingredients.map((ingredient, i) => (
-                <li key={i}>
+            {toppings.map((topping, i) => (
+                <li className={styles.card} key={i}>
                     <input
-                        className={styles.card_input}
                         type="checkbox"
-                        id={ingredient.name}
-                        onChange={(event) => onClick(ingredient.name, event.target.checked)}
+                        id={topping.name}
+                        onChange={(event) => onClick(topping.name, event.target.checked)}
                     />
-                    <label className={styles.card_label} htmlFor={ingredient.name}>
+                    <label htmlFor={topping.name}>
                         <img
                             className={styles.img}
-                            src={BASE_URL + ingredient.img}
-                            alt={`Изображение ингредиента ${Translation[ingredient.name]}`}
+                            src={BASE_URL + topping.img}
+                            alt={`Изображение ингредиента ${Translation[topping.name]}`}
                         />
-                        <p className={styles.name}>{Translation[ingredient.name]}</p>
-                        <p className={styles.cost}>{ingredient.cost} ₽</p>
+                        <p className={styles.name}>{Translation[topping.name]}</p>
+                        <p className={styles.cost}>{topping.cost} ₽</p>
                     </label>
                 </li>
             ))}

@@ -10,9 +10,11 @@ export const Input = ({
     defaultValue,
     register,
     label,
+    mask,
     required,
     error= ""
 }) => {
+    const params = mask !== undefined ? [label, mask, required] : [label, required];
     return(
         <div className={styles.container}>
             <label className={styles.label} htmlFor={id}>
@@ -26,7 +28,7 @@ export const Input = ({
                 placeholder={placeholder}
                 readOnly={readOnly}
                 defaultValue={defaultValue}
-                {...register(label, required)}
+                {...register(...params)}
             />
             <span className={styles.error}>{error}</span>
         </div>

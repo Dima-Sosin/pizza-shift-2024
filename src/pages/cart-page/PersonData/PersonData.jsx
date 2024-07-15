@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { useLoaderData } from "react-router-dom"
+import { useHookFormMask } from "use-mask-input"
 
 import { Button } from "../../../components/Button/Button.jsx"
 import { Input } from "../../../components/Input/Input.jsx"
@@ -18,6 +19,7 @@ export const PersonData = () => {
         handleSubmit,
         formState: { errors }
     } = useForm()
+    const registerWithMask = useHookFormMask(register)
 
     const onSubmit = (data) => {
         const person = {
@@ -29,7 +31,7 @@ export const PersonData = () => {
         const receiverAddress = parseAddress(data.address)
         dispatch(addPerson(person))
         dispatch(addReceiverAddress(receiverAddress))
-        setStage("bankCard")
+        setStage("debitCard")
     }
 
     const parseAddress = (address) => {
@@ -111,19 +113,13 @@ export const PersonData = () => {
                 id="profile-phone"
                 name="phone"
                 placeholder="Телефон"
-                readOnly={true}
                 defaultValue={user?.phone}
-                register={register}
+                register={registerWithMask}
                 label="phone"
+                mask={["8 (999) 999 99 99"]}
                 required={{
                     required: true,
-                    pattern: {
-                        value: /^(\+7|8)(\d{10})$/i,
-                        message: "Неправильный номер телефона!"
-                    },
-                    maxLength: 100
                 }}
-                error={errors.phone?.message}
             />
             <Input
                 text="Email"
@@ -164,7 +160,7 @@ export const PersonData = () => {
                 error={errors.address?.message}
             />
             <div className={styles.buttons}>
-                <Button type="default" onClick={() => setStage("purchases")}>
+                <Button type="default" onClick={() => setStage("shoppingCart")}>
                     Назад
                 </Button>
                 <Button type="primary" onClick={handleSubmit(onSubmit)}>

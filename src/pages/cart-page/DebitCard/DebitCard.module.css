@@ -30,5 +30,9 @@
 .section_title {
     color: #637083;
     font-size: 12px;
+}
 
+.buttons {
+    display: flex;
+    gap: 24px;
 }

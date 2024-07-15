@@ -38,7 +38,7 @@ export const ShoppingCart = () => {
                     <div className={styles.purch_cost}>
                         <h2>Стоимость заказа: {shoppingCost} ₽</h2>
                     </div>
-                    <Button type="primary" onClick={() => setStage("dataEntry")}>
+                    <Button type="primary" onClick={() => setStage("personalData")}>
                         Оформить заказ
                     </Button>
                 </div>

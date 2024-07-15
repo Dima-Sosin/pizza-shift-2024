@@ -42,6 +42,12 @@
     opacity: 0.5;
 }
 
+.tooltip_allergens{
+    color: red;
+}
+.allergen{
+    color: red;
+}
 .info {
     overflow-x: hidden;
     overflow-y: auto;
