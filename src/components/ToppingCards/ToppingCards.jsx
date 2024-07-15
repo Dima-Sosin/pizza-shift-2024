@@ -1,4 +1,4 @@
-import { BASE_URL } from "../../api/index.js"
+import { BASE_URL } from "../../api/api.js"
 import { Translation } from "../../translation/index.js"
 import styles from "./ToppingCards.module.css"
 

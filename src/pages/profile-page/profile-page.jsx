@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form"
 import { useLoaderData } from "react-router-dom"
 import { useHookFormMask } from "use-mask-input"
 
-import { PATCH } from "../../api/index.js"
+import { api } from "../../api/api.js"
 import { Button } from "../../components/Button/Button.jsx"
 import { Input } from "../../components/Input/Input.jsx"
 
@@ -26,7 +26,7 @@ export function ProfilePage() {
             },
             phone: user.phone
         }
-        PATCH("/users/profile", updateProfile, localStorage.getItem("token"))
+        api.patch("/users/profile", updateProfile, localStorage.getItem("token"))
             .then((result) => result)
     }
 
@@ -34,7 +34,7 @@ export function ProfilePage() {
         <div className="page">
             <div className="container">
                 <form className="form">
-                    <h2>Профиль</h2>
+                    <h1>Профиль</h1>
                     <Input
                         text="Фамилия*"
                         type="text"

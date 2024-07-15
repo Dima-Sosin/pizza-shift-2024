@@ -7,7 +7,7 @@ export const CatalogPage = () => {
     return (
         <div className="page">
             <div className="container">
-                <h2>Каталог</h2>
+                <h1>Каталог</h1>
                 <ul className="cards">
                     {pizzas.map((pizza) => (
                         <li key={pizza.id}>

@@ -8,7 +8,7 @@ export const OrdersPage = () => {
     return (
         <div className="page">
             <div className="container">
-                <h2>Заказы</h2>
+                <h1>Заказы</h1>
                 <div className={styles.head}>
                     <div className={styles.status}>
                         <p>Статус</p>

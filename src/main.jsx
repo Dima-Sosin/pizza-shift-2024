@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import { GET } from "./api/index.js"
+import { api } from "./api/api.js"
 import { PageHeader } from "./components/PageHeader/PageHeader.jsx"
 import { CartPage } from "./pages/cart-page/cart-page.jsx"
 import { CatalogPage } from "./pages/catalog-page/catalog-page.jsx"
@@ -23,28 +23,28 @@ const router = createBrowserRouter([
                 path: "catalog",
                 element: <CatalogPage />,
                 loader: () => {
-                    return GET("/pizza/catalog").then(data => data)
+                    return api.get("/pizza/catalog").then(data => data)
                 }
             },
             {
                 path: "profile",
                 element: <ProfilePage />,
                 loader: () => {
-                    return GET("/users/session", {}, localStorage.getItem("token")).then(data => data)
+                    return api.get("/users/session", {}, localStorage.getItem("token")).then(data => data)
                 }
             },
             {
                 path: "orders",
                 element: <OrdersPage />,
                 loader: () => {
-                    return GET("/pizza/orders", {}, localStorage.getItem("token")).then(data => data)
+                    return api.get("/pizza/orders", {}, localStorage.getItem("token")).then(data => data)
                 }
             },
             {
                 path: "cart",
                 element: <CartPage />,
                 loader: () => {
-                    return GET("/users/session", {}, localStorage.getItem("token")).then(data => data)
+                    return api.get("/users/session", {}, localStorage.getItem("token")).then(data => data)
                 }
 
             }

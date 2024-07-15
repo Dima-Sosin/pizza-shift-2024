@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
+import { BASE_URL } from "../../../api/api.js"
 import { CloseIcon } from "../../../assets/CloseIcon.jsx"
-import { BASE_URL } from "../../../api/index.js"
 import { deletePizza } from "../../../store/pizzaSlice.js"
 import { Translation } from "../../../translation/index.js"
 import styles from "./ShoppingCart.module.css"

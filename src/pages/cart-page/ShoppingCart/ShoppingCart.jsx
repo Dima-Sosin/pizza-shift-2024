@@ -21,7 +21,7 @@ export const ShoppingCart = () => {
 
     return (
         <>
-            <h2>Корзина</h2>
+            <h1>Корзина</h1>
             <ul>
                 {pizzas?.map((pizza, i) => (
                     <li className={styles.li} key={i}>

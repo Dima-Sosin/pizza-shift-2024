@@ -1,8 +1,8 @@
 import { useState } from "react"
 
+import { BASE_URL } from "../../../api/api.js"
 import { Button } from "../../../components/Button/Button.jsx"
 import { PizzaModal } from "../../../components/ModalPizza/ModalPizza.jsx"
-import { BASE_URL } from "../../../api/index.js"
 import styles from "./PizzaCard.module.css"
 
 export const PizzaCard = ({ pizza }) => {
@@ -17,7 +17,7 @@ export const PizzaCard = ({ pizza }) => {
                     alt={`Изображение пиццы ${pizza.name}`}
                     loading="lazy"
                 />
-                <h3 className={styles.card_title}>{pizza.name}</h3>
+                <h3>{pizza.name}</h3>
                 <p className={styles.description}>{pizza.description}</p>
                 <p className={styles.price}>от {pizza.sizes[0].price} ₽</p>
                 <Button type="primary">Подробнее</Button>

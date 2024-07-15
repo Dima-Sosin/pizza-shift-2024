@@ -49,7 +49,7 @@ export const PersonData = () => {
 
     return (
         <form className="form">
-            <h2>Введите ваши данные</h2>
+            <h1>Введите ваши данные</h1>
             <Input
                 text="Фамилия*"
                 type="text"

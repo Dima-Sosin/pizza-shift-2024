@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useHookFormMask } from "use-mask-input"
 
-import { POST } from "../../api/index.js"
+import { api } from "../../api/api.js"
 import { Button } from "../Button/Button.jsx"
 import { Input } from "../Input/Input.jsx"
 import { Modal } from "../Modal/Modal.jsx"
@@ -26,13 +26,13 @@ export const LogOn = ({ onClose, setIsAuth }) => {
 
     const onSubmit1 = (data) => {
         setPhone(data.phone)
-        POST("/auth/otp", data).then((result) => result)
+        api.post("/auth/otp", data).then((result) => result)
         setModal("code")
     }
 
     const onSubmit2 = (data) => {
         let auth = {}
-        POST("/users/signin", data).then((result) => {
+        api.post("/users/signin", data).then((result) => {
             auth = result
             localStorage.setItem("token", auth.token)
             setIsAuth(localStorage.getItem("token"))
@@ -108,7 +108,7 @@ export const LogOn = ({ onClose, setIsAuth }) => {
                         <Button
                             type="link"
                             onClick={() => {
-                                POST("/auth/otp", { phone: phone }).then((result) => result)
+                                api.post("/auth/otp", { phone: phone }).then((result) => result)
                             }}
                         >
                             Запросить код еще раз

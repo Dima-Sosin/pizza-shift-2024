@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useHookFormMask } from "use-mask-input"
 
-import { POST } from "../../../api/index.js"
+import { api } from "../../../api/api.js"
 import { Button } from "../../../components/Button/Button.jsx"
 import { Input } from "../../../components/Input/Input.jsx"
 import { addDebitCard, deleteAll, selectCart } from "../../../store/pizzaSlice.js"
@@ -26,7 +26,7 @@ export const DebitCard = () => {
     //TODO - исправить костыль для POST запроса
     // Костыль, так как данные попадают в store не сразу после dispatch, то нужно задержать POST запрос
     useEffect(() => {
-        POST("/pizza/payment", pizza).then((result) => result)
+        api.post("/pizza/payment", pizza).then((result) => result)
     }, [pizza.debitCard])
 
     const onSubmit = (data) => {
@@ -37,7 +37,7 @@ export const DebitCard = () => {
     return (
         <>
             <form className="form">
-                <h2>Введите данные карты для оплаты</h2>
+                <h1>Введите данные карты для оплаты</h1>
                 <div className={styles.block}>
                     <Input
                         text="Номер*"
@@ -57,7 +57,7 @@ export const DebitCard = () => {
                             text="Срок*"
                             type="expireDate"
                             id="cart-expireDate"
-                            name="term"
+                            name="expireDate"
                             placeholder="мм/гг"
                             register={registerWithMask}
                             label="expireDate"
@@ -65,7 +65,7 @@ export const DebitCard = () => {
                             required={{
                                 required: true,
                                 pattern: {
-                                    value: /^((0[0-9])|(1[0-2]))\/[0-9]{2}$/,
+                                    value: /^((0[0-9])|(1[0-2]))\/[0-9]{2}$/i,
                                     message: "Неправильная дата!"
                                 }
                             }}
