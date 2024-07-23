@@ -68,7 +68,8 @@ export const PizzaModal = ({ pizza, onClose }) => {
                 <div className={styles.right}>
                     <div className={styles.info}>
                         <div className={styles.modal_title}>
-                            <h2>{pizza.name}</h2><AttentionIcon />
+                            <h2>{pizza.name}</h2>
+                            <AttentionIcon />
                             <p className={styles.tooltip}>
                                 <span className={styles.tooltip_title}>
                                     Пищевая ценность на 100 г:
@@ -85,9 +86,11 @@ export const PizzaModal = ({ pizza, onClose }) => {
                                 <span>Натрий: {pizza.sodium}</span>
                                 <br />
                                 <span className={styles.tooltip_allergens}>Аллергены: </span>
-                                {pizza.allergens?.map((allergen, i) =>
-                                    (<span className={styles.allergen} key={i}>{allergen} </span>)
-                                )}
+                                {pizza.allergens?.map((allergen, i) => (
+                                    <span className={styles.allergen} key={i}>
+                                        {allergen}{" "}
+                                    </span>
+                                ))}
                             </p>
                         </div>
 
@@ -95,45 +98,22 @@ export const PizzaModal = ({ pizza, onClose }) => {
 
                         <p className={styles.p}>
                             {pizza.isGlutenFree && (
-                                <span className={styles.highlight}>
-                                    Без глютена
-                                </span>
+                                <span className={styles.highlight}>Без глютена</span>
                             )}
                             {pizza.isVegetarian && (
-                                <span className={styles.highlight}>
-                                    Вегетарианская
-                                </span>
+                                <span className={styles.highlight}>Вегетарианская</span>
                             )}
-                            {pizza.isHit && (
-                                <span className={styles.highlight}>
-                                    Хит продаж
-                                </span>
-                            )}
+                            {pizza.isHit && <span className={styles.highlight}>Хит продаж</span>}
                             {pizza.isNew && (
-                                <span className={styles.highlight}>
-                                    Новое предложение
-                                </span>
+                                <span className={styles.highlight}>Новое предложение</span>
                             )}
                         </p>
 
-                        <InputRadio
-                            arr={pizza.sizes}
-                            name={"sizes"}
-                            onClick={sizeChange}
-                        />
-                        <InputRadio
-                            arr={pizza.doughs}
-                            name={"doughs"}
-                            onClick={doughsChange}
-                        />
+                        <InputRadio arr={pizza.sizes} name={"sizes"} onClick={sizeChange} />
+                        <InputRadio arr={pizza.doughs} name={"doughs"} onClick={doughsChange} />
 
-                        <p className={styles.section_title}>
-                            Добавить по вкусу
-                        </p>
-                        <ToppingCards
-                            toppings={pizza.toppings}
-                            onClick={addDeleteToppings}
-                        />
+                        <p className={styles.section_title}>Добавить по вкусу</p>
+                        <ToppingCards toppings={pizza.toppings} onClick={addDeleteToppings} />
                     </div>
 
                     <Button

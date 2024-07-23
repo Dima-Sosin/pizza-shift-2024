@@ -1,10 +1,10 @@
-import { Translation } from "../../../translation/index.js"
+import { Status } from "../../../components/Status/Status.jsx"
 import styles from "./Orders.module.css"
 
 export const OrderElement = ({ order, onClick }) => {
     return (
         <div className={styles.order_element}>
-            <p className={styles.status}>{Translation[order.status]}</p>
+            <Status status={order.status} />
             <p className={styles.address}>
                 Россия, г. Томск,
                 <br />

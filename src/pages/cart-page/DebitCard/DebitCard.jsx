@@ -64,11 +64,11 @@ export const DebitCard = () => {
                             required={{
                                 required: true,
                                 pattern: {
-                                    value: /^((0[0-9])|(1[0-2]))\/[0-9]{2}$/i,
+                                    value: /^((0[1-9])|(1[0-2]))\/([0-9]{2})$/i,
                                     message: "Неправильная дата!"
                                 }
                             }}
-                            error={errors.term?.message}
+                            error={errors.expireDate?.message}
                         />
                         <Input
                             text="CVV*"

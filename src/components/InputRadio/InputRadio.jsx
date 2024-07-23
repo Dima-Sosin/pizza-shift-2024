@@ -3,7 +3,7 @@ import React from "react"
 import { Translation } from "../../translation/index.js"
 import styles from "./InputRadio.module.css"
 
-export const InputRadio = ({arr, name, onClick}) => (
+export const InputRadio = ({ arr, name, onClick }) => (
     <div className={styles.arr}>
         {arr.map((el, i) => (
             <React.Fragment key={i}>
@@ -14,10 +14,7 @@ export const InputRadio = ({arr, name, onClick}) => (
                     name={name}
                     onChange={() => onClick(el)}
                 />
-                <label
-                    className={styles.el_label}
-                    htmlFor={el.name}
-                >
+                <label className={styles.el_label} htmlFor={el.name}>
                     {Translation[el.name]}
                 </label>
             </React.Fragment>

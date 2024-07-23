@@ -14,15 +14,9 @@ export const PageHeader = () => {
     const [isModal, setIsModal] = useState(false)
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"))
 
-    const Modal= {
-        true: <LogOut
-            onClose={() => setIsModal(false)}
-            setIsAuth={setIsAuth}
-        />,
-        false: <LogOn
-            onClose={() => setIsModal(false)}
-            setIsAuth={setIsAuth}
-        />
+    const Modal = {
+        true: <LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />,
+        false: <LogOn onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
     }
 
     return (
@@ -50,10 +44,7 @@ export const PageHeader = () => {
                             </Link>
                             <div className={styles.block}>
                                 <ExitIcon />
-                                <span
-                                    className={styles.link}
-                                    onClick={() => setIsModal(true)}
-                                >
+                                <span className={styles.link} onClick={() => setIsModal(true)}>
                                     {isAuth ? "Выйти" : "Войти"}
                                 </span>
                             </div>

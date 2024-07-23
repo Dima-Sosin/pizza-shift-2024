@@ -13,15 +13,16 @@ export const ShoppingCart = () => {
     let shoppingCost = 0
 
     const calcCost = (toppings, size, doughs) => {
-        shoppingCost += size.price +
-        doughs.price +
-        toppings?.reduce((cost, topping) => (cost + topping.cost), 0)
+        shoppingCost +=
+            size.price + doughs.price + toppings?.reduce((cost, topping) => cost + topping.cost, 0)
     }
 
     return (
         <>
             <h1>Корзина</h1>
-            {(pizzas.length === 0) ? (<h2 className={styles.cart_empty}>Корзина пуста</h2>) : (
+            {pizzas.length === 0 ? (
+                <h2 className={styles.cart_empty}>Корзина пуста</h2>
+            ) : (
                 <>
                     <ul>
                         {pizzas?.map((pizza, i) => (

@@ -11,7 +11,7 @@ export const OrdersPage = () => {
     const [id, setId] = useState(0)
     const Stages = {
         orders: <Orders />,
-        history: <History orderId={id}/>
+        history: <History orderId={id} />
     }
 
     return (

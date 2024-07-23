@@ -25,9 +25,7 @@ export const PizzaElement = ({ pizza }) => {
                     <ul>
                         {pizza.toppings?.map((topping) => (
                             <li key={topping.name}>
-                                <span>
-                                    + {Translation[topping.name]}
-                                </span>
+                                <span>+ {Translation[topping.name]}</span>
                                 <br />
                             </li>
                         ))}
@@ -46,7 +44,8 @@ export const PizzaElement = ({ pizza }) => {
                 <p className={styles.cost}>
                     {pizza.size.price +
                         pizza.doughs.price +
-                        pizza.toppings?.reduce((cost, topping) => (cost + topping.cost), 0)} ₽
+                        pizza.toppings?.reduce((cost, topping) => cost + topping.cost, 0)}{" "}
+                    ₽
                 </p>
                 <div className={styles.remove} onClick={() => dispatch(deletePizza(pizza))}>
                     <CloseIcon />

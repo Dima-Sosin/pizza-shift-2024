@@ -26,8 +26,9 @@ export function ProfilePage() {
             },
             phone: user.phone
         }
-        api.patch("/users/profile", updateProfile, localStorage.getItem("token"))
-            .then((result) => result)
+        api.patch("/users/profile", updateProfile, localStorage.getItem("token")).then(
+            (result) => result
+        )
     }
 
     return (
@@ -104,7 +105,7 @@ export function ProfilePage() {
                         label="phone"
                         mask={["+7 999 999 99 99"]}
                         required={{
-                            required: true,
+                            required: true
                         }}
                     />
                     <Input

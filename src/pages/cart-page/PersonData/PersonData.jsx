@@ -118,7 +118,7 @@ export const PersonData = () => {
                 label="phone"
                 mask={["+7 999 999 99 99"]}
                 required={{
-                    required: true,
+                    required: true
                 }}
             />
             <Input

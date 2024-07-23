@@ -4,7 +4,7 @@ import { api } from "../../../api/api.js"
 import { QuestionIcon } from "../../../assets/QuestionIcon.jsx"
 import { Button } from "../../../components/Button/Button.jsx"
 import { Modal } from "../../../components/Modal/Modal.jsx"
-import { Translation } from "../../../translation/index.js"
+import { Status } from "../../../components/Status/Status.jsx"
 import { PageContext } from "../orders-page.jsx"
 import styles from "./History.module.css"
 
@@ -26,8 +26,7 @@ export const History = ({ orderId }) => {
                 <div className={styles.order}>
                     <div className={styles.block}>
                         <p className={styles.title}>Статус</p>
-                        <div className={styles.light}></div>
-                        <p>{Translation[order.status]}</p>
+                        <Status status={order.status} />
                     </div>
 
                     <div className={styles.block}>

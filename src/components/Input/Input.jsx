@@ -12,10 +12,10 @@ export const Input = ({
     label,
     mask,
     required,
-    error= ""
+    error = ""
 }) => {
-    const params = mask !== undefined ? [label, mask, required] : [label, required];
-    return(
+    const params = mask !== undefined ? [label, mask, required] : [label, required]
+    return (
         <div className={styles.container}>
             <label className={styles.label} htmlFor={id}>
                 {text}
