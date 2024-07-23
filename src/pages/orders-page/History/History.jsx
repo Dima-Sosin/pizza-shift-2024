@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 
 import { api } from "../../../api/api.js"
+import { QuestionIcon } from "../../../assets/QuestionIcon.jsx"
 import { Button } from "../../../components/Button/Button.jsx"
+import { Modal } from "../../../components/Modal/Modal.jsx"
 import { Translation } from "../../../translation/index.js"
 import { PageContext } from "../orders-page.jsx"
 import styles from "./History.module.css"
@@ -9,6 +11,7 @@ import styles from "./History.module.css"
 export const History = ({ orderId }) => {
     const [order, setOrder] = useState({})
     const { setStage } = useContext(PageContext)
+    const [isModal, setIsModal] = useState(false)
     const [isLoad, setIsLoad] = useState(false)
     useEffect(() => {
         api.get(`/pizza/orders/${orderId}`, {}, localStorage.getItem("token")).then((data) => {
@@ -52,21 +55,38 @@ export const History = ({ orderId }) => {
                             Назад
                         </Button>
                         {order.cancellable && (
+                            <Button type="primary" onClick={() => setIsModal(true)}>
+                                Отменить
+                            </Button>
+                        )}
+                    </div>
+                </div>
+                {isModal && (
+                    <Modal onClose={() => setIsModal(false)}>
+                        <div className={styles.modal_title}>
+                            <QuestionIcon />
+                            <h3>Отменить заказ?</h3>
+                        </div>
+                        <div className={styles.modal_buttons}>
                             <Button
-                                type="primary"
+                                type="default"
                                 onClick={() => {
                                     api.put(
                                         "/pizza/orders/cancel",
                                         { orderId: order._id },
                                         localStorage.getItem("token")
                                     ).then((result) => result)
+                                    setIsModal(false)
                                 }}
                             >
                                 Отменить
                             </Button>
-                        )}
-                    </div>
-                </div>
+                            <Button type="primary" onClick={() => setIsModal(false)}>
+                                Не отменять
+                            </Button>
+                        </div>
+                    </Modal>
+                )}
             </>
         )
     )
