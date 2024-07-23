@@ -1,11 +1,10 @@
-import styles from "./OrderElement.module.css"
+import { Translation } from "../../../translation/index.js"
+import styles from "./Orders.module.css"
 
-export const OrderElement = ({ order }) => {
+export const OrderElement = ({ order, onClick }) => {
     return (
         <div className={styles.order_element}>
-            <p className={styles.status}>
-                {order.cancellable ? "Заказ доставлен" : "Заказ отменен"}
-            </p>
+            <p className={styles.status}>{Translation[order.status]}</p>
             <p className={styles.address}>
                 Россия, г. Томск,
                 <br />
@@ -13,12 +12,14 @@ export const OrderElement = ({ order }) => {
                 {order.receiverAddress.apartment}
             </p>
             <p className={styles.composition_order}>
-                Название пиццы
+                Пепперони
                 <br />
-                Топинги
+                Маргарита
             </p>
             <p className={styles.details}>
-                <a className={styles.link}>Подробнее</a>
+                <a className={styles.link} onClick={onClick}>
+                    Подробнее
+                </a>
             </p>
         </div>
     )

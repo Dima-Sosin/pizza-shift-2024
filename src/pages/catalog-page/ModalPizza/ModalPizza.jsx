@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { BASE_URL } from "../../api/api.js"
-import { AttentionIcon } from "../../assets/AttentionIcon.jsx"
-import { addPizza } from "../../store/pizzaSlice.js"
-import { Button } from "../Button/Button.jsx"
-import { InputRadio } from "../InputRadio/InputRadio.jsx"
-import { Modal } from "../Modal/Modal.jsx"
-import { ToppingCards } from "../ToppingCards/ToppingCards.jsx"
+import { BASE_URL } from "../../../api/api.js"
+import { AttentionIcon } from "../../../assets/AttentionIcon.jsx"
+import { Button } from "../../../components/Button/Button.jsx"
+import { InputRadio } from "../../../components/InputRadio/InputRadio.jsx"
+import { Modal } from "../../../components/Modal/Modal.jsx"
+import { ToppingCards } from "../../../components/ToppingCards/ToppingCards.jsx"
+import { addPizza } from "../../../store/pizzaSlice.js"
 import styles from "./ModalPizza.module.css"
 
 export const PizzaModal = ({ pizza, onClose }) => {
@@ -15,6 +15,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
     const [buyPizza, setBuyPizza] = useState({
         id: pizza.id,
         name: pizza.name,
+        count: 1,
         toppings: [],
         img: pizza.img,
         description: pizza.description,

@@ -1,33 +1,27 @@
-import { useLoaderData } from "react-router-dom"
+import { createContext, useState } from "react"
 
-import { OrderElement } from "./OrderElement/OrderElement.jsx"
-import styles from "./OrderElement/OrderElement.module.css"
+import { History } from "./History/History.jsx"
+import { Orders } from "./Orders/Orders.jsx"
+
+export const PageContext = createContext("orders")
+export const IdContext = createContext(0)
 
 export const OrdersPage = () => {
-    const orders = useLoaderData().orders
+    const [stage, setStage] = useState("orders")
+    const [id, setId] = useState(0)
+    const Stages = {
+        orders: <Orders />,
+        history: <History orderId={id}/>
+    }
+
     return (
         <div className="page">
             <div className="container">
-                <h1>Заказы</h1>
-                <div className={styles.head}>
-                    <div className={styles.status}>
-                        <p>Статус</p>
-                    </div>
-                    <div className={styles.address}>
-                        <p>Адрес доставки</p>
-                    </div>
-                    <div className={styles.composition_order}>
-                        <p>Состав заказа</p>
-                    </div>
-                </div>
-                <div className={styles.line}></div>
-                <ul>
-                    {orders?.map((order, i) => (
-                        <li className={styles.li} key={i}>
-                            <OrderElement order={order} />
-                        </li>
-                    ))}
-                </ul>
+                <PageContext.Provider value={{ setStage }}>
+                    <IdContext.Provider value={{ setId }}>
+                        {Stages[stage]}
+                    </IdContext.Provider>
+                </PageContext.Provider>
             </div>
         </div>
     )

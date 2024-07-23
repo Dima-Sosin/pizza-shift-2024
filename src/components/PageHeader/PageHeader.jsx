@@ -14,18 +14,13 @@ export const PageHeader = () => {
     const [isModal, setIsModal] = useState(false)
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"))
 
-    function onClose() {
-        setIsModal(false)
-        document.body.style.overflow = "unset"
-    }
-
     const Modal= {
         true: <LogOut
-            onClose={() => onClose()}
+            onClose={() => setIsModal(false)}
             setIsAuth={setIsAuth}
         />,
         false: <LogOn
-            onClose={() => onClose()}
+            onClose={() => setIsModal(false)}
             setIsAuth={setIsAuth}
         />
     }

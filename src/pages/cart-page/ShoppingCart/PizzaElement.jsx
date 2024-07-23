@@ -9,14 +9,7 @@ import styles from "./ShoppingCart.module.css"
 
 export const PizzaElement = ({ pizza }) => {
     const dispatch = useDispatch()
-    const [count, setCount] = useState(1)
-
-    const calcCost = (toppings, size, doughs, num) => {
-        let cost = 0
-        toppings?.map((topping) => (cost += topping.cost))
-        cost += size.price + doughs.price
-        return cost * num
-    }
+    const [count, setCount] = useState(pizza.count)
 
     return (
         <>
@@ -32,7 +25,7 @@ export const PizzaElement = ({ pizza }) => {
                     <ul>
                         {pizza.toppings?.map((topping) => (
                             <li key={topping.name}>
-                                <span className={styles.topping}>
+                                <span>
                                     + {Translation[topping.name]}
                                 </span>
                                 <br />
@@ -40,14 +33,20 @@ export const PizzaElement = ({ pizza }) => {
                         ))}
                     </ul>
                 </p>
-                <div className={styles.quantity}>
-                    <button className={styles.btn} onClick={() => setCount(count - 1)}>-</button>
+                <div className={styles.counter}>
+                    <button className={styles.btn} onClick={() => setCount(count - 1)}>
+                        -
+                    </button>
                     <p className={styles.num}>{count}</p>
-                    <button className={styles.btn} onClick={() => setCount(count + 1)}>+</button>
+                    <button className={styles.btn} onClick={() => setCount(count + 1)}>
+                        +
+                    </button>
                 </div>
                 <p className={styles.change}>Изменить</p>
                 <p className={styles.cost}>
-                    {calcCost(pizza.toppings, pizza.size, pizza.doughs, count)} ₽
+                    {pizza.size.price +
+                        pizza.doughs.price +
+                        pizza.toppings?.reduce((cost, topping) => (cost + topping.cost), 0)} ₽
                 </p>
                 <div className={styles.remove} onClick={() => dispatch(deletePizza(pizza))}>
                     <CloseIcon />

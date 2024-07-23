@@ -23,7 +23,6 @@ export const DebitCard = () => {
     } = useForm()
     const registerWithMask = useHookFormMask(register)
 
-    //TODO - исправить костыль для POST запроса
     // Костыль, так как данные попадают в store не сразу после dispatch, то нужно задержать POST запрос
     useEffect(() => {
         api.post("/pizza/payment", pizza).then((result) => result)
@@ -49,7 +48,7 @@ export const DebitCard = () => {
                         label="pan"
                         mask={["9999 9999"]}
                         required={{
-                            required: true,
+                            required: true
                         }}
                     />
                     <div className={styles.lower}>
@@ -81,26 +80,25 @@ export const DebitCard = () => {
                             label="cvv"
                             mask={["999"]}
                             required={{
-                                required: true,
+                                required: true
                             }}
                         />
                     </div>
                 </div>
                 <div className={styles.buttons}>
-                <Button type="default" onClick={() => setStage("personalData")}>
-                    Назад
-                </Button>
-                <Button type="primary" onClick={handleSubmit(onSubmit)}>
-                    Оплатить
-                </Button>
-            </div>
+                    <Button type="default" onClick={() => setStage("personalData")}>
+                        Назад
+                    </Button>
+                    <Button type="primary" onClick={handleSubmit(onSubmit)}>
+                        Оплатить
+                    </Button>
+                </div>
             </form>
             {isModal && (
                 <ModalSuccess
                     pizza={pizza}
                     onClose={() => {
                         setIsModal(false)
-                        document.body.style.overflow = "unset"
                         dispatch(deleteAll())
                     }}
                 />

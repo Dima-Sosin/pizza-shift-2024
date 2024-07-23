@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { BASE_URL } from "../../../api/api.js"
 import { Button } from "../../../components/Button/Button.jsx"
-import { PizzaModal } from "../../../components/ModalPizza/ModalPizza.jsx"
+import { PizzaModal } from "../ModalPizza/ModalPizza.jsx"
 import styles from "./PizzaCard.module.css"
 
 export const PizzaCard = ({ pizza }) => {
@@ -27,7 +27,6 @@ export const PizzaCard = ({ pizza }) => {
                     pizza={pizza}
                     onClose={() => {
                         setIsModal(false)
-                        document.body.style.overflow = "unset"
                     }}
                 />
             )}

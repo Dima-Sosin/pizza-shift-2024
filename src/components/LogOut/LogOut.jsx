@@ -4,7 +4,7 @@ import { Modal } from "../Modal/Modal.jsx"
 export const LogOut = ({ onClose, setIsAuth }) => {
     const onClick = () => {
         localStorage.removeItem("token")
-        setIsAuth(localStorage.getItem("token"))
+        setIsAuth(!!localStorage.getItem("token"))
         onClose()
     }
 

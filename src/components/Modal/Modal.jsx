@@ -4,9 +4,7 @@ import { CloseIcon } from "../../assets/CloseIcon.jsx"
 import styles from "./Modal.module.css"
 
 export const Modal = ({children, onClose}) => {
-    document.body.style.overflow = 'hidden';
-    //TODO - исправить костыль для модалки
-    // "Костыль, чтобы при открытии модалки дефолтно выбирались средний размер пиццы, и традиционное тесто"
+    //Костыль, чтобы при открытии модалки дефолтно выбирались средний размер пиццы, и традиционное тесто"
     useEffect(() => {
         const size = document.getElementById("MEDIUM")
         if(size)

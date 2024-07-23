@@ -35,7 +35,7 @@ export const LogOn = ({ onClose, setIsAuth }) => {
         api.post("/users/signin", data).then((result) => {
             auth = result
             localStorage.setItem("token", auth.token)
-            setIsAuth(localStorage.getItem("token"))
+            setIsAuth(!!localStorage.getItem("token"))
         })
         onClose()
     }
