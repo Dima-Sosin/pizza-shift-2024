@@ -34,12 +34,20 @@
     position: absolute;
     z-index: 100;
     top: 42px;
-    left: 76px;
+    left: 60px;
     margin-left: -60px;
 }
 
 .tooltip_title {
     opacity: 0.5;
+}
+
+.tooltip_allergens {
+    color: red;
+}
+
+.allergen {
+    color: red;
 }
 
 .info {
@@ -49,6 +57,7 @@
     max-width: 402px;
     color: #292929;
     padding: 0 16px;
+    margin-bottom: 24px;
 }
 
 .info::-webkit-scrollbar {

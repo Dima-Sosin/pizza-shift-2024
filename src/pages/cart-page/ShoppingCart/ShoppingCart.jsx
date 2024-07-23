@@ -13,35 +13,39 @@ export const ShoppingCart = () => {
     let shoppingCost = 0
 
     const calcCost = (toppings, size, doughs) => {
-        let cost = 0
-        toppings?.map((topping) => (cost += topping.cost))
-        cost += size.price + doughs.price
-        shoppingCost += cost
+        shoppingCost +=
+            size.price + doughs.price + toppings?.reduce((cost, topping) => cost + topping.cost, 0)
     }
 
     return (
         <>
             <h1>Корзина</h1>
-            <ul>
-                {pizzas?.map((pizza, i) => (
-                    <li className={styles.li} key={i}>
-                        <PizzaElement pizza={pizza} calcCost={calcCost} />
-                        {calcCost(pizza.toppings, pizza.size, pizza.doughs)}
-                    </li>
-                ))}
-            </ul>
+            {pizzas.length === 0 ? (
+                <h2 className={styles.cart_empty}>Корзина пуста</h2>
+            ) : (
+                <>
+                    <ul>
+                        {pizzas?.map((pizza, i) => (
+                            <li className={styles.li} key={i}>
+                                <PizzaElement pizza={pizza} />
+                                {calcCost(pizza.toppings, pizza.size, pizza.doughs)}
+                            </li>
+                        ))}
+                    </ul>
 
-            <div className={styles.line}></div>
+                    <div className={styles.line}></div>
 
-            {pizzas.length !== 0 && (
-                <div className={styles.inf}>
-                    <div className={styles.purch_cost}>
-                        <h2>Стоимость заказа: {shoppingCost} ₽</h2>
+                    <div className={styles.inf}>
+                        <div className={styles.purch_cost}>
+                            <h2>Стоимость заказа: {shoppingCost} ₽</h2>
+                        </div>
+                        <div className={styles.button}>
+                            <Button type="primary" onClick={() => setStage("personalData")}>
+                                Оформить заказ
+                            </Button>
+                        </div>
                     </div>
-                    <Button type="primary" onClick={() => setStage("dataEntry")}>
-                        Оформить заказ
-                    </Button>
-                </div>
+                </>
             )}
         </>
     )

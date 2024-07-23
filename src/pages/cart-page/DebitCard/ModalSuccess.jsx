@@ -6,14 +6,13 @@ import { Translation } from "../../../translation/index.js"
 import styles from "./DebitCard.module.css"
 
 export const ModalSuccess = ({ pizza, onClose }) => {
-
     let cost = 0
     const calcCost = (num) => {
         cost += num
     }
 
     return (
-        <Modal onClose={onClose} >
+        <Modal onClose={onClose}>
             <div className={styles.modal}>
                 <SuccessIcon />
                 <h2>Оплата прошла успешно!</h2>
@@ -34,7 +33,8 @@ export const ModalSuccess = ({ pizza, onClose }) => {
                                         {el.toppings?.map((topping, j) => (
                                             <li key={j}>
                                                 {calcCost(topping.cost)}
-                                                <span>+ {Translation[topping.name]}</span><br/>
+                                                <span>+ {Translation[topping.name]}</span>
+                                                <br />
                                             </li>
                                         ))}
                                     </ul>
@@ -58,8 +58,8 @@ export const ModalSuccess = ({ pizza, onClose }) => {
                 </div>
 
                 <span className={styles.section_title}>
-                            Вся информация была продублирована в SMS
-                        </span>
+                    Вся информация была продублирована в SMS
+                </span>
 
                 <Link to="/catalog" onClick={onClose}>
                     Перейти в главное меню

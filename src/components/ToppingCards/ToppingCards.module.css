@@ -10,15 +10,19 @@
     gap: 11px;
 }
 
-.card_input {
+.card > label:hover {
+    cursor: pointer;
+}
+
+.card > input {
     display: none;
 }
 
-.card_input:checked + .card_label {
+.card > input:checked + label {
     border: 1px #F4511E solid;
 }
 
-.card_label {
+.card > label {
     display: flex;
     flex-direction: column;
     align-items: center;

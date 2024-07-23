@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { AttentionIcon } from "../../assets/AttentionIcon.jsx"
-import { BASE_URL } from "../../rest-api/index.js"
-import { addPizza } from "../../store/pizzaSlice.js"
-import { Button } from "../Button/Button.jsx"
-import { InputRadio } from "../InputRadio/InputRadio.jsx"
-import { Modal } from "../Modal/Modal.jsx"
-import { ToppingCards } from "../ToppingCards/ToppingCards.jsx"
+import { BASE_URL } from "../../../api/api.js"
+import { AttentionIcon } from "../../../assets/AttentionIcon.jsx"
+import { Button } from "../../../components/Button/Button.jsx"
+import { InputRadio } from "../../../components/InputRadio/InputRadio.jsx"
+import { Modal } from "../../../components/Modal/Modal.jsx"
+import { ToppingCards } from "../../../components/ToppingCards/ToppingCards.jsx"
+import { addPizza } from "../../../store/pizzaSlice.js"
 import styles from "./ModalPizza.module.css"
 
 export const PizzaModal = ({ pizza, onClose }) => {
@@ -15,6 +15,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
     const [buyPizza, setBuyPizza] = useState({
         id: pizza.id,
         name: pizza.name,
+        count: 1,
         toppings: [],
         img: pizza.img,
         description: pizza.description,
@@ -66,71 +67,53 @@ export const PizzaModal = ({ pizza, onClose }) => {
                 />
                 <div className={styles.right}>
                     <div className={styles.info}>
-                        <h2 className={styles.modal_title}>
-                            {pizza.name}
+                        <div className={styles.modal_title}>
+                            <h2>{pizza.name}</h2>
                             <AttentionIcon />
-                            <span className={styles.tooltip}>
+                            <p className={styles.tooltip}>
                                 <span className={styles.tooltip_title}>
                                     Пищевая ценность на 100 г:
                                 </span>
                                 <br />
-                                Энерг. ценность: {pizza.calories} ккал
+                                <span>Энерг. ценность: {pizza.calories} ккал</span>
                                 <br />
-                                Белки: {pizza.protein}
+                                <span>Белки: {pizza.protein}</span>
                                 <br />
-                                Жиры: {pizza.totalFat}
+                                <span>Жиры: {pizza.totalFat}</span>
                                 <br />
-                                Углеводы: {pizza.carbohydrates}
+                                <span>Углеводы: {pizza.carbohydrates}</span>
                                 <br />
-                                Натрий: {pizza.sodium}
-                            </span>
-                        </h2>
+                                <span>Натрий: {pizza.sodium}</span>
+                                <br />
+                                <span className={styles.tooltip_allergens}>Аллергены: </span>
+                                {pizza.allergens?.map((allergen, i) => (
+                                    <span className={styles.allergen} key={i}>
+                                        {allergen}{" "}
+                                    </span>
+                                ))}
+                            </p>
+                        </div>
 
                         <p className={styles.p}>{pizza.description}</p>
 
                         <p className={styles.p}>
                             {pizza.isGlutenFree && (
-                                <span className={styles.highlight}>
-                                    Без глютена
-                                </span>
+                                <span className={styles.highlight}>Без глютена</span>
                             )}
                             {pizza.isVegetarian && (
-                                <span className={styles.highlight}>
-                                    Вегетарианская
-                                </span>
+                                <span className={styles.highlight}>Вегетарианская</span>
                             )}
-                            {pizza.isHit && (
-                                <span className={styles.highlight}>
-                                    Хит продаж
-                                </span>
-                            )}
+                            {pizza.isHit && <span className={styles.highlight}>Хит продаж</span>}
                             {pizza.isNew && (
-                                <span className={styles.highlight}>
-                                    Новое предложение
-                                </span>
+                                <span className={styles.highlight}>Новое предложение</span>
                             )}
                         </p>
 
-                        <p className={styles.p}>
-                            <InputRadio
-                                arr={pizza.sizes}
-                                name={"sizes"}
-                                onClick={sizeChange}
-                            />
-                            <InputRadio
-                                arr={pizza.doughs}
-                                name={"doughs"}
-                                onClick={doughsChange}
-                            />
-                        </p>
+                        <InputRadio arr={pizza.sizes} name={"sizes"} onClick={sizeChange} />
+                        <InputRadio arr={pizza.doughs} name={"doughs"} onClick={doughsChange} />
 
-                        <p className={styles.section_title}>
-                            Добавить по вкусу
-                        </p>
-                        <ToppingCards
-                            ingredients={pizza.toppings}
-                            onClick={addDeleteToppings}
-                        />
+                        <p className={styles.section_title}>Добавить по вкусу</p>
+                        <ToppingCards toppings={pizza.toppings} onClick={addDeleteToppings} />
                     </div>
 
                     <Button

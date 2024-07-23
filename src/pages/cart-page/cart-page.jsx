@@ -4,14 +4,14 @@ import { DebitCard } from "./DebitCard/DebitCard.jsx"
 import { PersonData } from "./PersonData/PersonData.jsx"
 import { ShoppingCart } from "./ShoppingCart/ShoppingCart.jsx"
 
-export const PageContext = createContext("purchases")
+export const PageContext = createContext("shoppingCart")
 
 export const CartPage = () => {
-    const [stage, setStage] = useState("purchases")
+    const [stage, setStage] = useState("shoppingCart")
     const Stages = {
-        purchases: <ShoppingCart />,
-        dataEntry: <PersonData />,
-        bankCard: <DebitCard />
+        shoppingCart: <ShoppingCart />,
+        personalData: <PersonData />,
+        debitCard: <DebitCard />
     }
     return (
         <div className="page">
