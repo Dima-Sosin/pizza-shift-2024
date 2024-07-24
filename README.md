@@ -7,6 +7,7 @@
 * Линтер - [ESLint](https://eslint.org/)
 * Стилизация - [CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
 * Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
+* Получение данных с сервера - [Fetch](https://learn.javascript.ru/fetch)
 * State-manager - [Redux](https://redux.js.org/) + [React Redux](https://react-redux.js.org/) + [Redux Toolkit](https://redux-toolkit.js.org/)
 * Обработка и валидация форм [React Hook Form](https://react-hook-form.com/)
 * Создание масок ввода [Use Mask Input](https://www.npmjs.com/package/use-mask-input)
