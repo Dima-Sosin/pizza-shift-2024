@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 24px;
-    background-color: #F3F4F6;
+    background-color: #f3f4f6;
     border: none;
     border-radius: 16px;
     margin-bottom: 24px;
@@ -16,7 +16,7 @@
 }
 
 .modal {
-    color: #141C24;
+    color: #141c24;
     display: flex;
     flex-direction: column;
     gap: 16px;

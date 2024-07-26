@@ -19,7 +19,7 @@
 }
 
 .card > input:checked + label {
-    border: 1px #F4511E solid;
+    border: 1px #f4511e solid;
 }
 
 .card > label {

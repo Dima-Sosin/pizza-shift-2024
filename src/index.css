@@ -21,7 +21,7 @@ a {
 }
 
 a:hover {
-    color: #F4511E;
+    color: #f4511e;
     cursor: pointer;
 }
 
@@ -38,7 +38,7 @@ h1 {
     font-size: 28px;
     font-weight: 700;
     line-height: 34px;
-    color: #141C24;
+    color: #141c24;
     margin-bottom: 24px;
 }
 
@@ -46,7 +46,7 @@ h2 {
     font-size: 24px;
     font-weight: 700;
     line-height: 32px;
-    color: #141C24;
+    color: #141c24;
 }
 
 h3 {

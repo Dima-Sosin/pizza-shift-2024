@@ -28,14 +28,18 @@ export const PageHeader = () => {
                             <Link to="/catalog">
                                 <LogoIcon />
                             </Link>
-                            <Link className={styles.block} to="/profile">
-                                <UserIcon />
-                                <span className={styles.link}>Профиль</span>
-                            </Link>
-                            <Link className={styles.block} to="/orders">
-                                <TimeIcon />
-                                <span className={styles.link}>Заказы</span>
-                            </Link>
+                            {isAuth && (
+                                <>
+                                    <Link className={styles.block} to="/profile">
+                                        <UserIcon />
+                                        <span className={styles.link}>Профиль</span>
+                                    </Link>
+                                    <Link className={styles.block} to="/orders">
+                                        <TimeIcon />
+                                        <span className={styles.link}>Заказы</span>
+                                    </Link>
+                                </>
+                            )}
                         </div>
                         <div className={styles.right}>
                             <Link className={styles.block} to="/cart">

@@ -13,9 +13,7 @@ export const pizzaSlice = createSlice({
             state.pizzas = [...state.pizzas, action.payload]
         },
         deletePizza: (state, action) => {
-            state.pizzas = state.pizzas.filter(
-                (pizza) => pizza.id !== action.payload.id
-            )
+            state.pizzas = state.pizzas.filter((pizza) => pizza.id !== action.payload.id)
         },
         addPerson: (state, action) => {
             state.person = action.payload
@@ -27,22 +25,16 @@ export const pizzaSlice = createSlice({
             state.debitCard = action.payload
         },
         deleteAll: (state) => {
-            state.pizzas = [];
-            state.person = {};
-            state.receiverAddress = {};
+            state.pizzas = []
+            state.person = {}
+            state.receiverAddress = {}
             state.debitCard = {}
         }
     }
 })
 
-export const {
-    addPizza,
-    deletePizza,
-    addPerson,
-    addReceiverAddress,
-    addDebitCard,
-    deleteAll
-} = pizzaSlice.actions
+export const { addPizza, deletePizza, addPerson, addReceiverAddress, addDebitCard, deleteAll } =
+    pizzaSlice.actions
 
 export const selectPizzas = (state) => state.pizza.pizzas
 export const selectCart = (state) => state.pizza

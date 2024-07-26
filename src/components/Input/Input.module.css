@@ -8,25 +8,25 @@
 
 .label {
     font-size: 14px;
-    color: #141C24;
+    color: #141c24;
     margin-bottom: 5px;
 }
 
 .input {
     padding: 12px;
-    border: 1px solid #CED2DA;
+    border: 1px solid #ced2da;
     border-radius: 7px;
-    color: #141C24;
+    color: #141c24;
 }
 
 .input:focus {
     outline: none;
-    border-color: #F4511E;
-    box-shadow: 0 0 0 1px #F4511E;
+    border-color: #f4511e;
+    box-shadow: 0 0 0 1px #f4511e;
 }
 
 input[readonly] {
-    background-color: #F3F4F6;
+    background-color: #f3f4f6;
 }
 
 .error {

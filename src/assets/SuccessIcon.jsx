@@ -1,11 +1,5 @@
 export const SuccessIcon = () => (
-    <svg
-        width="80"
-        height="80"
-        viewBox="0 0 80 80"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M68 40c0 15.464-12.536 28-28 28S12 55.464 12 40s12.536-28 28-28 28 12.536 28 28"
             fill="url(#a)"
@@ -15,14 +9,7 @@ export const SuccessIcon = () => (
             fill="#fff"
         />
         <defs>
-            <linearGradient
-                id="a"
-                x1="40"
-                y1="68"
-                x2="40"
-                y2="12"
-                gradientUnits="userSpaceOnUse"
-            >
+            <linearGradient id="a" x1="40" y1="68" x2="40" y2="12" gradientUnits="userSpaceOnUse">
                 <stop stopColor="#7DBA6E" />
                 <stop offset=".953" stopColor="#C6E99A" />
             </linearGradient>
