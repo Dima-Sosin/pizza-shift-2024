@@ -18,9 +18,7 @@ export const OrdersPage = () => {
         <div className="page">
             <div className="container">
                 <PageContext.Provider value={{ setStage }}>
-                    <IdContext.Provider value={{ setId }}>
-                        {Stages[stage]}
-                    </IdContext.Provider>
+                    <IdContext.Provider value={{ setId }}>{Stages[stage]}</IdContext.Provider>
                 </PageContext.Provider>
             </div>
         </div>

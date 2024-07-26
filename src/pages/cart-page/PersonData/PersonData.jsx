@@ -36,15 +36,12 @@ export const PersonData = () => {
 
     const parseAddress = (address) => {
         const addressParts = address.split(",").map((part) => part.trim())
-
-        const addressObject = {
+        return {
             street: addressParts[1],
             house: addressParts[2],
             apartment: addressParts[3] || "",
             comment: addressParts[4] || ""
         }
-
-        return addressObject
     }
 
     return (
@@ -89,7 +86,7 @@ export const PersonData = () => {
                 error={errors.firstname?.message}
             />
             <Input
-                text="Отчество*"
+                text="Отчество"
                 type="text"
                 id="profile-middlename"
                 name="middlename"
@@ -98,7 +95,6 @@ export const PersonData = () => {
                 register={register}
                 label="middlename"
                 required={{
-                    required: true,
                     pattern: {
                         value: /^[А-Я-]+$/i,
                         message: "Отчество должно содержать только буквы"
@@ -131,7 +127,6 @@ export const PersonData = () => {
                 register={register}
                 label="email"
                 required={{
-                    required: true,
                     pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
                         message: "Неправильный email!"
@@ -141,7 +136,7 @@ export const PersonData = () => {
                 error={errors.email?.message}
             />
             <Input
-                text="Адрес"
+                text="Адрес*"
                 type="text"
                 id="cart-address"
                 name="address"

@@ -1,6 +1,6 @@
-import './index.css'
+import "./index.css"
 
-import ReactDOM from 'react-dom/client'
+import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
@@ -23,34 +23,39 @@ const router = createBrowserRouter([
                 path: "catalog",
                 element: <CatalogPage />,
                 loader: () => {
-                    return api.get("/pizza/catalog").then(data => data)
+                    return api.get("/pizza/catalog").then((data) => data)
                 }
             },
             {
                 path: "profile",
                 element: <ProfilePage />,
                 loader: () => {
-                    return api.get("/users/session", {}, localStorage.getItem("token")).then(data => data)
+                    return api
+                        .get("/users/session", {}, localStorage.getItem("token"))
+                        .then((data) => data)
                 }
             },
             {
                 path: "orders",
                 element: <OrdersPage />,
                 loader: () => {
-                    return api.get("/pizza/orders", {}, localStorage.getItem("token")).then(data => data)
+                    return api
+                        .get("/pizza/orders", {}, localStorage.getItem("token"))
+                        .then((data) => data)
                 }
             },
             {
                 path: "cart",
                 element: <CartPage />,
                 loader: () => {
-                    return api.get("/users/session", {}, localStorage.getItem("token")).then(data => data)
+                    return api
+                        .get("/users/session", {}, localStorage.getItem("token"))
+                        .then((data) => data)
                 }
-
             }
         ]
-    },
-]);
+    }
+])
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>

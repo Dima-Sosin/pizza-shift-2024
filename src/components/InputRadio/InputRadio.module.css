@@ -14,7 +14,6 @@
     appearance: none;
 }
 
-
 .el_label {
     display: block;
     text-align: center;
@@ -34,5 +33,5 @@
 
 .el_input:checked + .el_label {
     background-color: #ffffff;
-    color: #141C24;
+    color: #141c24;
 }

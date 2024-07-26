@@ -16,9 +16,7 @@ export const CartPage = () => {
     return (
         <div className="page">
             <div className="container">
-                <PageContext.Provider value={{ setStage }}>
-                    {Stages[stage]}
-                </PageContext.Provider>
+                <PageContext.Provider value={{ setStage }}>{Stages[stage]}</PageContext.Provider>
             </div>
         </div>
     )

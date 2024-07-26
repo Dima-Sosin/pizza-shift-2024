@@ -35,8 +35,8 @@ export const DebitCard = () => {
 
     return (
         <>
+            <h1>Введите данные карты для оплаты</h1>
             <form className="form">
-                <h1>Введите данные карты для оплаты</h1>
                 <div className={styles.block}>
                     <Input
                         text="Номер*"
@@ -64,7 +64,7 @@ export const DebitCard = () => {
                             required={{
                                 required: true,
                                 pattern: {
-                                    value: /^((0[1-9])|(1[0-2]))\/([0-9]{2})$/i,
+                                    value: /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/i,
                                     message: "Неправильная дата!"
                                 }
                             }}

@@ -33,7 +33,7 @@
     align-items: center;
     height: 36px;
     width: 100px;
-    color: #141C24;
+    color: #141c24;
     border-radius: 14px;
     overflow: hidden;
 }
@@ -47,7 +47,7 @@
     width: 33.33333px;
     height: 100%;
     border: none;
-    background-color: #F3F4F6;
+    background-color: #f3f4f6;
 }
 
 .btn:hover {
@@ -66,11 +66,11 @@
     width: 33.33333px;
     height: 100%;
     text-align: center;
-    background-color: #F3F4F6;
+    background-color: #f3f4f6;
 }
 
 .change {
-    color: #97A1AF;
+    color: #97a1af;
     text-decoration: underline;
     width: 100px;
     text-align: center;
@@ -89,7 +89,7 @@
 
 .remove {
     position: relative;
-    color: #CED2DA;
+    color: #ced2da;
 }
 
 .remove:hover,
@@ -110,7 +110,7 @@
 .line {
     width: 100%;
     height: 1px;
-    background-color: #E3E5E5;
+    background-color: #e3e5e5;
     margin-bottom: 24px;
 }
 
