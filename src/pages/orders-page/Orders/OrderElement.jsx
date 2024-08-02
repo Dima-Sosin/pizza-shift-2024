@@ -1,5 +1,6 @@
-import { Status } from "../../../components/Status/Status.jsx"
 import styles from "./Orders.module.css"
+
+import { Status } from "@components/Status/Status"
 
 export const OrderElement = ({ order, onClick }) => {
     return (

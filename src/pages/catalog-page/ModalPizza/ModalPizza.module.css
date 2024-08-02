@@ -25,7 +25,7 @@
 
 .tooltip {
     visibility: hidden;
-    width: 200px;
+    width: 210px;
     background-color: #555;
     color: #fff;
     font-size: 14px;
@@ -44,6 +44,10 @@
 
 .tooltip_allergens {
     color: red;
+}
+
+.li {
+    display: inline-block;
 }
 
 .allergen {

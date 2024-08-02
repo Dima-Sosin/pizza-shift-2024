@@ -1,12 +1,13 @@
+import styles from "./LogOn.module.css"
+
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useHookFormMask } from "use-mask-input"
 
-import { api } from "../../api/api.js"
-import { Button } from "../Button/Button.jsx"
-import { Input } from "../Input/Input.jsx"
-import { Modal } from "../Modal/Modal.jsx"
-import styles from "./LogOn.module.css"
+import { api } from "@api"
+import { Button } from "@components/Button/Button"
+import { Input } from "@components/Input/Input"
+import { Modal } from "@components/Modal/Modal"
 
 export const LogOn = ({ onClose, setIsAuth }) => {
     const { register, handleSubmit } = useForm()

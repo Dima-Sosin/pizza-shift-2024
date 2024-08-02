@@ -1,9 +1,11 @@
+import styles from "./Orders.module.css"
+
 import { useContext } from "react"
 import { useLoaderData } from "react-router-dom"
 
-import { IdContext, PageContext } from "../orders-page.jsx"
-import { OrderElement } from "./OrderElement.jsx"
-import styles from "./Orders.module.css"
+import { IdContext, PageContext } from "../orders-page"
+
+import { OrderElement } from "./OrderElement"
 
 export const Orders = () => {
     const orders = useLoaderData().orders

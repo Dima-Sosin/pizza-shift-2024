@@ -1,7 +1,8 @@
+import styles from "./Modal.module.css"
+
 import { useEffect } from "react"
 
-import { CloseIcon } from "../../assets/CloseIcon.jsx"
-import styles from "./Modal.module.css"
+import { CloseIcon } from "@assets/CloseIcon"
 
 export const Modal = ({ children, onClose }) => {
     //Костыль, чтобы при открытии модалки дефолтно выбирались средний размер пиццы, и традиционное тесто"

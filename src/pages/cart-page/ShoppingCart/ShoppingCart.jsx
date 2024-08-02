@@ -1,11 +1,14 @@
+import styles from "./ShoppingCart.module.css"
+
 import { useContext } from "react"
 import { useSelector } from "react-redux"
 
-import { Button } from "../../../components/Button/Button.jsx"
-import { selectPizzas } from "../../../store/pizzaSlice.js"
+import { Button } from "@components/Button/Button.jsx"
+import { selectPizzas } from "@store/pizzaSlice.js"
+
 import { PageContext } from "../cart-page.jsx"
+
 import { PizzaElement } from "./PizzaElement.jsx"
-import styles from "./ShoppingCart.module.css"
 
 export const ShoppingCart = () => {
     const pizzas = useSelector(selectPizzas)
@@ -26,7 +29,7 @@ export const ShoppingCart = () => {
                 <>
                     <ul>
                         {pizzas?.map((pizza, i) => (
-                            <li className={styles.li} key={i}>
+                            <li key={i}>
                                 <PizzaElement pizza={pizza} />
                                 {calcCost(pizza.toppings, pizza.size, pizza.doughs)}
                             </li>

@@ -1,14 +1,17 @@
+import styles from "./DebitCard.module.css"
+
 import { useContext, useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useHookFormMask } from "use-mask-input"
 
-import { api } from "../../../api/api.js"
-import { Button } from "../../../components/Button/Button.jsx"
-import { Input } from "../../../components/Input/Input.jsx"
-import { addDebitCard, deleteAll, selectCart } from "../../../store/pizzaSlice.js"
+import { api } from "@api"
+import { Button } from "@components/Button/Button.jsx"
+import { Input } from "@components/Input/Input.jsx"
+import { addDebitCard, deleteAll, selectCart } from "@store/pizzaSlice.js"
+
 import { PageContext } from "../cart-page.jsx"
-import styles from "./DebitCard.module.css"
+
 import { ModalSuccess } from "./ModalSuccess.jsx"
 
 export const DebitCard = () => {

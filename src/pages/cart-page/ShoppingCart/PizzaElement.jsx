@@ -1,11 +1,12 @@
+import styles from "./ShoppingCart.module.css"
+
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { BASE_URL } from "../../../api/api.js"
-import { CloseIcon } from "../../../assets/CloseIcon.jsx"
-import { deletePizza } from "../../../store/pizzaSlice.js"
-import { Translation } from "../../../translation/index.js"
-import styles from "./ShoppingCart.module.css"
+import { BASE_URL } from "@api"
+import { CloseIcon } from "@assets/CloseIcon.jsx"
+import { deletePizza } from "@store/pizzaSlice.js"
+import { Translation } from "@translation"
 
 export const PizzaElement = ({ pizza }) => {
     const dispatch = useDispatch()
@@ -20,17 +21,16 @@ export const PizzaElement = ({ pizza }) => {
                     alt={`Изображение пиццы ${pizza.name}`}
                 />
                 <p className={styles.name}>{pizza.name}</p>
-                <p className={styles.pizza_inf}>
-                    {Translation[pizza.size.name]}, {Translation[pizza.doughs.name]}
+                <div className={styles.pizza_inf}>
+                    <p>{Translation[pizza.size.name]}, {Translation[pizza.doughs.name]}</p>
                     <ul>
-                        {pizza.toppings?.map((topping) => (
-                            <li key={topping.name}>
-                                <span>+ {Translation[topping.name]}</span>
-                                <br />
+                        {pizza.toppings?.map((topping, i) => (
+                            <li key={i}>
+                                <p>+ {Translation[topping.name]}</p>
                             </li>
                         ))}
                     </ul>
-                </p>
+                </div>
                 <div className={styles.counter}>
                     <button className={styles.btn} onClick={() => setCount(count - 1)}>
                         -

@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form"
 import { useLoaderData } from "react-router-dom"
 import { useHookFormMask } from "use-mask-input"
 
-import { api } from "../../api/api.js"
-import { Button } from "../../components/Button/Button.jsx"
-import { Input } from "../../components/Input/Input.jsx"
+import { api } from "@api"
+import { Button } from "@components/Button/Button.jsx"
+import { Input } from "@components/Input/Input.jsx"
 
 export function ProfilePage() {
     const user = useLoaderData().user

@@ -1,6 +1,7 @@
-import { BASE_URL } from "../../api/api.js"
-import { Translation } from "../../translation/index.js"
 import styles from "./ToppingCards.module.css"
+
+import { BASE_URL } from "@api"
+import { Translation } from "@translation"
 
 export const ToppingCards = ({ toppings, onClick }) => (
     <div className={styles.ingredients}>

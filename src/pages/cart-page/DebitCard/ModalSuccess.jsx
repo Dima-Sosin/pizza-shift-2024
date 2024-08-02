@@ -1,9 +1,10 @@
+import styles from "./DebitCard.module.css"
+
 import { Link } from "react-router-dom"
 
-import { SuccessIcon } from "../../../assets/SuccessIcon.jsx"
-import { Modal } from "../../../components/Modal/Modal.jsx"
-import { Translation } from "../../../translation/index.js"
-import styles from "./DebitCard.module.css"
+import { SuccessIcon } from "@assets/SuccessIcon.jsx"
+import { Modal } from "@components/Modal/Modal.jsx"
+import { Translation } from "@translation"
 
 export const ModalSuccess = ({ pizza, onClose }) => {
     let cost = 0

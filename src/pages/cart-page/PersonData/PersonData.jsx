@@ -1,14 +1,16 @@
+import styles from "./PersonData.module.css"
+
 import { useContext } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { useLoaderData } from "react-router-dom"
 import { useHookFormMask } from "use-mask-input"
 
-import { Button } from "../../../components/Button/Button.jsx"
-import { Input } from "../../../components/Input/Input.jsx"
-import { addPerson, addReceiverAddress } from "../../../store/pizzaSlice.js"
+import { Button } from "@components/Button/Button.jsx"
+import { Input } from "@components/Input/Input.jsx"
+import { addPerson, addReceiverAddress } from "@store/pizzaSlice.js"
+
 import { PageContext } from "../cart-page.jsx"
-import styles from "./PersonData.module.css"
 
 export const PersonData = () => {
     const { setStage } = useContext(PageContext)

@@ -4,14 +4,15 @@ import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import { api } from "./api/api.js"
-import { PageHeader } from "./components/PageHeader/PageHeader.jsx"
+import { api } from "@api"
+import { PageHeader } from "@components/PageHeader/PageHeader.jsx"
+import store from "@store/store"
+
 import { CartPage } from "./pages/cart-page/cart-page.jsx"
 import { CatalogPage } from "./pages/catalog-page/catalog-page.jsx"
 import { ErrorPage } from "./pages/error-page/ErrorPage.jsx"
 import { OrdersPage } from "./pages/orders-page/orders-page.jsx"
 import { ProfilePage } from "./pages/profile-page/profile-page.jsx"
-import store from "./store/store"
 
 const router = createBrowserRouter([
     {
@@ -22,15 +23,15 @@ const router = createBrowserRouter([
             {
                 path: "catalog",
                 element: <CatalogPage />,
-                loader: () => {
-                    return api.get("/pizza/catalog").then((data) => data)
+                loader: async () => {
+                    return await api.get("/pizza/catalog").then((data) => data)
                 }
             },
             {
                 path: "profile",
                 element: <ProfilePage />,
-                loader: () => {
-                    return api
+                loader: async () => {
+                    return await api
                         .get("/users/session", {}, localStorage.getItem("token"))
                         .then((data) => data)
                 }
@@ -38,8 +39,8 @@ const router = createBrowserRouter([
             {
                 path: "orders",
                 element: <OrdersPage />,
-                loader: () => {
-                    return api
+                loader: async () => {
+                    return await api
                         .get("/pizza/orders", {}, localStorage.getItem("token"))
                         .then((data) => data)
                 }
@@ -47,8 +48,8 @@ const router = createBrowserRouter([
             {
                 path: "cart",
                 element: <CartPage />,
-                loader: () => {
-                    return api
+                loader: async () => {
+                    return await api
                         .get("/users/session", {}, localStorage.getItem("token"))
                         .then((data) => data)
                 }

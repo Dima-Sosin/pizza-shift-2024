@@ -1,9 +1,11 @@
+import styles from "./PizzaCard.module.css"
+
 import { useState } from "react"
 
-import { BASE_URL } from "../../../api/api.js"
-import { Button } from "../../../components/Button/Button.jsx"
-import { PizzaModal } from "../ModalPizza/ModalPizza.jsx"
-import styles from "./PizzaCard.module.css"
+import { BASE_URL } from "@api"
+import { Button } from "@components/Button/Button"
+
+import { PizzaModal } from "../ModalPizza/ModalPizza"
 
 export const PizzaCard = ({ pizza }) => {
     const [isModal, setIsModal] = useState(false)

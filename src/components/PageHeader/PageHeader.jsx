@@ -1,14 +1,15 @@
+import styles from "./PageHeader.module.css"
+
 import { useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 
-import { CartIcon } from "../../assets/CartIcon.jsx"
-import { ExitIcon } from "../../assets/ExitIcon.jsx"
-import { LogoIcon } from "../../assets/LogoIcon.jsx"
-import { TimeIcon } from "../../assets/TimeIcon.jsx"
-import { UserIcon } from "../../assets/UserIcon.jsx"
-import { LogOn } from "../LogOn/LogOn.jsx"
-import { LogOut } from "../LogOut/LogOut.jsx"
-import styles from "./PageHeader.module.css"
+import { CartIcon } from "@assets/CartIcon"
+import { ExitIcon } from "@assets/ExitIcon"
+import { LogoIcon } from "@assets/LogoIcon"
+import { TimeIcon } from "@assets/TimeIcon"
+import { UserIcon } from "@assets/UserIcon"
+import { LogOn } from "@components/LogOn/LogOn"
+import { LogOut } from "@components/LogOut/LogOut"
 
 export const PageHeader = () => {
     const [isModal, setIsModal] = useState(false)

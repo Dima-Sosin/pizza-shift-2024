@@ -1,12 +1,14 @@
+import styles from "./History.module.css"
+
 import { useContext, useEffect, useState } from "react"
 
-import { api } from "../../../api/api.js"
-import { QuestionIcon } from "../../../assets/QuestionIcon.jsx"
-import { Button } from "../../../components/Button/Button.jsx"
-import { Modal } from "../../../components/Modal/Modal.jsx"
-import { Status } from "../../../components/Status/Status.jsx"
+import { api } from "@api"
+import { QuestionIcon } from "@assets/QuestionIcon.jsx"
+import { Button } from "@components/Button/Button.jsx"
+import { Modal } from "@components/Modal/Modal.jsx"
+import { Status } from "@components/Status/Status.jsx"
+
 import { PageContext } from "../orders-page.jsx"
-import styles from "./History.module.css"
 
 export const History = ({ orderId }) => {
     const [order, setOrder] = useState({})
