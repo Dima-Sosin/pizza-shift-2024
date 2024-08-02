@@ -7,7 +7,7 @@ module.exports = {
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended"
     ],
-    ignorePatterns: ["dist", ".eslintrc.cjs", "vite.config.js"],
+    ignorePatterns: ["dist", ".eslintrc.cjs", "vite.config.js", "package.json", "package-lock.json"],
     parserOptions: { ecmaVersion: "latest", sourceType: "module" },
     settings: { react: { version: "18.2" } },
     plugins: ["react-refresh", "simple-import-sort"],

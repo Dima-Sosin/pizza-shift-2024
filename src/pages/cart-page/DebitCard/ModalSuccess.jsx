@@ -20,29 +20,27 @@ export const ModalSuccess = ({ pizza, onClose }) => {
 
                 <div className={styles.section}>
                     <p className={styles.section_title}>Заказ</p>
-                    <p>
-                        <ul>
-                            {pizza.pizzas.map((el, i) => (
-                                <li key={i}>
-                                    {calcCost(el.size.price)}
-                                    {calcCost(el.doughs.price)}
-                                    <span>{el.name}, </span>
-                                    <span>{Translation[el.size.name]}, </span>
-                                    <span>{Translation[el.doughs.name]} </span>
-                                    {"  "}
-                                    <ul>
-                                        {el.toppings?.map((topping, j) => (
-                                            <li key={j}>
-                                                {calcCost(topping.cost)}
-                                                <span>+ {Translation[topping.name]}</span>
-                                                <br />
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </li>
-                            ))}
-                        </ul>
-                    </p>
+                    <ul>
+                        {pizza.pizzas.map((el, i) => (
+                            <li key={i}>
+                                {calcCost(el.size.price)}
+                                {calcCost(el.doughs.price)}
+                                <span>{el.name}, </span>
+                                <span>{Translation[el.size.name]}, </span>
+                                <span>{Translation[el.doughs.name]} </span>
+                                {"  "}
+                                <ul>
+                                    {el.toppings?.map((topping, j) => (
+                                        <li key={j}>
+                                            {calcCost(topping.cost)}
+                                            <span>+ {Translation[topping.name]}</span>
+                                            <br />
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
                 <div className={styles.section}>

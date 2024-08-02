@@ -104,9 +104,6 @@ export function ProfilePage() {
                         register={registerWithMask}
                         label="phone"
                         mask={["+7 999 999 99 99"]}
-                        required={{
-                            required: true
-                        }}
                     />
                     <Input
                         text="Email"

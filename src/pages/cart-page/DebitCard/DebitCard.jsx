@@ -51,8 +51,13 @@ export const DebitCard = () => {
                         label="pan"
                         mask={["9999 9999"]}
                         required={{
-                            required: true
+                            required: true,
+                            pattern: {
+                                value: /^[0-9]{4} [0-9]{4}$/,
+                                message: "Обязательное поле!"
+                            }
                         }}
+                        error={errors.pan?.message}
                     />
                     <div className={styles.lower}>
                         <Input
@@ -67,7 +72,7 @@ export const DebitCard = () => {
                             required={{
                                 required: true,
                                 pattern: {
-                                    value: /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/i,
+                                    value: /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/,
                                     message: "Неправильная дата!"
                                 }
                             }}
@@ -83,8 +88,13 @@ export const DebitCard = () => {
                             label="cvv"
                             mask={["999"]}
                             required={{
-                                required: true
+                                required: true,
+                                pattern: {
+                                    value: /^[0-9]{3}$/,
+                                    message: "Обязательное поле!"
+                                }
                             }}
+                            error={errors.cvv?.message}
                         />
                     </div>
                 </div>

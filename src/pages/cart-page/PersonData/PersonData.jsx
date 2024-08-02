@@ -116,8 +116,13 @@ export const PersonData = () => {
                 label="phone"
                 mask={["+7 999 999 99 99"]}
                 required={{
-                    required: true
+                    required: true,
+                    pattern: {
+                        value: /^\+7 [0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}$/,
+                        message: "Обязательное поле!"
+                    }
                 }}
+                error={errors.phone?.message}
             />
             <Input
                 text="Email"
