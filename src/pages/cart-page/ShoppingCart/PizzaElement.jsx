@@ -20,35 +20,44 @@ export const PizzaElement = ({ pizza }) => {
                     src={BASE_URL + pizza.img}
                     alt={`Изображение пиццы ${pizza.name}`}
                 />
-                <p className={styles.name}>{pizza.name}</p>
                 <div className={styles.pizza_inf}>
-                    <p>{Translation[pizza.size.name]}, {Translation[pizza.doughs.name]}</p>
-                    <ul>
-                        {pizza.toppings?.map((topping, i) => (
-                            <li key={i}>
-                                <p>+ {Translation[topping.name]}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div className={styles.counter}>
-                    <button className={styles.btn} onClick={() => setCount(count - 1)}>
-                        -
-                    </button>
-                    <p className={styles.num}>{count}</p>
-                    <button className={styles.btn} onClick={() => setCount(count + 1)}>
-                        +
-                    </button>
-                </div>
-                <p className={styles.change}>Изменить</p>
-                <p className={styles.cost}>
-                    {pizza.size.price +
-                        pizza.doughs.price +
-                        pizza.toppings?.reduce((cost, topping) => cost + topping.cost, 0)}{" "}
-                    ₽
-                </p>
-                <div className={styles.remove} onClick={() => dispatch(deletePizza(pizza))}>
-                    <CloseIcon />
+                    <p className={styles.name}>{pizza.name}</p>
+                    <div className={styles.pizza_structure}>
+                        <p>
+                            {Translation[pizza.size.name]}, {Translation[pizza.doughs.name]}
+                        </p>
+                        <ul>
+                            {pizza.toppings?.map((topping, i) => (
+                                <li key={i}>
+                                    <p>+ {Translation[topping.name]}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className={styles.active}>
+                        <div className={styles.counter}>
+                            <button className={styles.btn} onClick={() => setCount(count - 1)}>
+                                -
+                            </button>
+                            <p className={styles.num}>{count}</p>
+                            <button className={styles.btn} onClick={() => setCount(count + 1)}>
+                                +
+                            </button>
+                        </div>
+                        <p className={styles.change}>Изменить</p>
+                        <p className={styles.cost}>
+                            {pizza.size.price +
+                                pizza.doughs.price +
+                                pizza.toppings?.reduce(
+                                    (cost, topping) => cost + topping.cost,
+                                    0
+                                )}{" "}
+                            ₽
+                        </p>
+                        <div className={styles.remove} onClick={() => dispatch(deletePizza(pizza))}>
+                            <CloseIcon />
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

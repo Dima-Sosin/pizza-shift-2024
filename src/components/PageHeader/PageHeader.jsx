@@ -6,6 +6,7 @@ import { Link, Outlet } from "react-router-dom"
 import { CartIcon } from "@assets/CartIcon"
 import { ExitIcon } from "@assets/ExitIcon"
 import { LogoIcon } from "@assets/LogoIcon"
+import { PizzaIcon } from "@assets/PizzaIcon.jsx"
 import { TimeIcon } from "@assets/TimeIcon"
 import { UserIcon } from "@assets/UserIcon"
 import { LogOn } from "@components/LogOn/LogOn"
@@ -22,34 +23,33 @@ export const PageHeader = () => {
 
     return (
         <>
-            <div className={`page ${styles.header_line}`}>
-                <div className="container">
+            <div className={styles.page}>
+                <div className={styles.container}>
                     <header className={styles.page_header}>
                         <div className={styles.left}>
-                            <Link to="/catalog">
-                                <LogoIcon />
+                            <Link className={styles.link} to="/catalog">
+                                <LogoIcon className={styles.logo_icon} />
+                                <PizzaIcon className={styles.pizza_icon} />
+                                <span className={`${styles.label} ${styles.pizza}`}>Пицца</span>
                             </Link>
-                            {isAuth && (
-                                <>
-                                    <Link className={styles.block} to="/profile">
-                                        <UserIcon />
-                                        <span className={styles.link}>Профиль</span>
-                                    </Link>
-                                    <Link className={styles.block} to="/orders">
-                                        <TimeIcon />
-                                        <span className={styles.link}>Заказы</span>
-                                    </Link>
-                                </>
-                            )}
+                            <Link className={styles.link} to="/profile">
+                                <UserIcon />
+                                <span className={styles.label}>Профиль</span>
+                            </Link>
+                            <Link className={styles.link} to="/orders">
+                                <TimeIcon />
+                                <span className={styles.label}>Заказы</span>
+                            </Link>
                         </div>
+
                         <div className={styles.right}>
-                            <Link className={styles.block} to="/cart">
+                            <Link className={styles.link} to="/cart">
                                 <CartIcon />
-                                <span className={styles.link}>Корзина</span>
+                                <span className={styles.label}>Корзина</span>
                             </Link>
-                            <div className={styles.block}>
+                            <div className={`${styles.link} ${styles.exit}`}>
                                 <ExitIcon />
-                                <span className={styles.link} onClick={() => setIsModal(true)}>
+                                <span className={styles.label} onClick={() => setIsModal(true)}>
                                     {isAuth ? "Выйти" : "Войти"}
                                 </span>
                             </div>

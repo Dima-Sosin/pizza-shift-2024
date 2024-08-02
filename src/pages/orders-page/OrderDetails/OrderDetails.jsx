@@ -1,4 +1,4 @@
-import styles from "./History.module.css"
+import styles from "./OrderDetails.module.css"
 
 import { useContext, useEffect, useState } from "react"
 
@@ -10,7 +10,7 @@ import { Status } from "@components/Status/Status.jsx"
 
 import { PageContext } from "../orders-page.jsx"
 
-export const History = ({ orderId }) => {
+export const OrderDetails = ({ orderId }) => {
     const [order, setOrder] = useState({})
     const { setStage } = useContext(PageContext)
     const [isModal, setIsModal] = useState(false)
@@ -21,10 +21,18 @@ export const History = ({ orderId }) => {
             setIsLoad(true)
         })
     }, [])
+
+    const returnPizza = () => {
+        api.put("/pizza/orders/cancel", { orderId: order._id }, localStorage.getItem("token")).then(
+            () => window.location.reload()
+        )
+        setIsModal(false)
+    }
+
     return (
         isLoad && (
             <>
-                <h1>История</h1>
+                <h1>Детали заказа</h1>
                 <div className={styles.order}>
                     <div className={styles.block}>
                         <p className={styles.title}>Статус</p>
@@ -69,17 +77,7 @@ export const History = ({ orderId }) => {
                             <h3>Отменить заказ?</h3>
                         </div>
                         <div className={styles.modal_buttons}>
-                            <Button
-                                type="default"
-                                onClick={() => {
-                                    api.put(
-                                        "/pizza/orders/cancel",
-                                        { orderId: order._id },
-                                        localStorage.getItem("token")
-                                    ).then((result) => result)
-                                    setIsModal(false)
-                                }}
-                            >
+                            <Button type="default" onClick={() => returnPizza()}>
                                 Отменить
                             </Button>
                             <Button type="primary" onClick={() => setIsModal(false)}>

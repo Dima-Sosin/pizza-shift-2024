@@ -19,10 +19,14 @@ export const PizzaCard = ({ pizza }) => {
                     alt={`Изображение пиццы ${pizza.name}`}
                     loading="lazy"
                 />
-                <h3>{pizza.name}</h3>
-                <p className={styles.description}>{pizza.description}</p>
-                <p className={styles.price}>от {pizza.sizes[0].price} ₽</p>
-                <Button type="primary">Подробнее</Button>
+                <div className={styles.inf}>
+                    <h3>{pizza.name}</h3>
+                    <p className={styles.description}>{pizza.description}</p>
+                    <p className={styles.price}>от {pizza.sizes[0].price} ₽</p>
+                    <Button className={styles.button} type="primary">
+                        Подробнее
+                    </Button>
+                </div>
             </div>
             {isModal && (
                 <PizzaModal

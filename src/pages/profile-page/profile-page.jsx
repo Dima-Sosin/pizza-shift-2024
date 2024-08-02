@@ -1,13 +1,18 @@
+import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigate } from "react-router-dom"
 import { useHookFormMask } from "use-mask-input"
 
 import { api } from "@api"
 import { Button } from "@components/Button/Button.jsx"
 import { Input } from "@components/Input/Input.jsx"
+import { LogOn } from "@components/LogOn/LogOn.jsx"
+import { LogOut } from "@components/LogOut/LogOut.jsx"
+import { PageLayout } from "@components/PageLayout/PageLayout.jsx"
 
 export function ProfilePage() {
-    const user = useLoaderData().user
+    const data = useLoaderData()
+    const nav = useNavigate()
     const {
         register,
         handleSubmit,
@@ -15,34 +20,43 @@ export function ProfilePage() {
     } = useForm()
     const registerWithMask = useHookFormMask(register)
 
+    const [isModal, setIsModal] = useState(false)
+    const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"))
+
+    const Modal = {
+        true: <LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />,
+        false: <LogOn onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+    }
+
     const onSubmit = (data) => {
         const updateProfile = {
             profile: {
-                firstname: data.firstname,
-                middlename: data.middlename,
-                lastname: data.lastname,
-                email: data.email,
-                city: data.city
+                firstname: data?.firstname,
+                middlename: data?.middlename,
+                lastname: data?.lastname,
+                email: data?.email,
+                city: data?.city
             },
-            phone: user.phone
+            phone: data?.phone
         }
         api.patch("/users/profile", updateProfile, localStorage.getItem("token")).then(
             (result) => result
         )
+        nav("/catalog")
     }
 
     return (
-        <div className="page">
-            <div className="container">
+        <PageLayout>
+            <h1>Профиль</h1>
+            {data?.success && (
                 <form className="form">
-                    <h1>Профиль</h1>
                     <Input
                         text="Фамилия*"
                         type="text"
                         id="profile-lastname"
                         name="lastname"
                         placeholder="Фамилия"
-                        defaultValue={user?.lastname}
+                        defaultValue={data.user?.lastname}
                         register={register}
                         label="lastname"
                         required={{
@@ -61,7 +75,7 @@ export function ProfilePage() {
                         id="profile-firstname"
                         name="firstname"
                         placeholder="Имя"
-                        defaultValue={user?.firstname}
+                        defaultValue={data.user?.firstname}
                         register={register}
                         label="firstname"
                         required={{
@@ -80,11 +94,10 @@ export function ProfilePage() {
                         id="profile-middlename"
                         name="middlename"
                         placeholder="Отчество"
-                        defaultValue={user?.middlename}
+                        defaultValue={data.user?.middlename}
                         register={register}
                         label="middlename"
                         required={{
-                            required: true,
                             pattern: {
                                 value: /^[A-ZА-Я-]+$/i,
                                 message: "Отчество должно содержать только буквы"
@@ -100,7 +113,7 @@ export function ProfilePage() {
                         name="phone"
                         placeholder="Телефон"
                         readOnly={true}
-                        defaultValue={user?.phone}
+                        defaultValue={data.user?.phone}
                         register={registerWithMask}
                         label="phone"
                         mask={["+7 999 999 99 99"]}
@@ -111,11 +124,10 @@ export function ProfilePage() {
                         id="profile-email"
                         name="email"
                         placeholder="Email"
-                        defaultValue={user?.email}
+                        defaultValue={data.user?.email}
                         register={register}
                         label="email"
                         required={{
-                            required: true,
                             pattern: {
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
                                 message: "Неправильный email!"
@@ -130,11 +142,10 @@ export function ProfilePage() {
                         id="profile-city"
                         name="city"
                         placeholder="Город"
-                        defaultValue={user?.city}
+                        defaultValue={data.user?.city}
                         register={register}
                         label="city"
                         required={{
-                            required: true,
                             maxLength: 100
                         }}
                         error={errors.city?.message}
@@ -143,7 +154,11 @@ export function ProfilePage() {
                         Обновить данные
                     </Button>
                 </form>
-            </div>
-        </div>
+            )}
+            <Button type="default" onClick={() => setIsModal(true)}>
+                {isAuth ? "Выйти из аккаунта" : "Войти в аккаунт"}
+            </Button>
+            {isModal && Modal[isAuth]}
+        </PageLayout>
     )
 }

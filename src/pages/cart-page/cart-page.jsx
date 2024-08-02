@@ -1,5 +1,7 @@
 import { createContext, useState } from "react"
 
+import { PageLayout } from "@components/PageLayout/PageLayout.jsx"
+
 import { DebitCard } from "./DebitCard/DebitCard.jsx"
 import { PersonData } from "./PersonData/PersonData.jsx"
 import { ShoppingCart } from "./ShoppingCart/ShoppingCart.jsx"
@@ -14,10 +16,8 @@ export const CartPage = () => {
         debitCard: <DebitCard />
     }
     return (
-        <div className="page">
-            <div className="container">
-                <PageContext.Provider value={{ setStage }}>{Stages[stage]}</PageContext.Provider>
-            </div>
-        </div>
+        <PageLayout>
+            <PageContext.Provider value={{ setStage }}>{Stages[stage]}</PageContext.Provider>
+        </PageLayout>
     )
 }
