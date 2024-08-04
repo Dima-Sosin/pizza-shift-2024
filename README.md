@@ -4,8 +4,7 @@
 ### Основной стек технологий:
 * Фреймворк (библиотека) - [React](https://react.dev/) + JavaScript
 * Сборщик приложения - [Vite](https://vitejs.dev/)
-* Форматирование кода - [Prettier](https://prettier.io/)
-* Линтер - [ESLint](https://eslint.org/)
+* Чистота кода - [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Husky](https://www.npmjs.com/package/husky) + [Lint Staged](https://www.npmjs.com/package/lint-staged)
 * Стилизация - [CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
 * Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
 * Получение данных с сервера - [Fetch](https://learn.javascript.ru/fetch)
