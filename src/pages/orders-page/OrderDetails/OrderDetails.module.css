@@ -40,11 +40,11 @@
     gap: 16px;
 }
 
-@media (max-width: 769px){
+@media (max-width: 769px) {
     .order {
         padding: 24px 16px;
     }
-    .buttons{
+    .buttons {
         flex-direction: column;
     }
 }

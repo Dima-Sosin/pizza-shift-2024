@@ -4,7 +4,7 @@
     display: inline-flex;
 }
 
-.title{
+.title {
     font-size: 14px;
     display: inline-flex;
     color: #637083;
@@ -16,7 +16,7 @@
     background-color: #e3e5e5;
 }
 
-.title_mobile{
+.title_mobile {
     display: none;
     font-size: 12px;
     color: #637083;
@@ -66,16 +66,19 @@
     height: calc(100% + 20px);
 }
 
-@media(max-width: 769px){
-    .head{
+@media (max-width: 769px) {
+    .head {
         display: none;
     }
-    .title_mobile{
+
+    .title_mobile {
         display: flex;
     }
+
     .order_element {
         flex-direction: column;
     }
+
     .status,
     .address,
     .composition_order,

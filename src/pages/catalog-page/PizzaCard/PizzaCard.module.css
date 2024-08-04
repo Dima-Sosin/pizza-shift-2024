@@ -33,7 +33,7 @@
     .card {
         flex-direction: row;
         align-items: center;
-        gap:24px;
+        gap: 24px;
     }
 
     .img {
@@ -46,7 +46,7 @@
         display: flex;
         flex-direction: column;
         flex: 1 0;
-        gap:8px;
+        gap: 8px;
     }
 
     .description {
@@ -55,8 +55,8 @@
         font-size: 12px;
     }
 
-    .price{
-        margin:0;
+    .price {
+        margin: 0;
         font-size: 16px;
     }
 
