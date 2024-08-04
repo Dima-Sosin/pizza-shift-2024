@@ -18,16 +18,15 @@ export const Orders = () => {
                 <>
                     <div className={styles.head}>
                         <div className={styles.status}>
-                            <p>Статус</p>
+                            <p className={styles.title}>Статус</p>
                         </div>
                         <div className={styles.address}>
-                            <p>Адрес доставки</p>
+                            <p className={styles.title}>Адрес доставки</p>
                         </div>
                         <div className={styles.composition_order}>
-                            <p>Состав заказа</p>
+                            <p className={styles.title}>Состав заказа</p>
                         </div>
                     </div>
-                    <div className={styles.line}></div>
                     <ul>
                         {data.orders?.map((order) => (
                             <li key={order._id}>
