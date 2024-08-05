@@ -18,9 +18,9 @@ export const Translation = {
     CHICKEN_FILLET: "Нежный цыпленок",
     MEATBALLS: "Митболы",
 
-    SMALL: "Маленькая 25см",
-    MEDIUM: "Средняя 30см",
-    LARGE: "Большая 35см",
+    SMALL: "Маленькая",
+    MEDIUM: "Средняя",
+    LARGE: "Большая",
 
     THIN: "Тонкое тесто",
     THICK: "Традиционное тесто",

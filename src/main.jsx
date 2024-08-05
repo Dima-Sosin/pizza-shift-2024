@@ -10,7 +10,7 @@ import store from "@store/store"
 
 import { CartPage } from "./pages/cart-page/cart-page.jsx"
 import { CatalogPage } from "./pages/catalog-page/catalog-page.jsx"
-import { ErrorPage } from "./pages/error-page/ErrorPage.jsx"
+import { ErrorPage } from "./pages/error-page/error-page.jsx"
 import { OrdersPage } from "./pages/orders-page/orders-page.jsx"
 import { ProfilePage } from "./pages/profile-page/profile-page.jsx"
 

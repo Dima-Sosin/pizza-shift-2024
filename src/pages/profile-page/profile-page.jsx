@@ -1,3 +1,5 @@
+import styles from "./ProfilePage.module.css"
+
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useLoaderData, useNavigate } from "react-router-dom"
@@ -171,7 +173,7 @@ export function ProfilePage() {
                     </Button>
                 </form>
             )}
-            <Button type="default" onClick={() => setIsModal(true)}>
+            <Button className={styles.button} type="default" onClick={() => setIsModal(true)}>
                 {isAuth ? "Выйти из аккаунта" : "Войти в аккаунт"}
             </Button>
             {isModal && Modal[isAuth]}
