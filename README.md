@@ -3,17 +3,15 @@
 Проект реализует полноценное web-приложение сайта пиццы, и полностью имитирует все его основные функции. На сайте можно просмотреть каталог пицц, увидеть подробную информацио о каждой пицце, а также просмотреть список добавок доступных для пиццы, и добавить её в корзину. Далее для оформления заказа в корзине нужно будет ввести пользовательские данные и данные банковской карты, после чего пицца будет заказака, и она отобразится уже на странице с заказами. В заказах можно просмотреть прошлые заказы в общем или каждый заказ с подробностями отдельно. Это возможно благодаря реализации авторизованной зоны, авторизация происходит через номер телефона и код из СМС. Благодаря авторизованной зоне также реализован профиль пользователя, в котором можно изменить или просмотреть свои данные: ФИО, номер телефона, email, город.
 
 ### Основной стек технологий:
-
--   Фреймворк (библиотека) - [React](https://react.dev/) + JavaScript
--   Сборщик приложения - [Vite](https://vitejs.dev/)
--   Форматирование кода - [Prettier](https://prettier.io/)
--   Линтер - [ESLint](https://eslint.org/)
--   Стилизация - [CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
--   Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
--   Получение данных с сервера - [Fetch](https://learn.javascript.ru/fetch)
--   State-manager - [Redux](https://redux.js.org/) + [React Redux](https://react-redux.js.org/) + [Redux Toolkit](https://redux-toolkit.js.org/)
--   Обработка и валидация форм [React Hook Form](https://react-hook-form.com/)
--   Создание масок ввода [Use Mask Input](https://www.npmjs.com/package/use-mask-input)
+* Фреймворк (библиотека) - [React](https://react.dev/) + JavaScript
+* Сборщик приложения - [Vite](https://vitejs.dev/)
+* Чистота кода - [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Husky](https://www.npmjs.com/package/husky) + [Lint Staged](https://www.npmjs.com/package/lint-staged)
+* Стилизация - [CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
+* Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
+* Получение данных с сервера - [Fetch](https://learn.javascript.ru/fetch)
+* State-manager - [Redux](https://redux.js.org/) + [React Redux](https://react-redux.js.org/) + [Redux Toolkit](https://redux-toolkit.js.org/)
+* Обработка и валидация форм [React Hook Form](https://react-hook-form.com/)
+* Создание масок ввода [Use Mask Input](https://www.npmjs.com/package/use-mask-input)
 
 Этот проект реализует frontend часть web-приложения сайта с пиццами, данные для вывода берутся из [backend](https://shift-backend.onrender.com/api#/)-а, написанного ШИФТ.
 
@@ -32,7 +30,10 @@
     -   Страница с полным списком заказов конкретного пользователя;
     -   Индивидуальная страница конкретного заказа, с возможностью отменить его, если он еще готовится.
 
-Также релизуется возможность входа или выхода из своего аккаунта, вход осуществляется по номеру телефона и смс коду.
+Также все страницы сверстаны под мобильные устройства и под планшеты, присутствует полноценный адаптив интерфейса.
+
+Также релизуется возможность входа или выхода из своего аккаунта, вход осуществляется по номеру телефона и смс коду (смс код не приходит на номер телефона по настоящему, но его можно найти [здесь](https://shift-backend.onrender.com/otps)).
+___
 
 |                                    Страница "Каталог"                                     |                              Страница "Модальное окно пиццы"                              |
 | :---------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: |
