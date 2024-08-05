@@ -2,3 +2,9 @@
     display: flex;
     gap: 24px;
 }
+
+@media (max-width: 426px) {
+    .buttons {
+        flex-direction: column;
+    }
+}

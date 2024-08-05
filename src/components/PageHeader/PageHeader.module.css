@@ -1,5 +1,19 @@
-.header_line {
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
     border-bottom: 1px solid #ced2da;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1020px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 30px;
+    margin: 24px 0;
 }
 
 .page_header {
@@ -14,7 +28,15 @@
     gap: 32px;
 }
 
-.block {
+.pizza_icon {
+    display: none;
+}
+
+.pizza {
+    display: none;
+}
+
+.link {
     position: relative;
     text-decoration: none;
     display: flex;
@@ -24,7 +46,7 @@
     font-weight: 500;
 }
 
-.block:hover {
+.link:hover {
     color: #f4511e;
     cursor: pointer;
 }
@@ -34,24 +56,66 @@
     .right {
         gap: 30px;
     }
+
+    .container {
+        padding: 0 20px;
+    }
 }
 
 @media (max-width: 700px) {
-    .left,
-    .right {
-        gap: 20px;
+    .page {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        background-color: #ffffff;
     }
 
-    .link {
+    .container {
+        padding: 0;
+        margin: 0;
+    }
+    .page_header {
+        justify-content: normal;
+    }
+
+    .left {
+        width: 75%;
+        gap: 0;
+    }
+
+    .right {
+        width: 25%;
+        gap: 0;
+    }
+
+    .exit {
         display: none;
     }
 
-    .block:before {
-        content: "";
-        position: absolute;
-        top: -10px;
-        left: -10px;
-        width: 44px;
-        height: 44px;
+    .link {
+        flex: 1 0;
+        flex-direction: column;
+        gap: 2px;
+        color: #637083;
+        font-weight: 400;
+        padding: 10px 0;
+    }
+
+    .label {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .logo_icon {
+        display: none;
+    }
+
+    .pizza_icon {
+        display: block;
+    }
+
+    .pizza {
+        display: block;
     }
 }

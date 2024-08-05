@@ -1,12 +1,11 @@
-import React from "react"
-
-import { Translation } from "../../translation/index.js"
 import styles from "./InputRadio.module.css"
 
+import { Translation } from "@translation"
+
 export const InputRadio = ({ arr, name, onClick }) => (
-    <div className={styles.arr}>
+    <ul className={styles.arr}>
         {arr.map((el, i) => (
-            <React.Fragment key={i}>
+            <li className={styles.el} key={i}>
                 <input
                     className={styles.el_input}
                     type="radio"
@@ -17,7 +16,7 @@ export const InputRadio = ({ arr, name, onClick }) => (
                 <label className={styles.el_label} htmlFor={el.name}>
                     {Translation[el.name]}
                 </label>
-            </React.Fragment>
+            </li>
         ))}
-    </div>
+    </ul>
 )

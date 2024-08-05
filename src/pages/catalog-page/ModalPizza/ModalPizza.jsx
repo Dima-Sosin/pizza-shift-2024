@@ -1,14 +1,15 @@
+import styles from "./ModalPizza.module.css"
+
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { BASE_URL } from "../../../api/api.js"
-import { AttentionIcon } from "../../../assets/AttentionIcon.jsx"
-import { Button } from "../../../components/Button/Button.jsx"
-import { InputRadio } from "../../../components/InputRadio/InputRadio.jsx"
-import { Modal } from "../../../components/Modal/Modal.jsx"
-import { ToppingCards } from "../../../components/ToppingCards/ToppingCards.jsx"
-import { addPizza } from "../../../store/pizzaSlice.js"
-import styles from "./ModalPizza.module.css"
+import { BASE_URL } from "@api"
+import { AttentionIcon } from "@assets/AttentionIcon"
+import { Button } from "@components/Button/Button"
+import { InputRadio } from "@components/InputRadio/InputRadio"
+import { Modal } from "@components/Modal/Modal"
+import { ToppingCards } from "@components/ToppingCards/ToppingCards"
+import { addPizza } from "@store/pizzaSlice"
 
 export const PizzaModal = ({ pizza, onClose }) => {
     const dispatch = useDispatch()
@@ -64,34 +65,29 @@ export const PizzaModal = ({ pizza, onClose }) => {
                     className={styles.img}
                     src={BASE_URL + pizza.img}
                     alt={`Изображение пиццы ${pizza.name}`}
+                    loading="lazy"
                 />
                 <div className={styles.right}>
                     <div className={styles.info}>
                         <div className={styles.modal_title}>
                             <h2>{pizza.name}</h2>
                             <AttentionIcon />
-                            <p className={styles.tooltip}>
-                                <span className={styles.tooltip_title}>
-                                    Пищевая ценность на 100 г:
-                                </span>
-                                <br />
-                                <span>Энерг. ценность: {pizza.calories} ккал</span>
-                                <br />
-                                <span>Белки: {pizza.protein}</span>
-                                <br />
-                                <span>Жиры: {pizza.totalFat}</span>
-                                <br />
-                                <span>Углеводы: {pizza.carbohydrates}</span>
-                                <br />
-                                <span>Натрий: {pizza.sodium}</span>
-                                <br />
-                                <span className={styles.tooltip_allergens}>Аллергены: </span>
-                                {pizza.allergens?.map((allergen, i) => (
-                                    <span className={styles.allergen} key={i}>
-                                        {allergen}{" "}
-                                    </span>
-                                ))}
-                            </p>
+                            <div className={styles.tooltip}>
+                                <p className={styles.tooltip_title}>Пищевая ценность на 100 г:</p>
+                                <p>Энерг. ценность: {pizza.calories} ккал</p>
+                                <p>Белки: {pizza.protein}</p>
+                                <p>Жиры: {pizza.totalFat}</p>
+                                <p>Углеводы: {pizza.carbohydrates}</p>
+                                <p>Натрий: {pizza.sodium}</p>
+                                <ul className={styles.tooltip_allergens}>
+                                    Аллергены:{" "}
+                                    {pizza.allergens?.map((allergen, i) => (
+                                        <li className={styles.li} key={i}>
+                                            <span className={styles.allergen}>{allergen}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
 
                         <p className={styles.p}>{pizza.description}</p>

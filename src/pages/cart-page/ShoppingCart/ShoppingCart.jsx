@@ -1,11 +1,14 @@
+import styles from "./ShoppingCart.module.css"
+
 import { useContext } from "react"
 import { useSelector } from "react-redux"
 
-import { Button } from "../../../components/Button/Button.jsx"
-import { selectPizzas } from "../../../store/pizzaSlice.js"
+import { Button } from "@components/Button/Button.jsx"
+import { selectPizzas } from "@store/pizzaSlice.js"
+
 import { PageContext } from "../cart-page.jsx"
+
 import { PizzaElement } from "./PizzaElement.jsx"
-import styles from "./ShoppingCart.module.css"
 
 export const ShoppingCart = () => {
     const pizzas = useSelector(selectPizzas)
@@ -26,7 +29,7 @@ export const ShoppingCart = () => {
                 <>
                     <ul>
                         {pizzas?.map((pizza, i) => (
-                            <li className={styles.li} key={i}>
+                            <li key={i}>
                                 <PizzaElement pizza={pizza} />
                                 {calcCost(pizza.toppings, pizza.size, pizza.doughs)}
                             </li>
@@ -36,9 +39,7 @@ export const ShoppingCart = () => {
                     <div className={styles.line}></div>
 
                     <div className={styles.inf}>
-                        <div className={styles.purch_cost}>
-                            <h2>Стоимость заказа: {shoppingCost} ₽</h2>
-                        </div>
+                        <h2 className={styles.purch_cost}>Стоимость заказа: {shoppingCost} ₽</h2>
                         <div className={styles.button}>
                             <Button type="primary" onClick={() => setStage("personalData")}>
                                 Оформить заказ

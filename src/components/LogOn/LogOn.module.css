@@ -1,3 +1,8 @@
+.text {
+    color: #141c24;
+    margin-bottom: 24px;
+    width: 328px;
+}
 .timer {
     margin-top: 16px;
     font-size: 14px;

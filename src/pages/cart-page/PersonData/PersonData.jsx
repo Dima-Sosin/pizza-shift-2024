@@ -1,14 +1,16 @@
+import styles from "./PersonData.module.css"
+
 import { useContext } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { useLoaderData } from "react-router-dom"
 import { useHookFormMask } from "use-mask-input"
 
-import { Button } from "../../../components/Button/Button.jsx"
-import { Input } from "../../../components/Input/Input.jsx"
-import { addPerson, addReceiverAddress } from "../../../store/pizzaSlice.js"
+import { Button } from "@components/Button/Button.jsx"
+import { Input } from "@components/Input/Input.jsx"
+import { addPerson, addReceiverAddress } from "@store/pizzaSlice.js"
+
 import { PageContext } from "../cart-page.jsx"
-import styles from "./PersonData.module.css"
 
 export const PersonData = () => {
     const { setStage } = useContext(PageContext)
@@ -114,8 +116,13 @@ export const PersonData = () => {
                 label="phone"
                 mask={["+7 999 999 99 99"]}
                 required={{
-                    required: true
+                    required: true,
+                    pattern: {
+                        value: /^\+7 [0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}$/,
+                        message: "Обязательное поле!"
+                    }
                 }}
+                error={errors.phone?.message}
             />
             <Input
                 text="Email"

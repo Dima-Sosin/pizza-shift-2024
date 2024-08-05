@@ -1,14 +1,17 @@
+import styles from "./DebitCard.module.css"
+
 import { useContext, useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useHookFormMask } from "use-mask-input"
 
-import { api } from "../../../api/api.js"
-import { Button } from "../../../components/Button/Button.jsx"
-import { Input } from "../../../components/Input/Input.jsx"
-import { addDebitCard, deleteAll, selectCart } from "../../../store/pizzaSlice.js"
+import { api } from "@api"
+import { Button } from "@components/Button/Button.jsx"
+import { Input } from "@components/Input/Input.jsx"
+import { addDebitCard, deleteAll, selectCart } from "@store/pizzaSlice.js"
+
 import { PageContext } from "../cart-page.jsx"
-import styles from "./DebitCard.module.css"
+
 import { ModalSuccess } from "./ModalSuccess.jsx"
 
 export const DebitCard = () => {
@@ -48,8 +51,13 @@ export const DebitCard = () => {
                         label="pan"
                         mask={["9999 9999"]}
                         required={{
-                            required: true
+                            required: true,
+                            pattern: {
+                                value: /^[0-9]{4} [0-9]{4}$/,
+                                message: "Обязательное поле!"
+                            }
                         }}
+                        error={errors.pan?.message}
                     />
                     <div className={styles.lower}>
                         <Input
@@ -64,7 +72,7 @@ export const DebitCard = () => {
                             required={{
                                 required: true,
                                 pattern: {
-                                    value: /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/i,
+                                    value: /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/,
                                     message: "Неправильная дата!"
                                 }
                             }}
@@ -80,8 +88,13 @@ export const DebitCard = () => {
                             label="cvv"
                             mask={["999"]}
                             required={{
-                                required: true
+                                required: true,
+                                pattern: {
+                                    value: /^[0-9]{3}$/,
+                                    message: "Обязательное поле!"
+                                }
                             }}
+                            error={errors.cvv?.message}
                         />
                     </div>
                 </div>
@@ -100,6 +113,7 @@ export const DebitCard = () => {
                     onClose={() => {
                         setIsModal(false)
                         dispatch(deleteAll())
+                        document.body.style.overflowY = "scroll"
                     }}
                 />
             )}

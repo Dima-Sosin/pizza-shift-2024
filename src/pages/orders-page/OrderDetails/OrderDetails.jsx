@@ -1,14 +1,16 @@
+import styles from "./OrderDetails.module.css"
+
 import { useContext, useEffect, useState } from "react"
 
-import { api } from "../../../api/api.js"
-import { QuestionIcon } from "../../../assets/QuestionIcon.jsx"
-import { Button } from "../../../components/Button/Button.jsx"
-import { Modal } from "../../../components/Modal/Modal.jsx"
-import { Status } from "../../../components/Status/Status.jsx"
-import { PageContext } from "../orders-page.jsx"
-import styles from "./History.module.css"
+import { api } from "@api"
+import { QuestionIcon } from "@assets/QuestionIcon.jsx"
+import { Button } from "@components/Button/Button.jsx"
+import { Modal } from "@components/Modal/Modal.jsx"
+import { Status } from "@components/Status/Status.jsx"
 
-export const History = ({ orderId }) => {
+import { PageContext } from "../orders-page.jsx"
+
+export const OrderDetails = ({ orderId }) => {
     const [order, setOrder] = useState({})
     const { setStage } = useContext(PageContext)
     const [isModal, setIsModal] = useState(false)
@@ -19,10 +21,18 @@ export const History = ({ orderId }) => {
             setIsLoad(true)
         })
     }, [])
+
+    const returnPizza = () => {
+        api.put("/pizza/orders/cancel", { orderId: order._id }, localStorage.getItem("token")).then(
+            () => window.location.reload()
+        )
+        setIsModal(false)
+    }
+
     return (
         isLoad && (
             <>
-                <h1>История</h1>
+                <h1>Детали заказа</h1>
                 <div className={styles.order}>
                     <div className={styles.block}>
                         <p className={styles.title}>Статус</p>
@@ -61,23 +71,18 @@ export const History = ({ orderId }) => {
                     </div>
                 </div>
                 {isModal && (
-                    <Modal onClose={() => setIsModal(false)}>
+                    <Modal
+                        onClose={() => {
+                            setIsModal(false)
+                            document.body.style.overflowY = "scroll"
+                        }}
+                    >
                         <div className={styles.modal_title}>
                             <QuestionIcon />
                             <h3>Отменить заказ?</h3>
                         </div>
                         <div className={styles.modal_buttons}>
-                            <Button
-                                type="default"
-                                onClick={() => {
-                                    api.put(
-                                        "/pizza/orders/cancel",
-                                        { orderId: order._id },
-                                        localStorage.getItem("token")
-                                    ).then((result) => result)
-                                    setIsModal(false)
-                                }}
-                            >
+                            <Button type="default" onClick={() => returnPizza()}>
                                 Отменить
                             </Button>
                             <Button type="primary" onClick={() => setIsModal(false)}>

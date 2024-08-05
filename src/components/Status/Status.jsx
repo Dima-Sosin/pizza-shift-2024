@@ -1,5 +1,6 @@
-import { Translation } from "../../translation/index.js"
 import styles from "./Status.module.css"
+
+import { Translation } from "@translation"
 
 export const Status = ({ status }) => {
     let color = "yellow"

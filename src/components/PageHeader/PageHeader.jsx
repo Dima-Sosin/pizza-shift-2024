@@ -1,54 +1,71 @@
+import styles from "./PageHeader.module.css"
+
 import { useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 
-import { CartIcon } from "../../assets/CartIcon.jsx"
-import { ExitIcon } from "../../assets/ExitIcon.jsx"
-import { LogoIcon } from "../../assets/LogoIcon.jsx"
-import { TimeIcon } from "../../assets/TimeIcon.jsx"
-import { UserIcon } from "../../assets/UserIcon.jsx"
-import { LogOn } from "../LogOn/LogOn.jsx"
-import { LogOut } from "../LogOut/LogOut.jsx"
-import styles from "./PageHeader.module.css"
+import { CartIcon } from "@assets/CartIcon"
+import { ExitIcon } from "@assets/ExitIcon"
+import { LogoIcon } from "@assets/LogoIcon"
+import { PizzaIcon } from "@assets/PizzaIcon.jsx"
+import { TimeIcon } from "@assets/TimeIcon"
+import { UserIcon } from "@assets/UserIcon"
+import { LogOn } from "@components/LogOn/LogOn"
+import { LogOut } from "@components/LogOut/LogOut"
 
 export const PageHeader = () => {
     const [isModal, setIsModal] = useState(false)
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"))
 
     const Modal = {
-        true: <LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />,
-        false: <LogOn onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+        true: (
+            <LogOut
+                setIsAuth={setIsAuth}
+                onClose={() => {
+                    setIsModal(false)
+                    document.body.style.overflowY = "scroll"
+                }}
+            />
+        ),
+        false: (
+            <LogOn
+                setIsAuth={setIsAuth}
+                onClose={() => {
+                    setIsModal(false)
+                    document.body.style.overflowY = "scroll"
+                }}
+            />
+        )
     }
 
     return (
         <>
-            <div className={`page ${styles.header_line}`}>
-                <div className="container">
+            <div className={styles.page}>
+                <div className={styles.container}>
                     <header className={styles.page_header}>
                         <div className={styles.left}>
-                            <Link to="/catalog">
-                                <LogoIcon />
+                            <Link className={styles.link} to="/catalog">
+                                <LogoIcon className={styles.logo_icon} />
+                                <PizzaIcon className={styles.pizza_icon} />
+                                <span className={`${styles.label} ${styles.pizza}`}>Пицца</span>
                             </Link>
-                            {isAuth && (
-                                <>
-                                    <Link className={styles.block} to="/profile">
-                                        <UserIcon />
-                                        <span className={styles.link}>Профиль</span>
-                                    </Link>
-                                    <Link className={styles.block} to="/orders">
-                                        <TimeIcon />
-                                        <span className={styles.link}>Заказы</span>
-                                    </Link>
-                                </>
-                            )}
+                            <Link className={styles.link} to="/profile">
+                                <UserIcon />
+                                <span className={styles.label}>Профиль</span>
+                            </Link>
+                            <Link className={styles.link} to="/orders">
+                                <TimeIcon />
+                                <span className={styles.label}>Заказы</span>
+                            </Link>
                         </div>
+
                         <div className={styles.right}>
-                            <Link className={styles.block} to="/cart">
+                            <Link className={styles.link} to="/cart">
                                 <CartIcon />
-                                <span className={styles.link}>Корзина</span>
+                                <span className={styles.label}>Корзина</span>
                             </Link>
-                            <div className={styles.block}>
+                            <div className={`${styles.link} ${styles.exit}`}>
                                 <ExitIcon />
-                                <span className={styles.link} onClick={() => setIsModal(true)}>
+                                <span className={styles.label} onClick={() => setIsModal(true)}>
                                     {isAuth ? "Выйти" : "Войти"}
                                 </span>
                             </div>

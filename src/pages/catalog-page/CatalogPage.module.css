@@ -1,0 +1,14 @@
+.cards {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    gap: 50px 30px;
+    @media (max-width: 1019px) {
+        grid-template-columns: 300px 300px;
+        gap: 40px 20px;
+    }
+    @media (max-width: 700px) {
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+}

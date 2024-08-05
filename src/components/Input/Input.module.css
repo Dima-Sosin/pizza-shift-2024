@@ -17,16 +17,30 @@
     border: 1px solid #ced2da;
     border-radius: 7px;
     color: #141c24;
-}
+    width: 100%;
+    box-sizing: border-box;
 
-.input:focus {
-    outline: none;
-    border-color: #f4511e;
-    box-shadow: 0 0 0 1px #f4511e;
+    &:hover {
+        border-color: black;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #f4511e;
+        box-shadow: 0 0 0 1px #f4511e;
+    }
 }
 
 input[readonly] {
     background-color: #f3f4f6;
+    &:hover {
+        border-color: #ced2da;
+    }
+    &:focus {
+        outline: none;
+        border-color: #ced2da;
+        box-shadow: none;
+    }
 }
 
 .error {

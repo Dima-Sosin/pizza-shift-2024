@@ -6,10 +6,6 @@
 .card:hover {
     cursor: pointer;
     position: relative;
-
-    .description {
-        display: flex;
-    }
 }
 
 .img {
@@ -31,4 +27,47 @@
     font-size: 20px;
     line-height: 24px;
     font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .card {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .img {
+        width: 120px;
+        height: 120px;
+        margin: 0;
+    }
+
+    .inf {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0;
+        gap: 8px;
+    }
+
+    .description {
+        height: auto;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .price {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .button {
+        display: none;
+    }
+
+    .line {
+        display: flex;
+        width: 100%;
+        height: 1px;
+        background-color: #e3e5e5;
+    }
 }

@@ -1,6 +1,7 @@
-import { BASE_URL } from "../../api/api.js"
-import { Translation } from "../../translation/index.js"
 import styles from "./ToppingCards.module.css"
+
+import { BASE_URL } from "@api"
+import { Translation } from "@translation"
 
 export const ToppingCards = ({ toppings, onClick }) => (
     <div className={styles.ingredients}>
@@ -17,6 +18,7 @@ export const ToppingCards = ({ toppings, onClick }) => (
                             className={styles.img}
                             src={BASE_URL + topping.img}
                             alt={`Изображение ингредиента ${Translation[topping.name]}`}
+                            loading="lazy"
                         />
                         <p className={styles.name}>{Translation[topping.name]}</p>
                         <p className={styles.cost}>{topping.cost} ₽</p>
