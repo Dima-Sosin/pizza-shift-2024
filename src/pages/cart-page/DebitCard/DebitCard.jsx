@@ -113,6 +113,7 @@ export const DebitCard = () => {
                     onClose={() => {
                         setIsModal(false)
                         dispatch(deleteAll())
+                        document.body.style.overflowY = "scroll"
                     }}
                 />
             )}

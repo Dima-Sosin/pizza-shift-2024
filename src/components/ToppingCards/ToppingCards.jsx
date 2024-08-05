@@ -18,6 +18,7 @@ export const ToppingCards = ({ toppings, onClick }) => (
                             className={styles.img}
                             src={BASE_URL + topping.img}
                             alt={`Изображение ингредиента ${Translation[topping.name]}`}
+                            loading="lazy"
                         />
                         <p className={styles.name}>{Translation[topping.name]}</p>
                         <p className={styles.cost}>{topping.cost} ₽</p>

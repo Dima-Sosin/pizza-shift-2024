@@ -19,6 +19,7 @@ export const PizzaElement = ({ pizza }) => {
                     className={styles.img}
                     src={BASE_URL + pizza.img}
                     alt={`Изображение пиццы ${pizza.name}`}
+                    loading="lazy"
                 />
                 <div className={styles.pizza_inf}>
                     <p className={styles.name}>{pizza.name}</p>

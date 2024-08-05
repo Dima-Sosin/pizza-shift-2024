@@ -65,6 +65,7 @@ export const PizzaModal = ({ pizza, onClose }) => {
                     className={styles.img}
                     src={BASE_URL + pizza.img}
                     alt={`Изображение пиццы ${pizza.name}`}
+                    loading="lazy"
                 />
                 <div className={styles.right}>
                     <div className={styles.info}>

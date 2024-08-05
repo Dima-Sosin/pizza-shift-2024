@@ -24,8 +24,24 @@ export function ProfilePage() {
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"))
 
     const Modal = {
-        true: <LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />,
-        false: <LogOn onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+        true: (
+            <LogOut
+                setIsAuth={setIsAuth}
+                onClose={() => {
+                    setIsModal(false)
+                    document.body.style.overflowY = "scroll"
+                }}
+            />
+        ),
+        false: (
+            <LogOn
+                setIsAuth={setIsAuth}
+                onClose={() => {
+                    setIsModal(false)
+                    document.body.style.overflowY = "scroll"
+                }}
+            />
+        )
     }
 
     const onSubmit = (data) => {

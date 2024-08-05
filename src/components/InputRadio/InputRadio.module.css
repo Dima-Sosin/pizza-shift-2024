@@ -1,7 +1,7 @@
 .arr {
     border-radius: 16px;
     background-color: #edeef1;
-    height: 36px;
+    max-height: 56px;
     padding: 2px;
     display: flex;
     position: relative;
@@ -10,28 +10,34 @@
     justify-content: space-between;
 }
 
+.el {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    height: 100%;
+    flex: 1 1 0;
+    border-radius: 14px;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 .el_input {
     appearance: none;
 }
 
 .el_label {
-    display: block;
-    text-align: center;
-    padding: 8px 0;
-    flex: 1 1 0;
-    border-radius: 14px;
-    border: none;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     color: #637083;
+    text-align: center;
 }
 
-.el_label:hover {
-    cursor: pointer;
-}
-
-.el_input:checked + .el_label {
+.el:has(> .el_input:checked) {
     background-color: #ffffff;
     color: #141c24;
 }

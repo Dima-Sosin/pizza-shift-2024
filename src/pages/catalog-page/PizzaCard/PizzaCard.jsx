@@ -28,11 +28,13 @@ export const PizzaCard = ({ pizza }) => {
                     </Button>
                 </div>
             </div>
+            <div className={styles.line}></div>
             {isModal && (
                 <PizzaModal
                     pizza={pizza}
                     onClose={() => {
                         setIsModal(false)
+                        document.body.style.overflowY = "scroll"
                     }}
                 />
             )}

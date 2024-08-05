@@ -71,7 +71,12 @@ export const OrderDetails = ({ orderId }) => {
                     </div>
                 </div>
                 {isModal && (
-                    <Modal onClose={() => setIsModal(false)}>
+                    <Modal
+                        onClose={() => {
+                            setIsModal(false)
+                            document.body.style.overflowY = "scroll"
+                        }}
+                    >
                         <div className={styles.modal_title}>
                             <QuestionIcon />
                             <h3>Отменить заказ?</h3>
