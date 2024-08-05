@@ -51,20 +51,35 @@
 }
 
 @media (max-width: 426px) {
-}
-
-@media (max-width: 426px) {
     .cards {
-        grid-template-columns: 90px 90px 90px;
+        grid-template-columns: 104px 104px 104px;
         gap: 9px;
     }
+
     .img {
         max-width: 100%;
         height: auto;
     }
+
+    .card > label {
+        padding: 8px;
+    }
+
+    .name {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 361px) {
+    .cards {
+        grid-template-columns: 90px 90px 90px;
+        gap: 8px;
+    }
+
     .card > label {
         padding: 6px;
     }
+
     .name {
         font-size: 11px;
     }
