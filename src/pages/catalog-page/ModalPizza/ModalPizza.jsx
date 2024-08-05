@@ -79,14 +79,14 @@ export const PizzaModal = ({ pizza, onClose }) => {
                                 <p>Жиры: {pizza.totalFat}</p>
                                 <p>Углеводы: {pizza.carbohydrates}</p>
                                 <p>Натрий: {pizza.sodium}</p>
-                                <ul className={styles.tooltip_allergens}>
+                                <div className={styles.tooltip_allergens}>
                                     Аллергены:{" "}
                                     {pizza.allergens?.map((allergen, i) => (
-                                        <li className={styles.li} key={i}>
-                                            <span className={styles.allergen}>{allergen}</span>
-                                        </li>
+                                        <span className={styles.allergen} key={i}>
+                                            {allergen}{" "}
+                                        </span>
                                     ))}
-                                </ul>
+                                </div>
                             </div>
                         </div>
 
