@@ -10,8 +10,8 @@
 * Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
 * Получение данных с сервера - [Fetch](https://learn.javascript.ru/fetch)
 * State-manager - [Redux](https://redux.js.org/) + [React Redux](https://react-redux.js.org/) + [Redux Toolkit](https://redux-toolkit.js.org/)
-* Обработка и валидация форм [React Hook Form](https://react-hook-form.com/)
-* Создание масок ввода [Use Mask Input](https://www.npmjs.com/package/use-mask-input)
+* Обработка и валидация форм - [React Hook Form](https://react-hook-form.com/)
+* Создание масок ввода - [Use Mask Input](https://www.npmjs.com/package/use-mask-input)
 
 Этот проект реализует frontend часть web-приложения сайта с пиццами, данные для вывода берутся из [backend](https://shift-backend.onrender.com/api#/)-а, написанного ШИФТ.
 
