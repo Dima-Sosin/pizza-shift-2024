@@ -2,7 +2,7 @@ import "./index.css"
 
 import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 
 import { api } from "@api"
 import { PageHeader } from "@components/PageHeader/PageHeader.jsx"
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
         element: <PageHeader />,
         errorElement: <ErrorPage />,
         children: [
+            {
+                path: "",
+                element: <Navigate to="/catalog" replace={true} />
+            },
             {
                 path: "catalog",
                 element: <CatalogPage />,

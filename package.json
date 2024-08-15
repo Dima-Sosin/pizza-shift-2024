@@ -45,8 +45,8 @@
             "prettier --write"
         ],
         "*.{json,jsx,js}": [
-            "prettier --write",
-            "eslint --fix"
+            "eslint --fix",
+            "prettier --write"
         ]
     }
 }
